@@ -10,15 +10,15 @@
 <title>Alysscriptum | Alyssa B. Flowered</title>
 
 <meta
-name="description"
-content="Alysscriptum, il sito ufficiale di Alyssa B. Flowered. Libri, racconti e nuovi mondi da scoprire."
+    name="description"
+    content="Alysscriptum, il sito ufficiale di Alyssa B. Flowered. Libri, racconti e nuovi mondi da scoprire."
 >
 
 <style>
 
-/* =========================
-   BASE
-========================= */
+/* =========================================================
+   RESET E BASE
+========================================================= */
 
 * {
     margin: 0;
@@ -37,10 +37,14 @@ body {
     line-height: 1.7;
 }
 
+a {
+    color: inherit;
+}
 
-/* =========================
+
+/* =========================================================
    NAVIGAZIONE
-========================= */
+========================================================= */
 
 nav {
     position: fixed;
@@ -55,10 +59,10 @@ nav {
 
     padding: 24px 6%;
 
-    background: rgba(11, 11, 12, 0.9);
+    background: rgba(11, 11, 12, 0.92);
     backdrop-filter: blur(14px);
 
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .logo {
@@ -67,34 +71,44 @@ nav {
 
     font-size: 1rem;
     letter-spacing: 5px;
+
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.7;
 }
 
 nav ul {
     display: flex;
+    align-items: center;
+
     list-style: none;
+
     gap: 32px;
 }
 
-nav a {
+nav a:not(.logo) {
     color: #aaa59f;
     text-decoration: none;
 
     font-family: Arial, sans-serif;
     font-size: 0.72rem;
     letter-spacing: 2px;
+
     text-transform: uppercase;
 
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
-nav a:hover {
+nav a:not(.logo):hover {
     color: #ffffff;
 }
 
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
     min-height: 100vh;
@@ -103,19 +117,19 @@ nav a:hover {
     align-items: center;
     justify-content: center;
 
-    text-align: center;
+    position: relative;
+    overflow: hidden;
 
     padding: 120px 25px 80px;
 
-    position: relative;
-    overflow: hidden;
+    text-align: center;
 
     background:
         radial-gradient(
             ellipse at 50% 45%,
-            rgba(73,67,76,0.35) 0%,
-            rgba(25,24,28,0.18) 35%,
-            rgba(11,11,12,0) 70%
+            rgba(73, 67, 76, 0.35) 0%,
+            rgba(25, 24, 28, 0.18) 35%,
+            rgba(11, 11, 12, 0) 70%
         ),
         #0b0b0c;
 }
@@ -128,11 +142,13 @@ nav a:hover {
     width: 520px;
     height: 520px;
 
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 
     border-radius: 50%;
 
     transform: rotate(18deg);
+
+    pointer-events: none;
 }
 
 .hero::after {
@@ -143,19 +159,24 @@ nav a:hover {
     width: 700px;
     height: 1px;
 
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
 
     transform: rotate(-28deg);
+
+    pointer-events: none;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
 
-    max-width: 850px;
+    width: 100%;
+    max-width: 900px;
 }
 
 .small-title {
+    margin-bottom: 28px;
+
     font-family: Arial, sans-serif;
 
     font-size: 0.7rem;
@@ -164,13 +185,17 @@ nav a:hover {
     text-transform: uppercase;
 
     color: #928c86;
-
-    margin-bottom: 28px;
 }
 
-h1 {
+.hero h1 {
+    width: 100%;
+
     font-size: clamp(42px, 7vw, 82px);
+    font-weight: normal;
+
     letter-spacing: 5px;
+    line-height: 1.1;
+
     white-space: nowrap;
 }
 
@@ -178,25 +203,25 @@ h1 {
     width: 60px;
     height: 1px;
 
-    background: #8d8781;
+    margin: 28px auto;
 
-    margin: 0 auto 28px;
+    background: #8d8781;
 }
 
 .hero-subtitle {
+    max-width: 570px;
+
+    margin: 0 auto;
+
     color: #aaa49e;
 
     font-size: 1.05rem;
-
-    max-width: 570px;
-
-    margin: auto;
 }
 
 
-/* =========================
-   SEZIONI
-========================= */
+/* =========================================================
+   SEZIONI GENERALI
+========================================================= */
 
 section {
     max-width: 1180px;
@@ -206,28 +231,31 @@ section {
     padding: 120px 8%;
 }
 
+section[id] {
+    scroll-margin-top: 90px;
+}
+
 .section-label {
+    margin-bottom: 16px;
+
     font-family: Arial, sans-serif;
 
     font-size: 0.65rem;
-
     letter-spacing: 4px;
 
     text-transform: uppercase;
 
     color: #817b75;
-
-    margin-bottom: 16px;
 }
 
 h2 {
+    margin-bottom: 28px;
+
     font-size: clamp(2.3rem, 5vw, 3.8rem);
 
     font-weight: normal;
 
     line-height: 1.15;
-
-    margin-bottom: 28px;
 }
 
 .intro {
@@ -239,44 +267,43 @@ h2 {
 }
 
 
-/* =========================
+/* =========================================================
    LIBRO
-========================= */
+========================================================= */
 
 .featured {
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .book-feature {
-
-    margin-top: 60px;
-
     display: grid;
 
-    grid-template-columns: 320px minmax(0, 1fr);
+    grid-template-columns: 250px minmax(0, 1fr);
 
     gap: 70px;
 
     align-items: center;
+
+    margin-top: 60px;
 }
 
 
 /* COPERTINA */
 
 .book-cover {
-
-    width: 320px;
-
-    height: 480px;
-
-    object-fit: cover;
+    width: 250px;
+    height: 375px;
 
     display: block;
 
-    border: 1px solid rgba(255,255,255,0.12);
+    margin: 0 auto;
+
+    object-fit: cover;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
 
     box-shadow:
-        0 20px 50px rgba(0,0,0,0.35);
+        0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
 
@@ -287,47 +314,47 @@ h2 {
 }
 
 .book-info .series {
+    margin-bottom: 15px;
 
     font-family: Arial, sans-serif;
 
     font-size: 0.65rem;
-
     letter-spacing: 3px;
-
-    color: #817b75;
 
     text-transform: uppercase;
 
-    margin-bottom: 15px;
+    color: #817b75;
 }
 
 .book-info h3 {
+    margin-bottom: 20px;
 
     font-size: 2.4rem;
 
     font-weight: normal;
 
     line-height: 1.25;
-
-    margin-bottom: 20px;
 }
 
 .book-info p {
-
-    color: #aaa49e;
-
     max-width: 600px;
 
     margin-bottom: 30px;
+
+    color: #aaa49e;
 }
 
-.button {
 
+/* =========================================================
+   PULSANTI
+========================================================= */
+
+.button {
     display: inline-block;
 
-    border: 1px solid #77716c;
-
     padding: 13px 26px;
+
+    border: 1px solid #77716c;
 
     color: #e8e3dc;
 
@@ -336,37 +363,37 @@ h2 {
     font-family: Arial, sans-serif;
 
     font-size: 0.68rem;
-
     letter-spacing: 2px;
 
-    transition: all 0.3s;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .button:hover {
-
     background: #e8e3dc;
 
     color: #111;
+
+    border-color: #e8e3dc;
 }
 
 
-/* =========================
+/* =========================================================
    SAGA
-========================= */
+========================================================= */
 
 .saga {
-
     max-width: none;
 
     background: #101012;
 
-    border-top: 1px solid rgba(255,255,255,0.05);
-
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .saga-inner {
-
     max-width: 1180px;
 
     margin: auto;
@@ -379,10 +406,9 @@ h2 {
 }
 
 .saga-name {
+    margin-bottom: 22px;
 
     font-size: 2rem;
-
-    margin-bottom: 22px;
 
     font-weight: normal;
 }
@@ -392,12 +418,11 @@ h2 {
 }
 
 
-/* =========================
+/* =========================================================
    RACCONTI
-========================= */
+========================================================= */
 
 .stories {
-
     display: grid;
 
     grid-template-columns:
@@ -409,71 +434,60 @@ h2 {
 }
 
 .story {
-
     min-height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
     padding: 30px;
 
-    border: 1px solid rgba(255,255,255,0.08);
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: flex-end;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
     transition:
-        transform 0.3s,
-        border-color 0.3s;
+        transform 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .story:hover {
-
     transform: translateY(-5px);
 
-    border-color:
-        rgba(255,255,255,0.22);
+    border-color: rgba(255, 255, 255, 0.22);
 }
 
 .story-status {
+    margin-bottom: 12px;
 
     font-family: Arial, sans-serif;
 
     font-size: 0.6rem;
-
     letter-spacing: 3px;
 
     text-transform: uppercase;
 
     color: #77716c;
-
-    margin-bottom: 12px;
 }
 
 .story h3 {
-
     font-size: 1.35rem;
 
     font-weight: normal;
 }
 
 
-/* =========================
+/* =========================================================
    AUTRICE
-========================= */
+========================================================= */
 
 .author {
-
     max-width: none;
 
     background: #0e0e10;
 
-    border-top:
-        1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .author-inner {
-
     max-width: 1180px;
 
     margin: auto;
@@ -490,160 +504,232 @@ h2 {
 }
 
 
-/* =========================
+/* =========================================================
    CONTATTI
-========================= */
+========================================================= */
 
 .contact {
     text-align: center;
 }
 
 .contact .intro {
-
-    margin:
-        0 auto 35px;
+    margin: 0 auto 35px;
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
+    padding: 40px 20px;
 
-    border-top:
-        1px solid rgba(255,255,255,0.07);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
 
     text-align: center;
-
-    padding: 40px 20px;
 
     color: #67625d;
 
     font-family: Arial, sans-serif;
 
     font-size: 0.65rem;
-
     letter-spacing: 1px;
 }
 
 
-/* =========================
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        padding: 20px 5%;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    .book-feature {
+        grid-template-columns: 220px minmax(0, 1fr);
+
+        gap: 45px;
+    }
+
+    .book-cover {
+        width: 220px;
+        height: 330px;
+    }
+
+    .book-info h3 {
+        font-size: 2rem;
+    }
+
+}
+
+
+/* =========================================================
    SMARTPHONE
-========================= */
+========================================================= */
 
 @media (max-width: 750px) {
 
     nav {
-
         padding: 18px 5%;
     }
 
     nav ul {
-
         gap: 13px;
     }
 
-    nav a {
-
+    nav a:not(.logo) {
         font-size: 0.58rem;
-
         letter-spacing: 1px;
     }
 
     .logo {
-
         font-size: 0.78rem;
-
         letter-spacing: 3px;
+    }
+
+
+    .hero {
+        padding: 110px 20px 70px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+        letter-spacing: 3px;
+    }
+
+    .small-title {
+        font-size: 0.62rem;
+        letter-spacing: 4px;
+    }
+
+    .hero-subtitle {
+        max-width: 500px;
+
+        font-size: 0.95rem;
     }
 
 
     section,
     .saga-inner,
     .author-inner {
-
         padding: 85px 7%;
     }
 
 
-    /* TITOLO HERO */
-
-    h1 {
-
-        font-size: 2.8rem;
-
-        letter-spacing: 3px;
-    }
-
-
-    /* LIBRO IN VERTICALE */
+    /* LIBRO */
 
     .book-feature {
-
         grid-template-columns: 1fr;
 
         gap: 45px;
+
+        margin-top: 45px;
     }
 
-
-    /* COPERTINA MOBILE */
-
     .book-cover {
-
         width: 270px;
-
         height: 405px;
 
         margin: 0 auto;
     }
 
-
     .book-info {
-
         text-align: center;
     }
 
     .book-info p {
-
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .book-info h3 {
+        font-size: 2rem;
     }
 
 
     /* RACCONTI */
 
     .stories {
-
         grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .story {
+        min-height: 180px;
     }
 
 }
 
 
-/* =========================
+/* =========================================================
    SCHERMI MOLTO PICCOLI
-========================= */
+========================================================= */
 
 @media (max-width: 430px) {
 
     nav ul {
-
         display: none;
     }
 
-    h1 {
+    .logo {
+        font-size: 0.8rem;
+    }
 
-        font-size: 2.4rem;
-
+    .hero h1 {
+        font-size: 2.35rem;
         letter-spacing: 2px;
     }
 
+    .small-title {
+        font-size: 0.58rem;
+        letter-spacing: 3px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
     .book-cover {
-
         width: 240px;
-
         height: 360px;
+    }
+
+    .book-info h3 {
+        font-size: 1.7rem;
+    }
+
+}
+
+
+/* =========================================================
+   SCHERMI ESTREMAMENTE STRETTI
+========================================================= */
+
+@media (max-width: 340px) {
+
+    .hero h1 {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .book-cover {
+        width: 220px;
+        height: 330px;
     }
 
 }
@@ -656,20 +742,26 @@ footer {
 <body>
 
 
-<!-- =========================
-     MENU
-========================= -->
+<!-- =======================================================
+     NAVIGAZIONE
+======================================================= -->
 
 <nav>
 
-    <a href="#" class="logo">
+    <a href="index.html" class="logo">
         ALYSSCRIPTUM
     </a>
 
     <ul>
 
         <li>
-            <a href="#libro">
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="libro.html">
                 Libro
             </a>
         </li>
@@ -697,12 +789,16 @@ footer {
 </nav>
 
 
+<!-- =======================================================
+     CONTENUTO
+======================================================= -->
+
 <main>
 
 
-<!-- =========================
+<!-- =======================================================
      HERO
-========================= -->
+======================================================= -->
 
 <section class="hero">
 
@@ -730,9 +826,9 @@ footer {
 </section>
 
 
-<!-- =========================
-     LIBRO
-========================= -->
+<!-- =======================================================
+     LIBRO IN EVIDENZA
+======================================================= -->
 
 <section
     class="featured"
@@ -754,21 +850,18 @@ footer {
         <!-- COPERTINA -->
 
         <img
+            class="book-cover"
             src="copertina.jpeg"
             alt="Copertina di La Chiave delle Ombre"
-            style="width: 250px !important; height: 375px !important; object-fit: cover; display: block; margin: 0 auto;"
         >
 
 
-        <!-- TESTO -->
+        <!-- INFORMAZIONI -->
 
         <div class="book-info">
 
             <div class="series">
-
-                Le Cronache delle Fratture
-                · Volume I
-
+                Le Cronache delle Fratture · Volume I
             </div>
 
 
@@ -783,9 +876,10 @@ footer {
 
             <p>
 
-                Sofia ha sempre avuto la sensazione che ci fosse qualcosa di sbagliato nella realtà che la circonda.<br> 
-                Mentre cerca di comprendere ciò che le sta accadendo, si ritrova coinvolta in un conflitto 
-                molto più grande di lei e costretta a confrontarsi con una verità sulla propria identità che potrebbe cambiare ogni cosa.<br><br>
+                Sofia ha sempre avuto la sensazione che ci fosse qualcosa di sbagliato nella realtà che la circonda.<br>
+
+                Mentre cerca di comprendere ciò che le sta accadendo, si ritrova coinvolta in un conflitto molto più grande di lei e costretta a confrontarsi con una verità sulla propria identità che potrebbe cambiare ogni cosa.<br><br>
+
                 Sofia è la chiave. Ma cosa accade quando la serratura cambia forma?
 
             </p>
@@ -795,9 +889,7 @@ footer {
                 href="libro.html"
                 class="button"
             >
-
                 SCOPRI IL LIBRO
-
             </a>
 
         </div>
@@ -807,9 +899,9 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      SAGA
-========================= -->
+======================================================= -->
 
 <section
     class="saga"
@@ -826,9 +918,7 @@ footer {
         <div class="saga-content">
 
             <div class="saga-name">
-
                 Vaelor
-
             </div>
 
 
@@ -848,9 +938,9 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      RACCONTI
-========================= -->
+======================================================= -->
 
 <section
     id="racconti"
@@ -921,9 +1011,9 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      AUTRICE
-========================= -->
+======================================================= -->
 
 <section
     class="author"
@@ -946,7 +1036,7 @@ footer {
 
             <p>
 
-                Alyssa B. Flowered è un'autrice indipendente appassionata di fantasy e world building, che nella primavera del 2025 ha deciso di dar vita ad un suo universo narrativo, costituito da un nuovo sistema magico, confini che cedono e personaggi imperfetti, dove le verità arrivano sempre troppo presto o troppo tardi.<br>
+                Alyssa B. Flowered è un'autrice indipendente appassionata di fantasy e world building, che nella primavera del 2025 ha deciso di dar vita ad un suo universo narrativo, costituito da un nuovo sistema magico, confini che cedono e personaggi imperfetti, dove le verità arrivano sempre troppo presto o troppo tardi.<br><br>
 
                 L'idea dell'alter ego nasce come conferma dell'idea di un'identità sospesa tra due mondi, proprio come le storie che ama raccontare.<br><br>
 
@@ -961,9 +1051,9 @@ footer {
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      CONTATTI
-========================= -->
+======================================================= -->
 
 <section class="contact">
 
@@ -989,9 +1079,9 @@ footer {
 </main>
 
 
-<!-- =========================
+<!-- =======================================================
      FOOTER
-========================= -->
+======================================================= -->
 
 <footer>
 
