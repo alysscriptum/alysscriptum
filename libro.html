@@ -13,6 +13,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: #0b0b0d;
             color: #e8e4df;
@@ -39,6 +43,7 @@
             background: rgba(11, 11, 13, 0.94);
             border-bottom: 1px solid rgba(255,255,255,0.08);
             z-index: 100;
+            backdrop-filter: blur(8px);
         }
 
         .logo {
@@ -46,19 +51,20 @@
             font-size: 17px;
             letter-spacing: 4px;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 32px;
+            gap: 30px;
             font-family: Arial, sans-serif;
             font-size: 12px;
             letter-spacing: 2px;
         }
 
         nav li a {
-            opacity: 0.75;
+            opacity: 0.72;
             transition: opacity 0.3s;
         }
 
@@ -69,8 +75,8 @@
         /* HERO */
 
         .hero {
-            min-height: 75vh;
-            padding: 160px 8% 80px;
+            min-height: 82vh;
+            padding: 160px 8% 90px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -123,6 +129,7 @@
             font-style: italic;
             color: #c9c2ba;
             margin-bottom: 30px;
+            max-width: 620px;
         }
 
         .description {
@@ -131,7 +138,7 @@
             max-width: 620px;
         }
 
-        /* SINOSSI */
+        /* SEZIONI */
 
         section {
             padding: 100px 8%;
@@ -166,13 +173,17 @@
             margin-bottom: 22px;
         }
 
-        /* INFO */
+        .synopsis p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* DETTAGLI */
 
         .details {
             border-top: 1px solid rgba(255,255,255,0.1);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             padding: 45px 0;
-            margin-top: 50px;
+            margin-top: 55px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
@@ -192,11 +203,12 @@
             font-size: 17px;
         }
 
-        /* CTA */
+        /* ACQUISTO */
 
         .purchase {
             text-align: center;
-            padding: 110px 8%;
+            padding: 120px 8%;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         .purchase h2 {
@@ -236,9 +248,30 @@
             opacity: 0.45;
         }
 
-        /* MOBILE */
+        /* RESPONSIVE */
 
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
+
+            .book-hero {
+                grid-template-columns: 280px 1fr;
+                gap: 55px;
+            }
+
+            .cover img {
+                width: 250px;
+                height: 375px;
+            }
+
+            h1 {
+                font-size: clamp(40px, 6vw, 60px);
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 750px) {
 
             nav {
                 padding: 18px 5%;
@@ -247,10 +280,11 @@
             nav ul {
                 gap: 14px;
                 font-size: 9px;
+                letter-spacing: 1.5px;
             }
 
             .hero {
-                padding: 130px 7% 70px;
+                padding: 130px 7% 75px;
             }
 
             .book-hero {
@@ -266,6 +300,10 @@
             .cover img {
                 width: 240px;
                 height: 360px;
+            }
+
+            h1 {
+                font-size: 52px;
             }
 
             .subtitle {
@@ -294,7 +332,82 @@
             }
 
             .purchase {
-                padding: 80px 7%;
+                padding: 85px 7%;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            nav {
+                position: relative;
+                padding: 20px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 18px;
+            }
+
+            .hero {
+                padding: 70px 6% 65px;
+            }
+
+            .cover img {
+                width: 270px;
+                height: 405px;
+            }
+
+            h1 {
+                font-size: 43px;
+            }
+
+            .series {
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+
+            .subtitle {
+                font-size: 17px;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
+
+            .synopsis {
+                font-size: 16px;
+            }
+
+            .purchase {
+                padding: 75px 6%;
+            }
+        }
+
+        @media (max-width: 340px) {
+
+            .cover img {
+                width: 230px;
+                height: 345px;
+            }
+
+            h1 {
+                font-size: 37px;
+            }
+
+            nav ul {
+                font-size: 8px;
             }
         }
     </style>
@@ -306,6 +419,7 @@
     <a href="index.html" class="logo">ALYSSCRIPTUM</a>
 
     <ul>
+        <li><a href="index.html">Home</a></li>
         <li><a href="libro.html">Libro</a></li>
         <li><a href="saga.html">Saga</a></li>
         <li><a href="racconti.html">Racconti</a></li>
@@ -315,6 +429,8 @@
 
 
 <main>
+
+    <!-- HERO DEL LIBRO -->
 
     <section class="hero">
 
@@ -333,14 +449,17 @@
                     Le Cronache delle Fratture · Volume I
                 </div>
 
-                <h1>La Chiave<br>delle Ombre</h1>
+                <h1>
+                    La Chiave<br>
+                    delle Ombre
+                </h1>
 
                 <div class="subtitle">
-                    Non c'è niente di più inquietante di guardarsi allo specchio e non riconoscere sè stessi.
+                    Non c'è niente di più inquietante di guardarsi allo specchio e non riconoscere sé stessi.
                 </div>
 
                 <p class="description">
-                    La Chiave delle Ombre è l’inizio di una saga fantasy fatta di identità spezzate, 
+                    L'inizio di una saga fantasy fatta di identità spezzate,
                     scelte estreme e confini che non avrebbero mai dovuto essere attraversati.
                 </p>
 
@@ -351,13 +470,19 @@
     </section>
 
 
+    <!-- STORIA -->
+
     <section>
 
         <div class="section-inner">
 
-            <div class="section-label">Il libro</div>
+            <div class="section-label">
+                Il libro
+            </div>
 
-            <h2>La storia</h2>
+            <h2>
+                La storia
+            </h2>
 
             <div class="synopsis">
 
@@ -368,20 +493,21 @@
                 </p>
 
                 <p>
-                    Oltre quel varco c’è Vaelor, un mondo ferito da una guerra mai davvero conclusa, 
+                    Oltre quel varco c’è Vaelor, un mondo ferito da una guerra mai davvero conclusa,
                     dove Sofia scopre di essere al centro di una caccia, di un tradimento e di un potere che non comprende.
-                    Tra alleati ambigui e nemici nascosti, la verità su chi può fidarsi e chi no emerge troppo tardi, 
+                    Tra alleati ambigui e nemici nascosti, la verità su chi può fidarsi e chi no emerge troppo tardi,
                     lasciando dietro di sé una perdita irreversibile.
                 </p>
 
                 <p>
-                    Quando il passato torna a reclamare il suo prezzo, Sofia è costretta a scegliere 
+                    Quando il passato torna a reclamare il suo prezzo, Sofia è costretta a scegliere
                     se accettare ciò che è davvero o continuare a fuggire da una verità che può riscrivere il mondo.
-
                 </p>
 
             </div>
 
+
+            <!-- DETTAGLI -->
 
             <div class="details">
 
@@ -392,12 +518,27 @@
 
                 <div class="detail">
                     <strong>Volume</strong>
-                    <span>1</span>
+                    <span>I</span>
                 </div>
 
                 <div class="detail">
                     <strong>Formato</strong>
                     <span>Romanzo</span>
+                </div>
+
+                <div class="detail">
+                    <strong>Pagine</strong>
+                    <span>298</span>
+                </div>
+
+                <div class="detail">
+                    <strong>Edizione</strong>
+                    <span>Copertina flessibile</span>
+                </div>
+
+                <div class="detail">
+                    <strong>Pubblicazione</strong>
+                    <span>Prossimamente</span>
                 </div>
 
             </div>
@@ -407,9 +548,13 @@
     </section>
 
 
+    <!-- ACQUISTO -->
+
     <section class="purchase">
 
-        <h2>La storia sta per iniziare.</h2>
+        <h2>
+            La storia sta per iniziare.
+        </h2>
 
         <p>
             Presto disponibile attraverso i canali ufficiali.
@@ -425,8 +570,8 @@
 
 
 <footer>
-    © Alysscriptum · Alyssa B. Flowered
+    © 2026 Alysscriptum · Alyssa B. Flowered
 </footer>
 
 </body>
-</html> 
+</html>
