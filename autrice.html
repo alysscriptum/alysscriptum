@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Autrice | Alysscriptum</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0b0d;
+            color: #e8e4df;
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGAZIONE */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 22px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 11, 13, 0.94);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            z-index: 100;
+            backdrop-filter: blur(8px);
+        }
+
+        .logo {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            letter-spacing: 4px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        nav li a {
+            opacity: 0.72;
+            transition: opacity 0.3s;
+        }
+
+        nav li a:hover {
+            opacity: 1;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 68vh;
+            padding: 170px 8% 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.45;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(50px, 7vw, 82px);
+            font-weight: normal;
+            line-height: 1.05;
+            margin-bottom: 28px;
+        }
+
+        .hero-subtitle {
+            font-size: 21px;
+            font-style: italic;
+            color: #c9c2ba;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* SEZIONI */
+
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.45;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 38px;
+            font-weight: normal;
+            margin-bottom: 30px;
+        }
+
+        .bio {
+            font-size: 18px;
+            color: #c4beb8;
+        }
+
+        .bio p {
+            margin-bottom: 22px;
+        }
+
+        .bio p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* FRASE */
+
+        .quote {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+            padding: 90px 8%;
+        }
+
+        .quote-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote p {
+            font-size: 28px;
+            font-style: italic;
+            line-height: 1.5;
+            color: #d1cbc5;
+        }
+
+        /* SCRITTURA */
+
+        .writing {
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .writing-grid {
+            max-width: 900px;
+            margin: 55px auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .writing-card {
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 35px 30px;
+        }
+
+        .writing-card h3 {
+            font-size: 23px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .writing-card p {
+            font-size: 15px;
+            color: #aaa49e;
+        }
+
+        /* CONTATTI */
+
+        .contact {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 110px 8%;
+        }
+
+        .contact-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            color: #aaa49e;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 30px;
+            border: 1px solid rgba(255,255,255,0.35);
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .button:hover {
+            background: #e8e4df;
+            color: #0b0b0d;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 35px 8%;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            opacity: 0.45;
+        }
+
+        /* TABLET */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav ul {
+                gap: 14px;
+                font-size: 9px;
+            }
+
+            .hero {
+                padding: 140px 7% 80px;
+            }
+
+            section {
+                padding: 75px 7%;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .bio {
+                font-size: 16px;
+            }
+
+            .quote {
+                padding: 75px 7%;
+            }
+
+            .quote p {
+                font-size: 23px;
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            nav {
+                position: relative;
+                padding: 20px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 18px;
+            }
+
+            .hero {
+                padding: 80px 6% 70px;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
+
+            .writing-grid {
+                grid-template-columns: 1fr;
+                margin-top: 40px;
+            }
+
+            .writing-card {
+                padding: 30px 25px;
+            }
+
+            .quote {
+                padding: 65px 6%;
+            }
+
+            .quote p {
+                font-size: 21px;
+            }
+
+            .contact {
+                padding: 80px 6%;
+            }
+        }
+
+        @media (max-width: 340px) {
+
+            h1 {
+                font-size: 40px;
+            }
+
+            nav ul {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="logo">ALYSSCRIPTUM</a>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="libro.html">Libro</a></li>
+        <li><a href="saga.html">Saga</a></li>
+        <li><a href="racconti.html">Racconti</a></li>
+        <li><a href="autrice.html">Autrice</a></li>
+    </ul>
+</nav>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-inner">
+
+            <div class="eyebrow">
+                Dietro le storie
+            </div>
+
+            <h1>
+                Alyssa B.<br>
+                Flowered
+            </h1>
+
+            <p class="hero-subtitle">
+                Scrivere significa dare un posto alle storie che non smettono
+                di bussare.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- BIOGRAFIA -->
+
+    <section>
+
+        <div class="section-inner">
+
+            <div class="section-label">
+                L'autrice
+            </div>
+
+            <h2>
+                Scrivere mondi.
+            </h2>
+
+            <div class="bio">
+
+                <p>
+                    Alyssa B. Flowered è lo pseudonimo dietro cui prendono forma
+                    storie, personaggi e mondi che spesso iniziano molto prima
+                    di trovare una pagina.
+                </p>
+
+                <p>
+                    La scrittura nasce dalla passione per il fantasy e dalla
+                    necessità di costruire universi nei quali esplorare identità,
+                    legami, paure e scelte impossibili.
+                </p>
+
+                <p>
+                    Con <em>Le Cronache delle Fratture</em> prende vita Vaelor,
+                    un universo narrativo pensato per crescere attraverso romanzi,
+                    racconti e storie che si intrecciano tra loro.
+                </p>
+
+                <p>
+                    <em>La Chiave delle Ombre</em> è il primo passo di questo viaggio.
+                    Non necessariamente il più semplice. Sicuramente non l'ultimo.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FRASE -->
+
+    <section class="quote">
+
+        <div class="quote-inner">
+
+            <p>
+                «Le storie migliori non chiedono permesso.
+                Trovano comunque il modo di essere raccontate.»
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SCRITTURA -->
+
+    <section class="writing">
+
+        <div class="section-inner">
+
+            <div class="section-label">
+                Il mio modo di scrivere
+            </div>
+
+            <h2>
+                Tra realtà e immaginazione.
+            </h2>
+
+            <div class="writing-grid">
+
+                <article class="writing-card">
+
+                    <h3>
+                        Mondi
+                    </h3>
+
+                    <p>
+                        Luoghi che non esistono, ma che devono avere regole,
+                        storia e conseguenze abbastanza reali da poter essere abitati.
+                    </p>
+
+                </article>
+
+
+                <article class="writing-card">
+
+                    <h3>
+                        Personaggi
+                    </h3>
+
+                    <p>
+                        Persone prima ancora che protagonisti: imperfette,
+                        contraddittorie e capaci di prendere decisioni che
+                        nessun autore può sempre prevedere.
+                    </p>
+
+                </article>
+
+
+                <article class="writing-card">
+
+                    <h3>
+                        Segreti
+                    </h3>
+
+                    <p>
+                        Verità nascoste, identità da ricostruire e domande
+                        che spesso hanno più peso delle risposte.
+                    </p>
+
+                </article>
+
+
+                <article class="writing-card">
+
+                    <h3>
+                        Storie
+                    </h3>
+
+                    <p>
+                        Romanzi e racconti diversi tra loro, uniti dalla stessa
+                        voglia di lasciare qualcosa al lettore anche dopo l'ultima pagina.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTATTI -->
+
+    <section class="contact">
+
+        <div class="contact-inner">
+
+            <div class="section-label">
+                Alysscriptum
+            </div>
+
+            <h2>
+                Le storie continuano.
+            </h2>
+
+            <p>
+                Questo sito raccoglie i mondi, i libri e i racconti che prendono
+                forma nel tempo.
+            </p>
+
+            <a href="index.html" class="button">
+                Torna alla home
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    © 2026 Alysscriptum · Alyssa B. Flowered
+</footer>
+
+</body>
+</html>
