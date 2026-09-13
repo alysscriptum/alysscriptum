@@ -1,1 +1,407 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Alysscriptum | Alyssa B. Flowered</title>
+
+    <meta name="description" content="Sito ufficiale di Alyssa B. Flowered, autrice di fantasy. Scopri i suoi libri, racconti e universi narrativi.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0b0d;
+            color: #e8e4df;
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 22px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 11, 13, 0.92);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+            color: #f0ece7;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #c9c4be;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            background:
+                radial-gradient(circle at center, #242027 0%, #111115 45%, #08080a 100%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 0.75rem;
+            color: #aaa39c;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-weight: normal;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto 35px;
+            color: #bcb6b0;
+            font-size: 1.1rem;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 28px;
+            border: 1px solid #aaa39c;
+            color: #eee;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #eee;
+            color: #111;
+        }
+
+        section {
+            padding: 110px 8%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.7rem;
+            color: #8f8983;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            font-weight: normal;
+            margin-bottom: 25px;
+        }
+
+        .intro {
+            max-width: 700px;
+            color: #aaa5a0;
+            font-size: 1.05rem;
+        }
+
+        .books {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .book {
+            padding: 35px;
+            min-height: 300px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.025);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: 0.3s;
+        }
+
+        .book:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.25);
+        }
+
+        .book-number {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #8f8983;
+            margin-bottom: 12px;
+        }
+
+        .book h3 {
+            font-size: 1.6rem;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .book p {
+            color: #99938d;
+            font-size: 0.9rem;
+        }
+
+        .author {
+            background: #111114;
+        }
+
+        .author-content {
+            max-width: 750px;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #aaa5a0;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: #77716c;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 0.7rem;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 80px 7%;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#" class="logo">ALYSSCRIPTUM</a>
+
+        <ul>
+            <li><a href="#chi-sono">Chi sono</a></li>
+            <li><a href="#libri">Libri</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Alyssa B. Flowered
+                </div>
+
+                <h1>ALYSSCRIPTUM</h1>
+
+                <p>
+                    Storie, mondi e personaggi nati dove la realtà
+                    smette di essere così semplice.
+                </p>
+
+                <a href="#libri" class="button">
+                    SCOPRI I LIBRI
+                </a>
+
+            </div>
+        </section>
+
+
+        <section id="chi-sono">
+
+            <div class="section-label">
+                L'autrice
+            </div>
+
+            <h2>Alyssa B. Flowered</h2>
+
+            <div class="author-content">
+                <p class="intro">
+                    Scrivo storie fantasy, costruisco mondi e inseguo
+                    personaggi che, evidentemente, hanno deciso di non
+                    lasciarmi in pace.
+                </p>
+            </div>
+
+        </section>
+
+
+        <section id="libri">
+
+            <div class="section-label">
+                Opere
+            </div>
+
+            <h2>I miei libri</h2>
+
+            <p class="intro">
+                Un primo universo narrativo, nuove storie in arrivo
+                e tutto ciò che nascerà lungo il percorso.
+            </p>
+
+
+            <div class="books">
+
+                <article class="book">
+
+                    <div class="book-number">
+                        LE CRONACHE DELLE FRATTURE · I
+                    </div>
+
+                    <h3>La Chiave delle Ombre</h3>
+
+                    <p>
+                        Una ragazza. Un mondo spezzato.
+                        Un potere che non avrebbe mai dovuto risvegliarsi.
+                    </p>
+
+                </article>
+
+
+                <article class="book">
+
+                    <div class="book-number">
+                        LE CRONACHE DELLE FRATTURE · II
+                    </div>
+
+                    <h3>Il Sangue delle Linee</h3>
+
+                    <p>
+                        Prossimamente.
+                    </p>
+
+                </article>
+
+
+                <article class="book">
+
+                    <div class="book-number">
+                        IN ARRIVO
+                    </div>
+
+                    <h3>Nuove storie</h3>
+
+                    <p>
+                        Altri mondi, altri personaggi,
+                        altre storie ancora da raccontare.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <section class="author">
+
+            <div class="section-label">
+                Le Cronache delle Fratture
+            </div>
+
+            <h2>Un mondo oltre la soglia.</h2>
+
+            <p class="intro">
+                La Chiave delle Ombre è il primo passo di un universo
+                narrativo destinato a espandersi attraverso romanzi,
+                racconti e nuove storie.
+            </p>
+
+        </section>
+
+
+        <section id="contatti" class="contact">
+
+            <div class="section-label">
+                Contatti
+            </div>
+
+            <h2>Restiamo in contatto.</h2>
+
+            <p>
+                News, nuove pubblicazioni e aggiornamenti sui prossimi progetti.
+            </p>
+
+            <a href="mailto:" class="button">
+                CONTATTI
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        © 2026 Alyssa B. Flowered · Alysscriptum
+    </footer>
+
+</body>
+</html>
