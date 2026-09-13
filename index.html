@@ -210,7 +210,13 @@ h2 {
     align-items: center;
 }
 
-.cover-placeholder {
+.cover-placeholder { .book-cover {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    display: block;
+    border: 1px solid rgba(255,255,255,.1);
+}
     aspect-ratio: 2 / 3;
 
     display: flex;
@@ -510,9 +516,7 @@ footer {
 
         <div class="book-feature">
 
-            <div class="cover-placeholder">
-                Copertina
-            </div>
+            <img src="copertina.jpg" alt="Copertina di La Chiave delle Ombre" class="book-cover">
 
             <div class="book-info">
 
