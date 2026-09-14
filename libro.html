@@ -938,6 +938,16 @@ main {
         box-shadow 0.3s ease;
 }
 
+    .purchase-button.unavailable {
+    cursor: default;
+    opacity: 0.75;
+}
+
+.purchase-button.unavailable:hover {
+    transform: none;
+    box-shadow: none;
+    background: var(--gold);
+}
 .purchase-button:hover {
 
     background: #e0c27e;
@@ -1810,12 +1820,9 @@ footer {
             Presto disponibile attraverso i canali ufficiali.
         </p>
 
-        <a
-            href="#"
-            class="purchase-button"
-        >
-            Acquista il libro
-        </a>
+        <div class="purchase-button unavailable">
+    Presto disponibile
+</div>
 
     </div>
 
