@@ -30,9 +30,10 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================
+/* =====================================================
    BACKGROUND
-========================= */
+   Identico al sistema usato nelle altre pagine
+===================================================== */
 
 .background-effects {
     position: fixed;
@@ -40,10 +41,10 @@ body {
     overflow: hidden;
     pointer-events: none;
     z-index: 0;
-    background:
-        radial-gradient(circle at 50% 18%, rgba(180,145,80,0.06), transparent 28%),
-        linear-gradient(to bottom, #090909 0%, #0b0b0d 50%, #080808 100%);
+    background: #090909;
 }
+
+/* Bagliori dorati */
 
 .glow {
     position: absolute;
@@ -96,6 +97,7 @@ body {
 }
 
 @keyframes glowMove {
+
     0% {
         transform: translate3d(-10px, -8px, 0) scale(0.92);
         opacity: 0.55;
@@ -105,11 +107,12 @@ body {
         transform: translate3d(15px, 12px, 0) scale(1.08);
         opacity: 0.85;
     }
+
 }
 
-/* =========================
-   VAELOR LINES
-========================= */
+/* =====================================================
+   LE QUATTRO LINEE DI VAELOR
+===================================================== */
 
 .vaelor-line {
     position: absolute;
@@ -129,20 +132,28 @@ body {
     filter: blur(0.2px);
 }
 
+/* Oro */
+
 .line-gold {
     top: 13%;
     color: rgba(207,174,101,0.82);
 }
+
+/* Argento */
 
 .line-silver {
     top: 36%;
     color: rgba(190,196,207,0.76);
 }
 
+/* Viola */
+
 .line-purple {
     top: 61%;
     color: rgba(145,112,180,0.80);
 }
+
+/* Blu */
 
 .line-blue {
     top: 82%;
@@ -166,44 +177,56 @@ body {
 }
 
 @keyframes goldWave {
+
     0% {
         transform: translateX(-4%) rotate(-2deg) scaleY(0.85);
     }
+
     100% {
         transform: translateX(5%) rotate(2deg) scaleY(1.15);
     }
+
 }
 
 @keyframes silverWave {
+
     0% {
         transform: translateX(5%) rotate(1.5deg) scaleY(1.05);
     }
+
     100% {
         transform: translateX(-4%) rotate(-2deg) scaleY(0.85);
     }
+
 }
 
 @keyframes purpleWave {
+
     0% {
         transform: translateX(-3%) rotate(-1.5deg) scaleY(0.9);
     }
+
     100% {
         transform: translateX(4%) rotate(2deg) scaleY(1.1);
     }
+
 }
 
 @keyframes blueWave {
+
     0% {
         transform: translateX(4%) rotate(2deg) scaleY(1.1);
     }
+
     100% {
         transform: translateX(-5%) rotate(-2deg) scaleY(0.88);
     }
+
 }
 
-/* =========================
+/* =====================================================
    NAV
-========================= */
+===================================================== */
 
 nav {
     position: fixed;
@@ -215,6 +238,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     z-index: 20;
+
     background: linear-gradient(
         to bottom,
         rgba(8,8,8,0.88),
@@ -249,22 +273,22 @@ nav {
     color: #cfb067;
 }
 
-/* =========================
+/* =====================================================
    MAIN
-========================= */
+===================================================== */
 
 main {
     position: relative;
     z-index: 2;
 }
 
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero {
-    min-height: 78vh;
-    padding: 190px 8% 100px;
+    min-height: 82vh;
+    padding: 190px 8% 110px;
     display: flex;
     align-items: center;
     position: relative;
@@ -273,21 +297,23 @@ main {
 .hero::before {
     content: "";
     position: absolute;
-    width: 600px;
-    height: 600px;
-    left: 50%;
-    top: 48%;
+    width: 620px;
+    height: 620px;
+    left: 48%;
+    top: 50%;
     transform: translate(-50%, -50%);
+
     background: radial-gradient(
         circle,
         rgba(207,174,101,0.055),
         transparent 68%
     );
+
     pointer-events: none;
 }
 
 .hero-content {
-    max-width: 950px;
+    max-width: 980px;
     position: relative;
 }
 
@@ -302,7 +328,7 @@ main {
 
 .hero h1 {
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(64px, 10vw, 132px);
+    font-size: clamp(70px, 11vw, 145px);
     line-height: 0.82;
     font-weight: 500;
     letter-spacing: -0.045em;
@@ -319,16 +345,16 @@ main {
 }
 
 .hero-subtitle {
-    max-width: 700px;
+    max-width: 720px;
     font-family: "Cormorant Garamond", serif;
     font-size: clamp(22px, 3vw, 31px);
-    line-height: 1.25;
-    color: rgba(241,238,232,0.86);
+    line-height: 1.28;
+    color: rgba(241,238,232,0.84);
 }
 
-/* =========================
-   INTRO
-========================= */
+/* =====================================================
+   SEZIONI
+===================================================== */
 
 .section {
     padding: 120px 8%;
@@ -351,10 +377,10 @@ main {
 
 .section h2 {
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(48px, 6vw, 76px);
-    line-height: 0.95;
+    font-size: clamp(52px, 7vw, 82px);
+    line-height: 0.92;
     font-weight: 500;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 .section p {
@@ -364,12 +390,46 @@ main {
     line-height: 1.9;
 }
 
-/* =========================
-   VOLUMES
-========================= */
+/* =====================================================
+   VAELOR
+===================================================== */
+
+.vaelor-intro {
+    padding-bottom: 155px;
+}
+
+.vaelor-title {
+    color: #f1eee8;
+}
+
+.vaelor-title em {
+    color: #cfb067;
+    font-style: italic;
+}
+
+/* =====================================================
+   LA SAGA
+===================================================== */
+
+.saga-section {
+    padding-top: 120px;
+    padding-bottom: 150px;
+}
+
+.saga-intro {
+    margin-bottom: 80px;
+}
+
+.saga-intro p {
+    max-width: 700px;
+}
+
+/* =====================================================
+   VOLUMI
+===================================================== */
 
 .volumes {
-    margin-top: 80px;
+    margin-top: 60px;
     border-top: 1px solid rgba(255,255,255,0.10);
 }
 
@@ -378,9 +438,14 @@ main {
     grid-template-columns: 100px 1fr auto;
     align-items: center;
     gap: 40px;
+
     padding: 38px 0;
+
     border-bottom: 1px solid rgba(255,255,255,0.10);
-    transition: padding 0.35s ease, background 0.35s ease;
+
+    transition:
+        padding 0.35s ease,
+        background 0.35s ease;
 }
 
 .volume:hover {
@@ -411,60 +476,73 @@ main {
     white-space: nowrap;
 }
 
-/* =========================
-   VAELOR
-========================= */
+/* =====================================================
+   COLLEGAMENTO AL PRIMO LIBRO
+===================================================== */
 
-.vaelor-section {
-    padding-top: 150px;
-    padding-bottom: 150px;
+.book-link-section {
+    padding-top: 20px;
+    padding-bottom: 160px;
 }
 
-.vaelor-box {
+.book-link-box {
     position: relative;
-    padding: 80px 8%;
+    padding: 78px 8%;
+
     border: 1px solid rgba(207,174,101,0.14);
-    background: rgba(10,10,11,0.40);
+
+    background: rgba(10,10,11,0.38);
+
     overflow: hidden;
 }
 
-.vaelor-box::before {
+.book-link-box::before {
     content: "";
+
     position: absolute;
-    width: 450px;
-    height: 450px;
+
+    width: 460px;
+    height: 460px;
+
     right: -180px;
-    top: -180px;
+    top: -200px;
+
     border-radius: 50%;
+
     background: radial-gradient(
         circle,
-        rgba(91,137,184,0.08),
+        rgba(91,137,184,0.075),
         transparent 70%
     );
 }
 
-.vaelor-box h2 {
+.book-link-box h2 {
     position: relative;
-    font-size: clamp(60px, 8vw, 100px);
-    margin-bottom: 25px;
+    margin-bottom: 26px;
 }
 
-.vaelor-box p {
+.book-link-box p {
     position: relative;
-    max-width: 700px;
-    font-size: 15px;
+    max-width: 680px;
 }
 
 .cta {
     display: inline-block;
+
     margin-top: 42px;
+
     padding: 15px 28px;
+
     border: 1px solid rgba(207,174,101,0.45);
+
     color: #cfb067;
+
     text-decoration: none;
+
     font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
+
     transition: all 0.3s ease;
 }
 
@@ -473,25 +551,30 @@ main {
     border-color: #cfb067;
 }
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer {
     position: relative;
     z-index: 2;
+
     padding: 50px 8%;
+
     border-top: 1px solid rgba(255,255,255,0.08);
+
     color: rgba(241,238,232,0.35);
+
     text-align: center;
+
     font-size: 9px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media (max-width: 700px) {
 
@@ -513,16 +596,25 @@ footer {
     }
 
     .hero {
-        min-height: 75vh;
-        padding: 160px 7% 80px;
+        min-height: 76vh;
+        padding: 160px 7% 85px;
     }
 
     .hero h1 {
-        font-size: clamp(58px, 17vw, 90px);
+        font-size: clamp(62px, 17vw, 92px);
     }
 
     .section {
         padding: 90px 7%;
+    }
+
+    .vaelor-intro {
+        padding-bottom: 105px;
+    }
+
+    .saga-section {
+        padding-top: 90px;
+        padding-bottom: 110px;
     }
 
     .volume {
@@ -539,20 +631,26 @@ footer {
         font-size: 27px;
     }
 
-    .vaelor-box {
+    .book-link-section {
+        padding-top: 10px;
+        padding-bottom: 110px;
+    }
+
+    .book-link-box {
         padding: 55px 7%;
     }
 
-    .vaelor-section {
-        padding-top: 100px;
-        padding-bottom: 100px;
-    }
 }
 
 </style>
 </head>
 
+
 <body>
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
 <div class="background-effects">
 
@@ -582,6 +680,10 @@ footer {
 </div>
 
 
+<!-- =====================================================
+     NAV
+===================================================== -->
+
 <nav>
 
     <a href="index.html" class="logo">
@@ -589,11 +691,27 @@ footer {
     </a>
 
     <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="libro.html">In arrivo</a>
-        <a href="saga.html" class="active">Saga</a>
-        <a href="racconti.html">Racconti</a>
-        <a href="autrice.html">Autrice</a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="libro.html">
+            In arrivo
+        </a>
+
+        <a href="saga.html" class="active">
+            Saga
+        </a>
+
+        <a href="racconti.html">
+            Racconti
+        </a>
+
+        <a href="autrice.html">
+            Autrice
+        </a>
+
     </div>
 
 </nav>
@@ -601,178 +719,226 @@ footer {
 
 <main>
 
-    <section class="hero">
 
-        <div class="hero-content">
+<!-- =====================================================
+     VAELOR
+===================================================== -->
 
-            <div class="eyebrow">
-                Un universo narrativo
-            </div>
+<section class="section vaelor-intro">
 
-            <h1>
-                <span>Le Cronache</span>
-                <span>delle Fratture</span>
-            </h1>
+    <div class="section-inner">
 
-            <div class="hero-subtitle">
-                Cinque romanzi. Un mondo spezzato. E una verità che non può restare nascosta per sempre.
-            </div>
-
+        <div class="eyebrow">
+            Un universo narrativo
         </div>
 
-    </section>
+        <h1 class="vaelor-title">
+            Vaelor<span>.</span>
+        </h1>
+
+        <p>
+            Un mondo che esiste molto prima che Sofia vi metta piede.
+            Regni, dinastie, guerre e antiche linee di potere hanno lasciato
+            dietro di sé una storia che nessuno conosce davvero per intero.
+        </p>
+
+        <p style="margin-top: 24px;">
+            È questo il luogo in cui si incontrano le storie di
+            <em style="color:#cfb067; font-family:'Cormorant Garamond',serif; font-size:18px;">
+                Le Cronache delle Fratture
+            </em>,
+            ma Vaelor non si esaurisce nella saga.
+            È un mondo destinato ad allargarsi attraverso romanzi,
+            racconti e personaggi che possono avere una storia anche
+            lontano dalla trama principale.
+        </p>
+
+    </div>
+
+</section>
 
 
-    <section class="section">
+<!-- =====================================================
+     LA SAGA
+===================================================== -->
 
-        <div class="section-inner">
+<section class="section saga-section">
+
+    <div class="section-inner">
+
+        <div class="saga-intro">
 
             <div class="section-label">
                 La saga
             </div>
 
             <h2>
-                Benvenuti a Vaelor.
+                Le Cronache<br>
+                delle Fratture.
             </h2>
 
             <p>
-                Un mondo segnato da guerre, legami spezzati e verità rimaste troppo a lungo nascoste.
-                È qui che prende forma la storia di Sofia e delle persone che incontrerà lungo il cammino.
-                Una storia destinata a svilupparsi attraverso cinque romanzi, ognuno legato agli altri da qualcosa
-                che va oltre ciò che appare in superficie.
+                Cinque romanzi che seguono una storia destinata a cambiare
+                forma man mano che emergono le sue parti più nascoste.
+                Il primo volume apre il viaggio. Gli altri ne porteranno
+                le conseguenze molto più lontano.
             </p>
 
+        </div>
 
-            <div class="volumes">
 
-                <div class="volume">
+        <div class="volumes">
 
-                    <div class="volume-number">
-                        I
-                    </div>
 
-                    <div class="volume-title">
-                        La Chiave delle Ombre
-                    </div>
+            <div class="volume">
 
-                    <div class="volume-status">
-                        Prossimamente
-                    </div>
-
+                <div class="volume-number">
+                    I
                 </div>
 
-
-                <div class="volume">
-
-                    <div class="volume-number">
-                        II
-                    </div>
-
-                    <div class="volume-title">
-                        Il Sangue delle Linee
-                    </div>
-
-                    <div class="volume-status">
-                        Prossimamente
-                    </div>
-
+                <div class="volume-title">
+                    La Chiave delle Ombre
                 </div>
 
-
-                <div class="volume">
-
-                    <div class="volume-number">
-                        III
-                    </div>
-
-                    <div class="volume-title">
-                        Il Cuore del Vuoto
-                    </div>
-
-                    <div class="volume-status">
-                        Prossimamente
-                    </div>
-
-                </div>
-
-
-                <div class="volume">
-
-                    <div class="volume-number">
-                        IV
-                    </div>
-
-                    <div class="volume-title">
-                        Il Nome delle Cose
-                    </div>
-
-                    <div class="volume-status">
-                        Prossimamente
-                    </div>
-
-                </div>
-
-
-                <div class="volume">
-
-                    <div class="volume-number">
-                        V
-                    </div>
-
-                    <div class="volume-title">
-                        Quando il Mondo Smette di Mentire
-                    </div>
-
-                    <div class="volume-status">
-                        Prossimamente
-                    </div>
-
+                <div class="volume-status">
+                    Prossimamente
                 </div>
 
             </div>
 
-        </div>
 
-    </section>
+            <div class="volume">
 
-
-    <section class="section vaelor-section">
-
-        <div class="section-inner">
-
-            <div class="vaelor-box">
-
-                <div class="section-label">
-                    Il mondo
+                <div class="volume-number">
+                    II
                 </div>
 
-                <h2>
-                    Vaelor.
-                </h2>
+                <div class="volume-title">
+                    Il Sangue delle Linee
+                </div>
 
-                <p>
-                    Un mondo ferito, costruito su storie che non sono mai state raccontate fino in fondo.
-                    Qui ogni scelta ha un peso, ogni legame può essere messo alla prova e ogni verità può
-                    avere conseguenze che nessuno aveva previsto.
-                </p>
-
-                <a href="libro.html" class="cta">
-                    Scopri La Chiave delle Ombre
-                </a>
+                <div class="volume-status">
+                    Prossimamente
+                </div>
 
             </div>
 
+
+            <div class="volume">
+
+                <div class="volume-number">
+                    III
+                </div>
+
+                <div class="volume-title">
+                    Il Cuore del Vuoto
+                </div>
+
+                <div class="volume-status">
+                    Prossimamente
+                </div>
+
+            </div>
+
+
+            <div class="volume">
+
+                <div class="volume-number">
+                    IV
+                </div>
+
+                <div class="volume-title">
+                    Il Nome delle Cose
+                </div>
+
+                <div class="volume-status">
+                    Prossimamente
+                </div>
+
+            </div>
+
+
+            <div class="volume">
+
+                <div class="volume-number">
+                    V
+                </div>
+
+                <div class="volume-title">
+                    Quando il Mondo Smette di Mentire
+                </div>
+
+                <div class="volume-status">
+                    Prossimamente
+                </div>
+
+            </div>
+
+
         </div>
 
-    </section>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PRIMO LIBRO
+===================================================== -->
+
+<section class="section book-link-section">
+
+    <div class="section-inner">
+
+        <div class="book-link-box">
+
+            <div class="section-label">
+                Il primo volume
+            </div>
+
+            <h2>
+                Tutto comincia<br>
+                con Sofia.
+            </h2>
+
+            <p>
+                <em style="font-family:'Cormorant Garamond',serif; font-size:19px; color:rgba(241,238,232,0.82);">
+                    La Chiave delle Ombre
+                </em>
+                è il primo passo dentro Vaelor e l'inizio
+                della storia di una ragazza che scoprirà di essere
+                molto più vicina a quel mondo di quanto avrebbe mai
+                potuto immaginare.
+            </p>
+
+            <a href="libro.html" class="cta">
+                Scopri il libro
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 </main>
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
+
     © 2026 Alysscriptum · Alyssa B. Flowered
+
 </footer>
 
+
+<!-- =====================================================
+     ANIMAZIONE BACKGROUND + SCROLL
+===================================================== -->
 
 <script>
 
@@ -803,20 +969,29 @@ const scales = [
 ];
 
 window.addEventListener("scroll", () => {
+
     targetScroll = window.scrollY;
+
 });
 
 function animateBackground() {
 
-    currentScroll += (targetScroll - currentScroll) * 0.08;
+    currentScroll +=
+        (targetScroll - currentScroll) * 0.08;
 
     lines.forEach((line, index) => {
 
-        const inner = line.querySelector(".line-inner");
+        const inner =
+            line.querySelector(".line-inner");
 
-        const y = currentScroll * speeds[index];
-        const rotation = currentScroll * rotations[index];
-        const scale = 1 + currentScroll * scales[index];
+        const y =
+            currentScroll * speeds[index];
+
+        const rotation =
+            currentScroll * rotations[index];
+
+        const scale =
+            1 + currentScroll * scales[index];
 
         inner.style.transform =
             `translate3d(0, ${y}px, 0)
@@ -826,6 +1001,7 @@ function animateBackground() {
     });
 
     requestAnimationFrame(animateBackground);
+
 }
 
 animateBackground();
