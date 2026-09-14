@@ -56,36 +56,18 @@
 html {
     scroll-behavior: smooth;
     width: 100%;
-    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
     width: 100%;
     max-width: 100%;
-
     background: var(--bg);
     color: var(--text);
-
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     line-height: 1.7;
-
     overflow-x: hidden;
-}
-
-
-/* =========================================================
-   ELEMENTI RESPONSIVE
-========================================================= */
-
-img,
-video,
-svg {
-    max-width: 100%;
-}
-
-img {
-    height: auto;
 }
 
 
@@ -96,13 +78,8 @@ img {
 .background-effects {
     position: fixed;
     inset: 0;
-
-    width: 100%;
-    max-width: 100%;
-
     pointer-events: none;
     overflow: hidden;
-
     z-index: -5;
 
     background:
@@ -124,16 +101,9 @@ img {
         #08080b;
 }
 
-
-/* =========================================================
-   OMBRE ATMOSFERICHE
-========================================================= */
-
 .background-effects::before {
     content: "";
-
     position: absolute;
-
     inset: -20%;
 
     background:
@@ -182,10 +152,8 @@ img {
 
 .fracture {
     position: absolute;
-
     width: 1px;
     height: 150%;
-
     top: -25%;
 
     background:
@@ -201,15 +169,12 @@ img {
         );
 
     opacity: 0.45;
-
     transform-origin: center;
-
     filter: blur(0.15px);
 }
 
 .fracture-1 {
     left: 19%;
-
     transform:
         rotate(12deg)
         skewX(-8deg);
@@ -217,7 +182,6 @@ img {
 
 .fracture-2 {
     left: 43%;
-
     height: 125%;
     opacity: 0.25;
 
@@ -228,7 +192,6 @@ img {
 
 .fracture-3 {
     left: 67%;
-
     height: 140%;
     opacity: 0.32;
 
@@ -239,7 +202,6 @@ img {
 
 .fracture-4 {
     left: 82%;
-
     height: 115%;
     opacity: 0.20;
 
@@ -250,7 +212,6 @@ img {
 
 .fracture::before {
     content: "";
-
     position: absolute;
 
     width: 1px;
@@ -268,7 +229,6 @@ img {
 
 .fracture::after {
     content: "";
-
     position: absolute;
 
     width: 1px;
@@ -384,7 +344,6 @@ nav {
     left: 0;
 
     width: 100%;
-    max-width: 100%;
 
     z-index: 10;
 
@@ -421,8 +380,6 @@ nav {
     font-weight: 500;
 
     white-space: nowrap;
-
-    min-width: 0;
 }
 
 .nav-links {
@@ -431,8 +388,6 @@ nav {
     align-items: center;
 
     gap: 30px;
-
-    min-width: 0;
 }
 
 .nav-links a {
@@ -471,24 +426,16 @@ nav {
 .mobile-menu-toggle {
     display: none;
 
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 5px;
-
-    width: 34px;
-    height: 34px;
-
-    flex-shrink: 0;
-
-    padding: 6px;
-
     background: none;
     border: none;
 
+    padding: 6px;
+
     cursor: pointer;
+
+    flex-direction: column;
+
+    gap: 5px;
 }
 
 .mobile-menu-toggle span {
@@ -527,13 +474,7 @@ nav {
 
 main {
     position: relative;
-
     z-index: 2;
-
-    width: 100%;
-    max-width: 100%;
-
-    overflow: hidden;
 }
 
 
@@ -543,9 +484,6 @@ main {
 
 .book-hero {
 
-    width: 100%;
-    max-width: 100%;
-
     min-height: 100vh;
 
     display: flex;
@@ -553,9 +491,13 @@ main {
     align-items: center;
 
     padding:
-        145px 8vw 105px;
+        145px
+        8vw
+        105px;
 
     position: relative;
+
+    overflow: hidden;
 }
 
 .book-hero::before {
@@ -566,9 +508,6 @@ main {
 
     width: 600px;
     height: 600px;
-
-    max-width: 90vw;
-    max-height: 90vw;
 
     left: 5%;
     top: 50%;
@@ -601,7 +540,7 @@ main {
 
     grid-template-columns:
         minmax(260px, 420px)
-        minmax(0, 1fr);
+        minmax(300px, 1fr);
 
     gap: 9vw;
 
@@ -610,6 +549,12 @@ main {
     position: relative;
 
     z-index: 2;
+}
+
+.cover-wrapper,
+.book-info,
+.content-container {
+    min-width: 0;
 }
 
 
@@ -623,22 +568,18 @@ main {
 
     justify-content: center;
 
-    min-width: 0;
-
     animation:
         coverAppear 1.2s ease forwards;
 }
 
 .cover-wrapper img {
 
-    display: block;
-
     width:
         min(100%, 390px);
 
-    max-width: 100%;
-
     height: auto;
+
+    display: block;
 
     border-radius: 2px;
 
@@ -668,8 +609,6 @@ main {
 
 .book-info {
 
-    min-width: 0;
-
     animation:
         textAppear 1.2s ease 0.15s both;
 }
@@ -687,8 +626,6 @@ main {
     letter-spacing: 0.24em;
 
     text-transform: uppercase;
-
-    overflow-wrap: break-word;
 }
 
 .book-info h1 {
@@ -707,8 +644,6 @@ main {
     font-weight: 400;
 
     letter-spacing: -0.025em;
-
-    overflow-wrap: break-word;
 }
 
 .book-info h1 span {
@@ -754,6 +689,7 @@ main {
 .section-divider {
 
     width: 84%;
+
     max-width: 1100px;
 
     height: 1px;
@@ -776,11 +712,9 @@ main {
 
 .synopsis-section {
 
-    width: 100%;
-    max-width: 100%;
-
     padding:
-        135px 8vw;
+        135px
+        8vw;
 }
 
 .content-container {
@@ -788,8 +722,6 @@ main {
     width: 100%;
 
     max-width: 1100px;
-
-    min-width: 0;
 
     margin: 0 auto;
 }
@@ -841,8 +773,6 @@ main {
     font-size: 14px;
 
     line-height: 2;
-
-    overflow-wrap: break-word;
 }
 
 .synopsis-text p:first-child {
@@ -857,11 +787,9 @@ main {
 
 .details-section {
 
-    width: 100%;
-    max-width: 100%;
-
     padding:
-        125px 8vw;
+        125px
+        8vw;
 }
 
 .details-grid {
@@ -871,10 +799,7 @@ main {
     grid-template-columns:
         1fr 1fr;
 
-    width: 100%;
     max-width: 900px;
-
-    min-width: 0;
 
     margin: 0 auto;
 
@@ -886,8 +811,6 @@ main {
 }
 
 .detail-item {
-
-    min-width: 0;
 
     padding: 30px;
 
@@ -931,8 +854,6 @@ main {
         serif;
 
     font-size: 23px;
-
-    overflow-wrap: break-word;
 }
 
 
@@ -942,11 +863,10 @@ main {
 
 .purchase-section {
 
-    width: 100%;
-    max-width: 100%;
-
     padding:
-        135px 8vw 165px;
+        135px
+        8vw
+        165px;
 
     text-align: center;
 }
@@ -986,11 +906,10 @@ main {
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     min-width: 190px;
-
-    max-width: 100%;
 
     padding:
         15px 28px;
@@ -1039,9 +958,6 @@ footer {
 
     z-index: 2;
 
-    width: 100%;
-    max-width: 100%;
-
     padding:
         35px 8vw;
 
@@ -1067,7 +983,6 @@ footer {
 @keyframes coverAppear {
 
     from {
-
         opacity: 0;
 
         transform:
@@ -1076,7 +991,6 @@ footer {
     }
 
     to {
-
         opacity: 1;
 
         transform:
@@ -1088,7 +1002,6 @@ footer {
 @keyframes textAppear {
 
     from {
-
         opacity: 0;
 
         transform:
@@ -1096,7 +1009,6 @@ footer {
     }
 
     to {
-
         opacity: 1;
 
         transform:
@@ -1116,14 +1028,15 @@ footer {
         min-height: auto;
 
         padding:
-            130px 7vw 90px;
+            130px
+            7vw
+            90px;
     }
 
     .book-hero-inner {
 
         grid-template-columns:
-            minmax(200px, 220px)
-            minmax(0, 1fr);
+            220px 1fr;
 
         gap: 45px;
     }
@@ -1131,7 +1044,6 @@ footer {
     .cover-wrapper img {
 
         width: 220px;
-        max-width: 100%;
     }
 
     .book-info {
@@ -1166,9 +1078,6 @@ footer {
 
     nav {
 
-        width: 100%;
-        max-width: 100%;
-
         padding:
             18px 5%;
 
@@ -1186,11 +1095,6 @@ footer {
 
         letter-spacing:
             0.2em;
-
-        min-width: 0;
-
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 
     .nav-links {
@@ -1207,9 +1111,6 @@ footer {
         align-items: stretch;
 
         gap: 0;
-
-        width: max-content;
-        max-width: calc(100vw - 10%);
 
         min-width: 150px;
 
@@ -1228,7 +1129,6 @@ footer {
     }
 
     .nav-links.active {
-
         display: flex;
     }
 
@@ -1258,8 +1158,6 @@ footer {
     .mobile-menu-toggle {
 
         display: flex;
-
-        flex-shrink: 0;
     }
 
 
@@ -1269,24 +1167,22 @@ footer {
 
     .book-hero {
 
-        width: 100%;
-        max-width: 100%;
-
         min-height: auto;
 
         padding:
-            115px 7% 75px;
+            115px
+            7%
+            75px;
     }
 
     .book-hero-inner {
 
         width: 100%;
         max-width: 100%;
-
         min-width: 0;
 
         grid-template-columns:
-            minmax(0, 1fr);
+            1fr;
 
         gap: 45px;
     }
@@ -1294,26 +1190,19 @@ footer {
     .cover-wrapper {
 
         order: 0;
-
-        width: 100%;
-        min-width: 0;
     }
 
     .cover-wrapper img {
 
-        width:
-            min(78vw, 270px);
+        width: min(78vw, 270px);
 
         max-width: 100%;
-
-        height: auto;
     }
 
     .book-info {
 
         order: 1;
 
-        width: 100%;
         min-width: 0;
 
         text-align: center;
@@ -1326,13 +1215,9 @@ footer {
         font-size: 9px;
 
         line-height: 1.5;
-
-        overflow-wrap: anywhere;
     }
 
     .book-info h1 {
-
-        width: 100%;
 
         margin-bottom: 25px;
 
@@ -1340,13 +1225,10 @@ footer {
             clamp(48px, 14vw, 66px);
 
         line-height: 0.88;
-
-        overflow-wrap: anywhere;
     }
 
     .book-subtitle {
 
-        width: 100%;
         max-width: 520px;
 
         margin:
@@ -1358,7 +1240,6 @@ footer {
 
     .book-description {
 
-        width: 100%;
         max-width: 520px;
 
         margin:
@@ -1377,13 +1258,9 @@ footer {
     .section-divider {
 
         width: 82%;
-        max-width: 82%;
     }
 
     .synopsis-section {
-
-        width: 100%;
-        max-width: 100%;
 
         padding:
             90px 7%;
@@ -1401,21 +1278,16 @@ footer {
 
     .synopsis-section h2 {
 
-        width: 100%;
-
         margin-bottom: 32px;
 
         font-size:
             clamp(40px, 11vw, 52px);
 
         line-height: 0.95;
-
-        overflow-wrap: anywhere;
     }
 
     .synopsis-text {
 
-        width: 100%;
         max-width: none;
     }
 
@@ -1426,8 +1298,6 @@ footer {
         font-size: 13px;
 
         line-height: 1.85;
-
-        overflow-wrap: anywhere;
     }
 
 
@@ -1437,26 +1307,17 @@ footer {
 
     .details-section {
 
-        width: 100%;
-        max-width: 100%;
-
         padding:
             80px 7%;
     }
 
     .details-grid {
 
-        width: 100%;
-        max-width: 100%;
-
         grid-template-columns:
-            minmax(0, 1fr);
+            1fr;
     }
 
     .detail-item {
-
-        width: 100%;
-        min-width: 0;
 
         padding:
             24px 22px;
@@ -1467,8 +1328,6 @@ footer {
         font-size: 21px;
 
         line-height: 1.2;
-
-        overflow-wrap: anywhere;
     }
 
 
@@ -1478,23 +1337,17 @@ footer {
 
     .purchase-section {
 
-        width: 100%;
-        max-width: 100%;
-
         padding:
-            90px 7% 110px;
+            90px 7%
+            110px;
     }
 
     .purchase-section h2 {
-
-        width: 100%;
 
         font-size:
             clamp(40px, 11vw, 52px);
 
         line-height: 1;
-
-        overflow-wrap: anywhere;
     }
 
     .purchase-section p {
@@ -1509,8 +1362,6 @@ footer {
     .purchase-button {
 
         min-width: 185px;
-
-        max-width: 100%;
 
         padding:
             15px 24px;
@@ -1561,8 +1412,7 @@ footer {
 
     .cover-wrapper img {
 
-        width: 270px;
-        max-width: 82vw;
+        width: min(78vw, 270px);
     }
 
     .book-info h1 {
@@ -1614,7 +1464,6 @@ footer {
     .cover-wrapper img {
 
         width: 240px;
-        max-width: 82vw;
     }
 
     .book-info h1 {
@@ -1774,7 +1623,6 @@ footer {
 
     <div class="book-hero-inner">
 
-
         <div class="cover-wrapper">
 
             <img
@@ -1915,7 +1763,6 @@ footer {
 
         <div class="details-grid">
 
-
             <div class="detail-item">
 
                 <span class="detail-label">
@@ -1992,7 +1839,6 @@ footer {
                 </span>
 
             </div>
-
 
         </div>
 
