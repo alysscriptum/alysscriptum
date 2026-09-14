@@ -32,7 +32,6 @@
     rel="stylesheet"
 >
 
-
 <style>
 
 /* =========================================================
@@ -56,6 +55,7 @@
 html {
     scroll-behavior: smooth;
     width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
 }
 
@@ -555,6 +555,7 @@ main {
 .book-info,
 .content-container {
     min-width: 0;
+    max-width: 100%;
 }
 
 
@@ -576,6 +577,8 @@ main {
 
     width:
         min(100%, 390px);
+
+    max-width: 100%;
 
     height: auto;
 
@@ -1396,14 +1399,6 @@ footer {
 
 @media (max-width: 430px) {
 
-    .nav-logo {
-
-        font-size: 12px;
-
-        letter-spacing:
-            0.18em;
-    }
-
     .book-hero {
 
         padding-top:
@@ -1446,14 +1441,6 @@ footer {
 ========================================================= */
 
 @media (max-width: 340px) {
-
-    .nav-logo {
-
-        font-size: 11px;
-
-        letter-spacing:
-            0.15em;
-    }
 
     .book-hero {
 
@@ -1522,13 +1509,7 @@ footer {
 
 </head>
 
-
 <body>
-
-
-<!-- =======================================================
-     SFONDO
-======================================================= -->
 
 <div
     class="background-effects"
@@ -1549,10 +1530,6 @@ footer {
 </div>
 
 
-<!-- =======================================================
-     NAVIGAZIONE
-======================================================= -->
-
 <nav>
 
     <a
@@ -1561,7 +1538,6 @@ footer {
     >
         ALYSSCRIPTUM
     </a>
-
 
     <div
         class="nav-links"
@@ -1590,7 +1566,6 @@ footer {
 
     </div>
 
-
     <button
         class="mobile-menu-toggle"
         aria-label="Apri menu"
@@ -1608,16 +1583,7 @@ footer {
 </nav>
 
 
-<!-- =======================================================
-     CONTENUTO
-======================================================= -->
-
 <main>
-
-
-<!-- =======================================================
-     HERO
-======================================================= -->
 
 <section class="book-hero">
 
@@ -1632,13 +1598,11 @@ footer {
 
         </div>
 
-
         <div class="book-info">
 
             <div class="eyebrow">
                 Le Cronache delle Fratture · Volume I
             </div>
-
 
             <h1>
 
@@ -1652,7 +1616,6 @@ footer {
 
             </h1>
 
-
             <p class="book-subtitle">
 
                 Non c'è niente di più inquietante
@@ -1660,7 +1623,6 @@ footer {
                 riconoscere sé stessi.
 
             </p>
-
 
             <p class="book-description">
 
@@ -1681,10 +1643,6 @@ footer {
 <div class="section-divider"></div>
 
 
-<!-- =======================================================
-     SINOSSI
-======================================================= -->
-
 <section class="synopsis-section">
 
     <div class="content-container">
@@ -1693,14 +1651,12 @@ footer {
             Il romanzo
         </div>
 
-
         <h2>
 
             Una storia di identità,
             verità e mondi spezzati.
 
         </h2>
-
 
         <div class="synopsis-text">
 
@@ -1715,7 +1671,6 @@ footer {
 
             </p>
 
-
             <p>
 
                 Oltre quel varco c’è Vaelor, un mondo ferito
@@ -1727,7 +1682,6 @@ footer {
                 lasciando dietro di sé una perdita irreversibile.
 
             </p>
-
 
             <p>
 
@@ -1748,10 +1702,6 @@ footer {
 <div class="section-divider"></div>
 
 
-<!-- =======================================================
-     DETTAGLI
-======================================================= -->
-
 <section class="details-section">
 
     <div class="content-container">
@@ -1759,7 +1709,6 @@ footer {
         <div class="section-label">
             Dettagli
         </div>
-
 
         <div class="details-grid">
 
@@ -1775,7 +1724,6 @@ footer {
 
             </div>
 
-
             <div class="detail-item">
 
                 <span class="detail-label">
@@ -1787,7 +1735,6 @@ footer {
                 </span>
 
             </div>
-
 
             <div class="detail-item">
 
@@ -1801,7 +1748,6 @@ footer {
 
             </div>
 
-
             <div class="detail-item">
 
                 <span class="detail-label">
@@ -1814,7 +1760,6 @@ footer {
 
             </div>
 
-
             <div class="detail-item">
 
                 <span class="detail-label">
@@ -1826,7 +1771,6 @@ footer {
                 </span>
 
             </div>
-
 
             <div class="detail-item">
 
@@ -1850,10 +1794,6 @@ footer {
 <div class="section-divider"></div>
 
 
-<!-- =======================================================
-     IN ARRIVO
-======================================================= -->
-
 <section class="purchase-section">
 
     <div class="content-container">
@@ -1862,16 +1802,13 @@ footer {
             In arrivo
         </div>
 
-
         <h2>
             La storia sta per iniziare.
         </h2>
 
-
         <p>
             Presto disponibile attraverso i canali ufficiali.
         </p>
-
 
         <a
             href="#"
@@ -1884,13 +1821,8 @@ footer {
 
 </section>
 
-
 </main>
 
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
 
 <footer>
 
@@ -1899,10 +1831,6 @@ footer {
 </footer>
 
 
-<!-- =======================================================
-     MENU MOBILE
-======================================================= -->
-
 <script>
 
 const mobileMenuToggle =
@@ -1910,7 +1838,6 @@ const mobileMenuToggle =
 
 const navLinks =
     document.querySelector('.nav-links');
-
 
 mobileMenuToggle.addEventListener(
     'click',
@@ -1935,7 +1862,6 @@ mobileMenuToggle.addEventListener(
 
     }
 );
-
 
 navLinks.querySelectorAll('a').forEach(
     link => {
@@ -1969,7 +1895,6 @@ navLinks.querySelectorAll('a').forEach(
 );
 
 </script>
-
 
 </body>
 </html>
