@@ -15,6 +15,10 @@
 
 <style>
 
+/* =========================================================
+   BASE
+========================================================= */
+
 :root {
     --bg: #09090d;
     --text: #eeeae4;
@@ -43,29 +47,32 @@ body {
 
 
 /* =========================================================
-   BACKGROUND IDENTICO ALLA HOME
+   BACKGROUND DI VAEOLOR
+   Stesso sistema della home
 ========================================================= */
 
 .background-effects {
     position: fixed;
     inset: 0;
-    z-index: -1;
+
+    z-index: 0;
+
     overflow: hidden;
     pointer-events: none;
 
     background:
         radial-gradient(
             circle at 50% 30%,
-            rgba(35,32,43,0.28),
+            rgba(35,32,43,0.30),
             transparent 42%
         ),
         #09090d;
 }
 
 
-/* -------------------------
-   LINEE DI VAEOLOR
-------------------------- */
+/* =========================================================
+   LINEE
+========================================================= */
 
 .vaelor-line {
     position: absolute;
@@ -75,7 +82,7 @@ body {
 
     left: -25%;
 
-    opacity: 0.24;
+    opacity: 0.27;
 
     will-change: transform;
 }
@@ -98,7 +105,7 @@ body {
 
 .line-gold {
     top: 12%;
-    color: rgba(207,174,101,0.82);
+    color: rgba(207,174,101,0.86);
 }
 
 .line-gold .line-inner {
@@ -113,7 +120,7 @@ body {
 
 .line-silver {
     top: 35%;
-    color: rgba(190,196,207,0.76);
+    color: rgba(190,196,207,0.80);
 }
 
 .line-silver .line-inner {
@@ -128,7 +135,7 @@ body {
 
 .line-purple {
     top: 59%;
-    color: rgba(145,112,180,0.80);
+    color: rgba(145,112,180,0.84);
 }
 
 .line-purple .line-inner {
@@ -143,7 +150,7 @@ body {
 
 .line-blue {
     top: 82%;
-    color: rgba(91,137,184,0.80);
+    color: rgba(91,137,184,0.84);
 }
 
 .line-blue .line-inner {
@@ -154,9 +161,9 @@ body {
 }
 
 
-/* -------------------------
+/* =========================================================
    MOVIMENTO LINEE
-------------------------- */
+========================================================= */
 
 @keyframes goldWave {
 
@@ -180,7 +187,6 @@ body {
             translateY(18px)
             rotate(2deg);
     }
-
 }
 
 @keyframes silverWave {
@@ -205,7 +211,6 @@ body {
             translateY(-12px)
             rotate(2deg);
     }
-
 }
 
 @keyframes purpleWave {
@@ -230,7 +235,6 @@ body {
             translateY(12px)
             rotate(2deg);
     }
-
 }
 
 @keyframes blueWave {
@@ -255,13 +259,12 @@ body {
             translateY(-15px)
             rotate(-2deg);
     }
-
 }
 
 
-/* -------------------------
+/* =========================================================
    BAGLIORI DORATI
-------------------------- */
+========================================================= */
 
 .gold-glow {
     position: absolute;
@@ -284,7 +287,6 @@ body {
     animation:
         glowFloat 10s ease-in-out infinite alternate;
 }
-
 
 .glow-1 {
     top: 8%;
@@ -321,7 +323,6 @@ body {
     animation-delay: -4s;
 }
 
-
 @keyframes glowFloat {
 
     0% {
@@ -347,7 +348,6 @@ body {
 
         opacity: 0.6;
     }
-
 }
 
 
@@ -381,13 +381,14 @@ nav {
     z-index: 20;
 }
 
-
 .logo {
     color: var(--text);
 
     text-decoration: none;
 
-    font-family: "Cormorant Garamond", serif;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
     font-size: 25px;
 
@@ -396,7 +397,6 @@ nav {
     font-weight: 500;
 }
 
-
 .nav-links {
     display: flex;
 
@@ -404,7 +404,6 @@ nav {
 
     gap: 30px;
 }
-
 
 .nav-links a {
     position: relative;
@@ -423,7 +422,6 @@ nav {
         color 0.3s ease;
 }
 
-
 .nav-links a::after {
     content: "";
 
@@ -441,11 +439,9 @@ nav {
         width 0.3s ease;
 }
 
-
 .nav-links a:hover {
     color: #f2eee8;
 }
-
 
 .nav-links a:hover::after {
     width: 100%;
@@ -453,11 +449,12 @@ nav {
 
 
 /* =========================================================
-   MAIN
+   CONTENUTO
 ========================================================= */
 
 main {
     position: relative;
+
     z-index: 2;
 }
 
@@ -475,9 +472,41 @@ main {
     align-items: center;
 
     padding:
-        150px
+        145px
         8vw
-        110px;
+        105px;
+
+    position: relative;
+}
+
+
+/* leggero alone dietro al contenuto */
+
+.book-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    left: 5%;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(207,174,101,0.045),
+            transparent 68%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
 }
 
 
@@ -498,12 +527,16 @@ main {
     gap: 9vw;
 
     align-items: center;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 
-/* -------------------------
+/* =========================================================
    COPERTINA
-------------------------- */
+========================================================= */
 
 .cover-wrapper {
 
@@ -515,10 +548,10 @@ main {
         coverAppear 1.2s ease forwards;
 }
 
-
 .cover-wrapper img {
 
-    width: min(100%, 390px);
+    width:
+        min(100%, 390px);
 
     height: auto;
 
@@ -527,14 +560,13 @@ main {
     border-radius: 2px;
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,0.55),
-        0 0 50px rgba(207,174,101,0.07);
+        0 35px 90px rgba(0,0,0,0.62),
+        0 0 55px rgba(207,174,101,0.08);
 
     transition:
         transform 0.5s ease,
         box-shadow 0.5s ease;
 }
-
 
 .cover-wrapper img:hover {
 
@@ -542,14 +574,14 @@ main {
         translateY(-8px);
 
     box-shadow:
-        0 40px 90px rgba(0,0,0,0.65),
-        0 0 60px rgba(207,174,101,0.11);
+        0 45px 100px rgba(0,0,0,0.72),
+        0 0 65px rgba(207,174,101,0.12);
 }
 
 
-/* -------------------------
-   TESTO
-------------------------- */
+/* =========================================================
+   TESTO HERO
+========================================================= */
 
 .book-info {
 
@@ -557,10 +589,9 @@ main {
         textAppear 1.2s ease 0.15s both;
 }
 
-
 .eyebrow {
 
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 
     color: var(--gold);
 
@@ -573,55 +604,51 @@ main {
     text-transform: uppercase;
 }
 
-
 .book-info h1 {
 
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 
     font-family:
         "Cormorant Garamond",
         serif;
 
     font-size:
-        clamp(55px, 7vw, 92px);
+        clamp(58px, 7vw, 94px);
 
-    line-height: 0.86;
+    line-height: 0.84;
 
     font-weight: 400;
 
     letter-spacing: -0.025em;
 }
 
-
 .book-info h1 span {
     display: block;
 }
 
-
 .book-subtitle {
 
-    max-width: 580px;
+    max-width: 570px;
 
     margin-bottom: 28px;
 
-    color: #d4d0ca;
+    color: #d8d3cc;
 
     font-family:
         "Cormorant Garamond",
         serif;
 
     font-size:
-        clamp(21px, 2.3vw, 29px);
+        clamp(22px, 2.3vw, 30px);
 
-    line-height: 1.2;
+    line-height: 1.18;
 
     font-weight: 400;
 }
 
-
 .book-description {
 
-    max-width: 580px;
+    max-width: 570px;
 
     color: var(--muted);
 
@@ -662,10 +689,9 @@ main {
 .synopsis-section {
 
     padding:
-        130px
+        135px
         8vw;
 }
-
 
 .content-container {
 
@@ -675,7 +701,6 @@ main {
 
     margin: 0 auto;
 }
-
 
 .section-label {
 
@@ -692,31 +717,28 @@ main {
     font-weight: 500;
 }
 
-
 .synopsis-section h2 {
 
-    max-width: 720px;
+    max-width: 760px;
 
-    margin-bottom: 45px;
+    margin-bottom: 48px;
 
     font-family:
         "Cormorant Garamond",
         serif;
 
     font-size:
-        clamp(42px, 5vw, 64px);
+        clamp(44px, 5vw, 66px);
 
-    line-height: 0.95;
+    line-height: 0.94;
 
     font-weight: 400;
 }
-
 
 .synopsis-text {
 
     max-width: 780px;
 }
-
 
 .synopsis-text p {
 
@@ -728,7 +750,6 @@ main {
 
     line-height: 2;
 }
-
 
 .synopsis-text p:first-child {
 
@@ -743,10 +764,9 @@ main {
 .details-section {
 
     padding:
-        120px
+        125px
         8vw;
 }
-
 
 .details-grid {
 
@@ -766,7 +786,6 @@ main {
         1px solid var(--line);
 }
 
-
 .detail-item {
 
     padding: 30px;
@@ -776,8 +795,16 @@ main {
 
     border-bottom:
         1px solid var(--line);
+
+    transition:
+        background 0.3s ease;
 }
 
+.detail-item:hover {
+
+    background:
+        rgba(255,255,255,0.015);
+}
 
 .detail-label {
 
@@ -793,7 +820,6 @@ main {
 
     text-transform: uppercase;
 }
-
 
 .detail-value {
 
@@ -814,13 +840,12 @@ main {
 .purchase-section {
 
     padding:
-        130px
+        135px
         8vw
-        160px;
+        165px;
 
     text-align: center;
 }
-
 
 .purchase-section h2 {
 
@@ -831,13 +856,12 @@ main {
         serif;
 
     font-size:
-        clamp(42px, 5vw, 65px);
+        clamp(44px, 5vw, 66px);
 
     line-height: 1;
 
     font-weight: 400;
 }
-
 
 .purchase-section p {
 
@@ -852,7 +876,6 @@ main {
 
     line-height: 1.8;
 }
-
 
 .purchase-button {
 
@@ -888,7 +911,6 @@ main {
         box-shadow 0.3s ease;
 }
 
-
 .purchase-button:hover {
 
     background: #e0c27e;
@@ -907,6 +929,10 @@ main {
 ========================================================= */
 
 footer {
+
+    position: relative;
+
+    z-index: 2;
 
     padding:
         35px 8vw;
@@ -951,7 +977,6 @@ footer {
     }
 }
 
-
 @keyframes textAppear {
 
     from {
@@ -986,18 +1011,15 @@ footer {
             0 5vw;
     }
 
-
     .logo {
 
         font-size: 21px;
     }
 
-
     .nav-links {
 
         gap: 17px;
     }
-
 
     .nav-links a {
 
@@ -1006,7 +1028,6 @@ footer {
         letter-spacing:
             0.1em;
     }
-
 
     .book-hero {
 
@@ -1018,7 +1039,6 @@ footer {
             90px;
     }
 
-
     .book-hero-inner {
 
         grid-template-columns:
@@ -1027,12 +1047,10 @@ footer {
         gap: 65px;
     }
 
-
     .cover-wrapper {
 
         order: 1;
     }
-
 
     .book-info {
 
@@ -1041,19 +1059,16 @@ footer {
         text-align: center;
     }
 
-
     .book-description {
 
         margin:
             0 auto;
     }
 
-
     .eyebrow {
 
         margin-bottom: 16px;
     }
-
 
     .book-info h1 {
 
@@ -1061,16 +1076,16 @@ footer {
             clamp(55px, 15vw, 80px);
     }
 
-
     .synopsis-section,
     .details-section,
     .purchase-section {
 
-        padding-left: 7vw;
+        padding-left:
+            7vw;
 
-        padding-right: 7vw;
+        padding-right:
+            7vw;
     }
-
 }
 
 
@@ -1081,7 +1096,6 @@ footer {
         height: 65px;
     }
 
-
     .logo {
 
         font-size: 18px;
@@ -1090,12 +1104,10 @@ footer {
             0.12em;
     }
 
-
     .nav-links {
 
         gap: 11px;
     }
-
 
     .nav-links a {
 
@@ -1104,7 +1116,6 @@ footer {
         letter-spacing:
             0.07em;
     }
-
 
     .book-hero {
 
@@ -1115,24 +1126,20 @@ footer {
             70px;
     }
 
-
     .cover-wrapper img {
 
         width: 78%;
     }
-
 
     .book-info h1 {
 
         font-size: 58px;
     }
 
-
     .book-subtitle {
 
         font-size: 21px;
     }
-
 
     .book-description {
 
@@ -1141,14 +1148,12 @@ footer {
         line-height: 1.8;
     }
 
-
     .synopsis-section {
 
         padding-top: 90px;
 
         padding-bottom: 90px;
     }
-
 
     .synopsis-section h2 {
 
@@ -1157,14 +1162,12 @@ footer {
         margin-bottom: 32px;
     }
 
-
     .synopsis-text p {
 
         font-size: 13px;
 
         line-height: 1.85;
     }
-
 
     .details-section {
 
@@ -1173,19 +1176,16 @@ footer {
         padding-bottom: 80px;
     }
 
-
     .details-grid {
 
         grid-template-columns:
             1fr;
     }
 
-
     .detail-item {
 
         padding: 24px;
     }
-
 
     .purchase-section {
 
@@ -1194,12 +1194,10 @@ footer {
         padding-bottom: 110px;
     }
 
-
     .purchase-section h2 {
 
         font-size: 45px;
     }
-
 
     footer {
 
@@ -1208,12 +1206,11 @@ footer {
 
         font-size: 8px;
     }
-
 }
 
 
 /* =========================================================
-   ACCESSIBILITÀ
+   RIDUZIONE MOVIMENTO
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1228,7 +1225,6 @@ footer {
     .book-info {
         animation: none;
     }
-
 }
 
 </style>
@@ -1260,7 +1256,6 @@ footer {
         <div class="line-inner"></div>
     </div>
 
-
     <div class="gold-glow glow-1"></div>
     <div class="gold-glow glow-2"></div>
     <div class="gold-glow glow-3"></div>
@@ -1280,7 +1275,6 @@ footer {
     <a href="index.html" class="logo">
         ALYSSCRIPTUM
     </a>
-
 
     <div class="nav-links">
 
@@ -1324,7 +1318,6 @@ footer {
 
     <div class="book-hero-inner">
 
-
         <div class="cover-wrapper">
 
             <img
@@ -1337,37 +1330,25 @@ footer {
 
         <div class="book-info">
 
-
             <div class="eyebrow">
                 Le Cronache delle Fratture · Volume I
             </div>
 
-
             <h1>
-
                 <span>La Chiave</span>
-
                 <span>delle Ombre</span>
-
             </h1>
 
-
             <p class="book-subtitle">
-
                 Non c'è niente di più inquietante di guardarsi
                 allo specchio e non riconoscere sé stessi.
-
             </p>
 
-
             <p class="book-description">
-
                 L'inizio di una saga fantasy fatta di identità spezzate,
                 scelte estreme e confini che non avrebbero mai dovuto
                 essere attraversati.
-
             </p>
-
 
         </div>
 
@@ -1385,57 +1366,41 @@ footer {
 
 <section class="synopsis-section">
 
-
     <div class="content-container">
-
 
         <div class="section-label">
             Il romanzo
         </div>
 
-
         <h2>
-
             Una storia di identità,
             verità e mondi spezzati.
-
         </h2>
-
 
         <div class="synopsis-text">
 
-
             <p>
-
                 Ashford è una città avvolta dalla nebbia, e Sofia sente
                 fin dal primo giorno che qualcosa non va. Presenze nell’ombra,
                 sogni che non sembrano sogni e la sensazione costante di essere
                 osservata la spingono verso una porta che non dovrebbe esistere.
-
             </p>
 
-
             <p>
-
                 Oltre quel varco c’è Vaelor, un mondo ferito da una guerra
                 mai davvero conclusa, dove Sofia scopre di essere al centro
                 di una caccia, di un tradimento e di un potere che non comprende.
                 Tra alleati ambigui e nemici nascosti, la verità su chi può
                 fidarsi e chi no emerge troppo tardi, lasciando dietro di sé
                 una perdita irreversibile.
-
             </p>
 
-
             <p>
-
                 Quando il passato torna a reclamare il suo prezzo, Sofia
                 è costretta a scegliere se accettare ciò che è davvero
                 o continuare a fuggire da una verità che può riscrivere
                 il mondo.
-
             </p>
-
 
         </div>
 
@@ -1453,17 +1418,13 @@ footer {
 
 <section class="details-section">
 
-
     <div class="content-container">
-
 
         <div class="section-label">
             Dettagli
         </div>
 
-
         <div class="details-grid">
-
 
             <div class="detail-item">
 
@@ -1542,7 +1503,6 @@ footer {
 
             </div>
 
-
         </div>
 
     </div>
@@ -1559,24 +1519,19 @@ footer {
 
 <section class="purchase-section">
 
-
     <div class="content-container">
-
 
         <div class="section-label">
             In arrivo
         </div>
 
-
         <h2>
             La storia sta per iniziare.
         </h2>
 
-
         <p>
             Presto disponibile attraverso i canali ufficiali.
         </p>
-
 
         <a
             href="#"
@@ -1584,7 +1539,6 @@ footer {
         >
             Acquista il libro
         </a>
-
 
     </div>
 
@@ -1606,7 +1560,7 @@ footer {
 
 
 <!-- =======================================================
-     ANIMAZIONE SCROLL
+     MOVIMENTO DELLE LINEE CON LO SCROLL
 ======================================================= -->
 
 <script>
@@ -1616,7 +1570,6 @@ const lines =
 
 let currentScroll = 0;
 let targetScroll = 0;
-
 
 window.addEventListener(
     "scroll",
@@ -1665,16 +1618,13 @@ function animateLines() {
     lines.forEach(
         (line, index) => {
 
-
             const translateY =
                 currentScroll *
                 speeds[index];
 
-
             const rotate =
                 currentScroll *
                 rotations[index];
-
 
             const scale =
                 1 +
@@ -1698,7 +1648,6 @@ function animateLines() {
     requestAnimationFrame(
         animateLines
     );
-
 }
 
 
