@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Racconti | Alysscriptum</title>
+    <title>Racconti · Alysscriptum</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -18,357 +23,495 @@
         }
 
         body {
-            background: #0b0b0d;
-            color: #e8e4df;
-            font-family: Georgia, "Times New Roman", serif;
-            line-height: 1.7;
+            background: #090909;
+            color: #f2eee7;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        .background-effects {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+            background: #090909;
         }
 
-        /* NAVIGAZIONE */
+        .glow {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(207,174,101,0.16) 0%,
+                rgba(207,174,101,0.06) 28%,
+                transparent 70%
+            );
+            filter: blur(18px);
+            animation: glowMove 12s ease-in-out infinite alternate;
+        }
+
+        .glow-1 {
+            top: 8%;
+            left: 10%;
+        }
+
+        .glow-2 {
+            top: 28%;
+            right: 8%;
+            animation-delay: -2s;
+        }
+
+        .glow-3 {
+            top: 47%;
+            left: 23%;
+            animation-delay: -5s;
+        }
+
+        .glow-4 {
+            top: 64%;
+            right: 20%;
+            animation-delay: -3s;
+        }
+
+        .glow-5 {
+            top: 79%;
+            left: 7%;
+            animation-delay: -7s;
+        }
+
+        .glow-6 {
+            top: 92%;
+            right: 11%;
+            animation-delay: -4s;
+        }
+
+        @keyframes glowMove {
+            0% {
+                transform: translate3d(-10px, -8px, 0) scale(0.92);
+                opacity: 0.55;
+            }
+
+            100% {
+                transform: translate3d(15px, 12px, 0) scale(1.08);
+                opacity: 0.85;
+            }
+        }
+
+        .vaelor-line {
+            position: absolute;
+            left: -25%;
+            width: 150%;
+            height: 190px;
+            opacity: 0.27;
+            transform-origin: center;
+        }
+
+        .line-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border-top: 1px solid currentColor;
+            border-bottom: 1px solid transparent;
+            filter: blur(0.2px);
+        }
+
+        .line-gold {
+            top: 13%;
+            color: rgba(207,174,101,0.90);
+        }
+
+        .line-silver {
+            top: 36%;
+            color: rgba(190,196,207,0.86);
+        }
+
+        .line-purple {
+            top: 61%;
+            color: rgba(145,112,180,0.90);
+        }
+
+        .line-blue {
+            top: 82%;
+            color: rgba(91,137,184,0.90);
+        }
+
+        .line-gold .line-inner {
+            animation: goldWave 11s ease-in-out infinite alternate;
+        }
+
+        .line-silver .line-inner {
+            animation: silverWave 14s ease-in-out infinite alternate;
+        }
+
+        .line-purple .line-inner {
+            animation: purpleWave 13s ease-in-out infinite alternate;
+        }
+
+        .line-blue .line-inner {
+            animation: blueWave 16s ease-in-out infinite alternate;
+        }
+
+        @keyframes goldWave {
+            0% {
+                transform: translateX(-4%) rotate(-2deg) scaleY(0.85);
+            }
+
+            100% {
+                transform: translateX(5%) rotate(2deg) scaleY(1.15);
+            }
+        }
+
+        @keyframes silverWave {
+            0% {
+                transform: translateX(5%) rotate(1.5deg) scaleY(1.05);
+            }
+
+            100% {
+                transform: translateX(-4%) rotate(-2deg) scaleY(0.85);
+            }
+        }
+
+        @keyframes purpleWave {
+            0% {
+                transform: translateX(-3%) rotate(-1.5deg) scaleY(0.9);
+            }
+
+            100% {
+                transform: translateX(4%) rotate(2deg) scaleY(1.1);
+            }
+        }
+
+        @keyframes blueWave {
+            0% {
+                transform: translateX(4%) rotate(2deg) scaleY(1.1);
+            }
+
+            100% {
+                transform: translateX(-5%) rotate(-2deg) scaleY(0.88);
+            }
+        }
+
+        /* =========================
+           NAV
+        ========================= */
 
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 22px 6%;
+            z-index: 10;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(11, 11, 13, 0.94);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            z-index: 100;
-            backdrop-filter: blur(8px);
+
+            padding: 24px 6%;
+
+            background: linear-gradient(
+                to bottom,
+                rgba(9,9,9,0.88),
+                rgba(9,9,9,0)
+            );
         }
 
-        .logo {
-            font-family: Arial, sans-serif;
-            font-size: 17px;
-            letter-spacing: 4px;
-            font-weight: bold;
-            white-space: nowrap;
+        .nav-logo {
+            color: #f2eee7;
+            text-decoration: none;
+            font-size: 15px;
+            letter-spacing: 0.25em;
+            font-weight: 500;
         }
 
-        nav ul {
-            list-style: none;
+        .nav-links {
             display: flex;
             gap: 30px;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            letter-spacing: 2px;
         }
 
-        nav li a {
-            opacity: 0.72;
-            transition: opacity 0.3s;
+        .nav-links a {
+            color: rgba(242,238,231,0.72);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
         }
 
-        nav li a:hover {
-            opacity: 1;
+        .nav-links a:hover {
+            color: #cfad65;
         }
 
-        /* HERO */
+        /* =========================
+           GENERAL
+        ========================= */
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            width: min(1100px, 88%);
+            margin: 0 auto;
+        }
+
+        .eyebrow,
+        .section-label {
+            color: #cfad65;
+            font-size: 11px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-weight: 500;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            min-height: 65vh;
-            padding: 170px 8% 90px;
+            min-height: 100vh;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
+
+            padding: 150px 20px 100px;
         }
 
-        .hero-inner {
-            max-width: 800px;
+        .hero-content {
+            max-width: 950px;
         }
 
-        .eyebrow {
-            font-family: Arial, sans-serif;
-            font-size: 10px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            opacity: 0.45;
-            margin-bottom: 25px;
+        .hero .eyebrow {
+            margin-bottom: 24px;
         }
 
-        h1 {
-            font-size: clamp(50px, 7vw, 82px);
-            font-weight: normal;
-            line-height: 1.05;
-            margin-bottom: 28px;
+        .hero h1 {
+            font-size: clamp(78px, 13vw, 165px);
+            line-height: 0.78;
+            letter-spacing: -0.045em;
+        }
+
+        .hero h1 span {
+            display: block;
+        }
+
+        .hero h1 span:last-child {
+            color: #cfad65;
         }
 
         .hero-subtitle {
-            font-size: 21px;
-            font-style: italic;
-            color: #c9c2ba;
             max-width: 680px;
-            margin: 0 auto;
+
+            margin: 42px auto 0;
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(22px, 3vw, 31px);
+            line-height: 1.3;
+
+            color: rgba(242,238,231,0.78);
         }
 
-        /* INTRODUZIONE */
-
-        section {
-            padding: 100px 8%;
-        }
-
-        .section-inner {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            font-family: Arial, sans-serif;
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: 0.45;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            font-size: 38px;
-            font-weight: normal;
-            margin-bottom: 30px;
-        }
+        /* =========================
+           INTRO
+        ========================= */
 
         .intro {
-            font-size: 18px;
-            color: #c4beb8;
+            padding: 120px 0 90px;
+            text-align: center;
+        }
+
+        .intro h2 {
+            margin-top: 18px;
+
+            font-size: clamp(52px, 7vw, 80px);
+            line-height: 0.9;
         }
 
         .intro p {
-            margin-bottom: 22px;
+            max-width: 720px;
+
+            margin: 32px auto 0;
+
+            color: rgba(242,238,231,0.68);
+            font-size: 15px;
+            line-height: 1.9;
         }
 
-        .intro p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* RACCONTI */
-
-        .stories-section {
-            border-top: 1px solid rgba(255,255,255,0.06);
-        }
+        /* =========================
+           STORIES
+        ========================= */
 
         .stories {
-            max-width: 1000px;
-            margin: 55px auto 0;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            padding: 50px 0 140px;
         }
 
-        .story {
-            min-height: 390px;
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 35px 30px;
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .story-card {
+            min-height: 300px;
+
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: border-color 0.3s, background 0.3s;
+
+            padding: 34px 30px;
+
+            border: 1px solid rgba(242,238,231,0.12);
+
+            background: rgba(9,9,9,0.32);
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                background 0.35s ease;
         }
 
-        .story:hover {
-            border-color: rgba(255,255,255,0.22);
-            background: rgba(255,255,255,0.015);
+        .story-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(207,174,101,0.45);
+            background: rgba(9,9,9,0.48);
         }
 
         .story-number {
-            font-family: Arial, sans-serif;
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: 0.4;
+            color: rgba(207,174,101,0.72);
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: 22px;
         }
 
-        .story-content {
-            margin-top: 45px;
-        }
+        .story-card h3 {
+            margin-top: auto;
+            padding-top: 60px;
 
-        .story h3 {
-            font-size: 27px;
-            font-weight: normal;
-            line-height: 1.2;
-            margin-bottom: 18px;
-        }
-
-        .story p {
-            font-size: 15px;
-            color: #aaa49e;
-        }
-
-        .story-footer {
-            margin-top: 35px;
+            font-size: clamp(34px, 4vw, 48px);
+            line-height: 0.92;
         }
 
         .story-status {
-            font-family: Arial, sans-serif;
-            font-size: 9px;
-            letter-spacing: 2px;
+            margin-top: 26px;
+
+            color: rgba(242,238,231,0.40);
+
+            font-size: 10px;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            opacity: 0.5;
         }
 
-        .story-link {
-            display: inline-block;
-            margin-top: 12px;
-            font-family: Arial, sans-serif;
-            font-size: 9px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            opacity: 0.75;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            padding-bottom: 3px;
-            transition: opacity 0.3s;
-        }
-
-        .story-link:hover {
-            opacity: 1;
-        }
-
-        /* SEZIONE FUTURA */
+        /* =========================
+           FUTURE
+        ========================= */
 
         .future {
+            padding: 110px 0 150px;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.06);
         }
 
-        .future-inner {
-            max-width: 750px;
-            margin: 0 auto;
+        .future h2 {
+            margin-top: 18px;
+
+            font-size: clamp(54px, 7vw, 82px);
+            line-height: 0.9;
         }
 
         .future p {
-            font-size: 18px;
-            color: #bdb7b1;
+            margin-top: 28px;
+
+            color: rgba(242,238,231,0.62);
+
+            font-size: 15px;
+            line-height: 1.8;
         }
 
-        /* FOOTER */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            border-top: 1px solid rgba(255,255,255,0.08);
-            padding: 35px 8%;
+            position: relative;
+            z-index: 1;
+
+            padding: 30px 6%;
+
+            border-top: 1px solid rgba(242,238,231,0.08);
+
             text-align: center;
-            font-family: Arial, sans-serif;
+
+            color: rgba(242,238,231,0.35);
+
             font-size: 10px;
-            letter-spacing: 2px;
-            opacity: 0.45;
+            letter-spacing: 0.12em;
         }
 
-        /* TABLET */
-
-        @media (max-width: 900px) {
-
-            .stories {
-                grid-template-columns: 1fr;
-                max-width: 650px;
-            }
-
-            .story {
-                min-height: 300px;
-            }
-        }
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 800px) {
 
             nav {
-                padding: 18px 5%;
+                padding: 20px 5%;
             }
 
-            nav ul {
+            .nav-links {
                 gap: 14px;
+            }
+
+            .nav-links a {
                 font-size: 9px;
             }
 
-            .hero {
-                padding: 140px 7% 80px;
-                min-height: 60vh;
-            }
-
-            section {
-                padding: 75px 7%;
-            }
-
-            h2 {
-                font-size: 32px;
-            }
-
-            .intro,
-            .future p {
-                font-size: 16px;
-            }
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 500px) {
-
-            nav {
-                position: relative;
-                padding: 20px 5%;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 12px 18px;
+            .nav-links a:nth-child(1) {
+                display: none;
             }
 
             .hero {
-                padding: 80px 6% 70px;
+                padding-top: 130px;
             }
 
-            h1 {
-                font-size: 48px;
+            .hero h1 {
+                font-size: clamp(68px, 18vw, 110px);
             }
 
             .hero-subtitle {
-                font-size: 18px;
+                font-size: 22px;
+                margin-top: 34px;
             }
 
-            section {
-                padding: 65px 6%;
+            .intro {
+                padding-top: 90px;
             }
 
-            h2 {
-                font-size: 30px;
+            .story-grid {
+                grid-template-columns: 1fr;
             }
 
-            .stories {
-                margin-top: 40px;
+            .story-card {
+                min-height: 250px;
             }
 
-            .story {
-                padding: 30px 25px;
-                min-height: 330px;
-            }
-
-            .story h3 {
-                font-size: 24px;
-            }
-
-            .story p {
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 340px) {
-
-            h1 {
-                font-size: 40px;
-            }
-
-            nav ul {
-                font-size: 8px;
+            .future {
+                padding: 100px 0 120px;
             }
         }
     </style>
@@ -376,50 +519,77 @@
 
 <body>
 
-<nav>
-    <a href="index.html" class="logo">ALYSSCRIPTUM</a>
+    <!-- BACKGROUND -->
+    <div class="background-effects">
 
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="libro.html">Libro</a></li>
-        <li><a href="saga.html">Saga</a></li>
-        <li><a href="racconti.html">Racconti</a></li>
-        <li><a href="autrice.html">Autrice</a></li>
-    </ul>
-</nav>
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+        <div class="glow glow-4"></div>
+        <div class="glow glow-5"></div>
+        <div class="glow glow-6"></div>
 
-
-<main>
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <div class="hero-inner">
-
-            <div class="eyebrow">
-                Storie oltre la saga
-            </div>
-
-            <h1>
-                Racconti
-            </h1>
-
-            <p class="hero-subtitle">
-                Storie brevi, frammenti di mondi e personaggi che meritano
-                una pagina tutta per loro.
-            </p>
-
+        <div class="vaelor-line line-gold">
+            <div class="line-inner"></div>
         </div>
 
-    </section>
+        <div class="vaelor-line line-silver">
+            <div class="line-inner"></div>
+        </div>
 
+        <div class="vaelor-line line-purple">
+            <div class="line-inner"></div>
+        </div>
 
-    <!-- INTRODUZIONE -->
+        <div class="vaelor-line line-blue">
+            <div class="line-inner"></div>
+        </div>
 
-    <section>
+    </div>
 
-        <div class="section-inner">
+    <!-- NAV -->
+    <nav>
+
+        <a href="index.html" class="nav-logo">
+            ALYSSCRIPTUM
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="libro.html">In arrivo</a>
+            <a href="saga.html">Saga</a>
+            <a href="racconti.html">Racconti</a>
+            <a href="autrice.html">Autrice</a>
+        </div>
+
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Storie oltre la saga
+                </div>
+
+                <h1>
+                    <span>Racconti</span>
+                    <span>e frammenti</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Storie brevi, frammenti di mondi e personaggi che meritano una pagina tutta per loro.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- INTRO -->
+        <section class="intro">
 
             <div class="section-label">
                 Oltre i romanzi
@@ -429,180 +599,154 @@
                 Altre storie.
             </h2>
 
-            <div class="intro">
+            <p>
+                Non tutte le storie hanno bisogno di cinque romanzi per essere raccontate.
+                Questa sezione raccoglie racconti ambientati a Vaelor, storie indipendenti
+                e frammenti dedicati a personaggi, eventi e momenti che meritano di essere
+                raccontati oltre le pagine della saga.
+            </p>
 
-                <p>
-                    Non tutte le storie hanno bisogno di cinque romanzi per essere raccontate.
-                    Alcune arrivano in punta di piedi, restano per poche pagine
-                    e lasciano comunque qualcosa dietro di sé.
-                </p>
+        </section>
 
-                <p>
-                    Questa sezione raccoglie racconti ambientati nell'universo di
-                    Alysscriptum, storie indipendenti e frammenti che possono
-                    appartenere allo stesso mondo o esistere completamente da soli.
-                </p>
+        <!-- STORIES -->
+        <section class="stories">
 
-            </div>
+            <div class="story-grid">
 
-        </div>
+                <article class="story-card">
 
-    </section>
-
-
-    <!-- RACCONTI -->
-
-    <section class="stories-section">
-
-        <div class="section-inner">
-
-            <div class="section-label">
-                I racconti
-            </div>
-
-            <h2>
-                Da leggere
-            </h2>
-
-            <div class="stories">
-
-                <!-- IL GIURAMENTO -->
-
-                <article class="story">
-
-                    <div>
-                        <div class="story-number">
-                            Racconto I
-                        </div>
-
-                        <div class="story-content">
-
-                            <h3>
-                                Il Giuramento
-                            </h3>
-
-                            <p>
-                                Un giuramento può essere pronunciato in un istante.
-                                Mantenerlo può cambiare una vita intera.
-                            </p>
-
-                        </div>
+                    <div class="story-number">
+                        Racconto I
                     </div>
 
-                    <div class="story-footer">
+                    <div>
+                        <h3>
+                            Il Giuramento
+                        </h3>
 
                         <div class="story-status">
                             Prossimamente
                         </div>
-
                     </div>
 
                 </article>
 
+                <article class="story-card">
 
-                <!-- LE CENERI DI AERITH -->
-
-                <article class="story">
-
-                    <div>
-                        <div class="story-number">
-                            Racconto II
-                        </div>
-
-                        <div class="story-content">
-
-                            <h3>
-                                Le Ceneri di Aerith
-                            </h3>
-
-                            <p>
-                                Alcune cose finiscono con il fuoco.
-                                Altre cominciano proprio da ciò che ne rimane.
-                            </p>
-
-                        </div>
+                    <div class="story-number">
+                        Racconto II
                     </div>
 
-                    <div class="story-footer">
+                    <div>
+                        <h3>
+                            Le Ceneri di Aerith
+                        </h3>
 
                         <div class="story-status">
                             Prossimamente
                         </div>
-
                     </div>
 
                 </article>
 
+                <article class="story-card">
 
-                <!-- LE ULTIME FIGLIE -->
-
-                <article class="story">
-
-                    <div>
-                        <div class="story-number">
-                            Racconto III
-                        </div>
-
-                        <div class="story-content">
-
-                            <h3>
-                                Le Ultime Figlie
-                            </h3>
-
-                            <p>
-                                Quando una storia sta per finire, qualcuno deve
-                                ancora avere il coraggio di raccontarne l'inizio.
-                            </p>
-
-                        </div>
+                    <div class="story-number">
+                        Racconto III
                     </div>
 
-                    <div class="story-footer">
+                    <div>
+                        <h3>
+                            Le Ultime Figlie
+                        </h3>
 
                         <div class="story-status">
                             Prossimamente
                         </div>
-
                     </div>
 
                 </article>
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
-
-
-    <!-- FUTURO -->
-
-    <section class="future">
-
-        <div class="future-inner">
+        <!-- FUTURE -->
+        <section class="future">
 
             <div class="section-label">
                 In arrivo
             </div>
 
             <h2>
-                Altre storie arriveranno.
+                Altre storie<br>arriveranno.
             </h2>
 
             <p>
-                Questa pagina crescerà insieme all'universo di Alysscriptum,
-                con nuovi racconti e nuove storie da scoprire.
+                Alcune aspettano soltanto il momento giusto per essere raccontate.
             </p>
 
-        </div>
+        </section>
 
-    </section>
+    </main>
 
-</main>
+    <footer>
+        © 2026 Alysscriptum · Alyssa B. Flowered
+    </footer>
 
+    <script>
+        let currentScroll = 0;
+        let targetScroll = window.scrollY;
 
-<footer>
-    © 2026 Alysscriptum · Alyssa B. Flowered
-</footer>
+        const lines = document.querySelectorAll(".vaelor-line");
+
+        const speeds = [
+            0.055,
+            -0.038,
+            0.072,
+            -0.048
+        ];
+
+        const rotations = [
+            0.003,
+            -0.002,
+            0.004,
+            -0.003
+        ];
+
+        const scales = [
+            0.00008,
+            -0.00006,
+            0.0001,
+            -0.00007
+        ];
+
+        window.addEventListener("scroll", () => {
+            targetScroll = window.scrollY;
+        });
+
+        function animateBackground() {
+            currentScroll += (targetScroll - currentScroll) * 0.08;
+
+            lines.forEach((line, index) => {
+
+                const inner = line.querySelector(".line-inner");
+
+                const y = currentScroll * speeds[index];
+                const rotation = currentScroll * rotations[index];
+                const scale = 1 + currentScroll * scales[index];
+
+                inner.style.transform =
+                    `translate3d(0, ${y}px, 0)
+                     rotate(${rotation}deg)
+                     scaleY(${scale})`;
+            });
+
+            requestAnimationFrame(animateBackground);
+        }
+
+        animateBackground();
+    </script>
 
 </body>
 </html>
