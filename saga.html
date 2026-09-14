@@ -1,1247 +1,748 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Le Cronache delle Fratture | Alysscriptum</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #090909;
-    color: #f1eee8;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-}
-
-
-/* =====================================================
-   BACKGROUND
-===================================================== */
-
-.background-effects {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
-    background: #090909;
-}
-
-
-/* BAGLIORI DORATI */
-
-.glow {
-    position: absolute;
-
-    width: 260px;
-    height: 260px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(207,174,101,0.16) 0%,
-            rgba(207,174,101,0.06) 28%,
-            transparent 70%
-        );
-
-    filter: blur(18px);
-
-    animation:
-        glowMove 12s ease-in-out infinite alternate;
-}
-
-.glow-1 {
-    top: 8%;
-    left: 10%;
-}
-
-.glow-2 {
-    top: 28%;
-    right: 8%;
-    animation-delay: -2s;
-}
-
-.glow-3 {
-    top: 47%;
-    left: 23%;
-    animation-delay: -5s;
-}
-
-.glow-4 {
-    top: 64%;
-    right: 20%;
-    animation-delay: -3s;
-}
-
-.glow-5 {
-    top: 79%;
-    left: 7%;
-    animation-delay: -7s;
-}
-
-.glow-6 {
-    top: 92%;
-    right: 11%;
-    animation-delay: -4s;
-}
-
-@keyframes glowMove {
-
-    0% {
-        transform:
-            translate3d(-10px, -8px, 0)
-            scale(0.92);
-
-        opacity: 0.55;
-    }
-
-    100% {
-        transform:
-            translate3d(15px, 12px, 0)
-            scale(1.08);
-
-        opacity: 0.85;
-    }
-}
-
-
-/* =====================================================
-   QUATTRO LINEE DI VAELOR
-===================================================== */
-
-.vaelor-line {
-    position: absolute;
-
-    left: -25%;
-
-    width: 150%;
-    height: 190px;
-
-    opacity: 0.27;
-
-    transform-origin: center;
-}
-
-.line-inner {
-    width: 100%;
-    height: 100%;
-
-    border-radius: 50%;
-
-    border-top: 1px solid currentColor;
-    border-bottom: 1px solid transparent;
-
-    filter: blur(0.2px);
-}
-
-
-/* ORO */
-
-.line-gold {
-    top: 13%;
-    color: rgba(207,174,101,0.90);
-}
-
-
-/* ARGENTO */
-
-.line-silver {
-    top: 36%;
-    color: rgba(190,196,207,0.86);
-}
-
-
-/* VIOLA */
-
-.line-purple {
-    top: 61%;
-    color: rgba(145,112,180,0.90);
-}
-
-
-/* BLU */
-
-.line-blue {
-    top: 82%;
-    color: rgba(91,137,184,0.90);
-}
-
-
-/* ANIMAZIONI */
-
-.line-gold .line-inner {
-    animation:
-        goldWave 11s ease-in-out infinite alternate;
-}
-
-.line-silver .line-inner {
-    animation:
-        silverWave 14s ease-in-out infinite alternate;
-}
-
-.line-purple .line-inner {
-    animation:
-        purpleWave 13s ease-in-out infinite alternate;
-}
-
-.line-blue .line-inner {
-    animation:
-        blueWave 16s ease-in-out infinite alternate;
-}
-
-
-@keyframes goldWave {
-
-    0% {
-        transform:
-            translateX(-4%)
-            rotate(-2deg)
-            scaleY(0.85);
-    }
-
-    100% {
-        transform:
-            translateX(5%)
-            rotate(2deg)
-            scaleY(1.15);
-    }
-}
-
-
-@keyframes silverWave {
-
-    0% {
-        transform:
-            translateX(5%)
-            rotate(1.5deg)
-            scaleY(1.05);
-    }
-
-    100% {
-        transform:
-            translateX(-4%)
-            rotate(-2deg)
-            scaleY(0.85);
-    }
-}
-
-
-@keyframes purpleWave {
-
-    0% {
-        transform:
-            translateX(-3%)
-            rotate(-1.5deg)
-            scaleY(0.90);
-    }
-
-    100% {
-        transform:
-            translateX(4%)
-            rotate(2deg)
-            scaleY(1.10);
-    }
-}
-
-
-@keyframes blueWave {
-
-    0% {
-        transform:
-            translateX(4%)
-            rotate(2deg)
-            scaleY(1.10);
-    }
-
-    100% {
-        transform:
-            translateX(-5%)
-            rotate(-2deg)
-            scaleY(0.88);
-    }
-}
-
-
-/* =====================================================
-   NAV
-===================================================== */
-
-nav {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    padding: 24px 6%;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    z-index: 20;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(8,8,8,0.88),
-            rgba(8,8,8,0)
-        );
-}
-
-.logo {
-    color: #f1eee8;
-
-    text-decoration: none;
-
-    font-size: 16px;
-    font-weight: 500;
-
-    letter-spacing: 0.22em;
-}
-
-.nav-links {
-    display: flex;
-    gap: 34px;
-}
-
-.nav-links a {
-    color:
-        rgba(241,238,232,0.72);
-
-    text-decoration: none;
-
-    font-size: 10px;
-
-    letter-spacing: 0.18em;
-
-    text-transform: uppercase;
-
-    transition:
-        color 0.3s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: #cfb067;
-}
-
-
-/* =====================================================
-   MAIN
-===================================================== */
-
-main {
-    position: relative;
-    z-index: 2;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero {
-    min-height: 82vh;
-
-    padding:
-        190px 8%
-        110px;
-
-    display: flex;
-    align-items: center;
-
-    position: relative;
-}
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 620px;
-    height: 620px;
-
-    left: 48%;
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(207,174,101,0.055),
-            transparent 68%
-        );
-
-    pointer-events: none;
-}
-
-.hero-content {
-    max-width: 980px;
-
-    position: relative;
-}
-
-.eyebrow {
-    color: #cfb067;
-
-    font-size: 10px;
-    font-weight: 500;
-
-    letter-spacing: 0.28em;
-
-    text-transform: uppercase;
-
-    margin-bottom: 28px;
-}
-
-.hero h1 {
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:
-        clamp(70px, 11vw, 145px);
-
-    line-height: 0.82;
-
-    font-weight: 500;
-
-    letter-spacing: -0.045em;
-
-    margin-bottom: 38px;
-}
-
-.hero h1 span {
-    display: block;
-}
-
-.hero h1 span:last-child {
-    color: #cfb067;
-
-    font-style: italic;
-}
-
-.hero-subtitle {
-    max-width: 720px;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:
-        clamp(22px, 3vw, 31px);
-
-    line-height: 1.28;
-
-    color:
-        rgba(241,238,232,0.84);
-}
-
-
-/* =====================================================
-   SEZIONI
-===================================================== */
-
-.section {
-    padding: 120px 8%;
-
-    position: relative;
-}
-
-.section-inner {
-    max-width: 1050px;
-
-    margin: 0 auto;
-}
-
-.section-label {
-    color: #cfb067;
-
-    font-size: 10px;
-    font-weight: 500;
-
-    letter-spacing: 0.26em;
-
-    text-transform: uppercase;
-
-    margin-bottom: 20px;
-}
-
-.section h2 {
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:
-        clamp(48px, 6vw, 76px);
-
-    line-height: 0.95;
-
-    font-weight: 500;
-
-    margin-bottom: 30px;
-}
-
-.section p {
-    max-width: 760px;
-
-    color:
-        rgba(241,238,232,0.68);
-
-    font-size: 14px;
-
-    line-height: 1.9;
-}
-
-
-/* =====================================================
-   VOLUMI
-===================================================== */
-
-.saga-section {
-    padding-top: 110px;
-
-    padding-bottom: 150px;
-}
-
-.saga-intro {
-    margin-bottom: 80px;
-}
-
-.saga-intro p {
-    max-width: 700px;
-}
-
-.volumes {
-    margin-top: 60px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,0.10);
-}
-
-.volume {
-    display: grid;
-
-    grid-template-columns:
-        100px 1fr auto;
-
-    align-items: center;
-
-    gap: 40px;
-
-    padding: 38px 0;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,0.10);
-
-    transition:
-        padding 0.35s ease,
-        background 0.35s ease;
-}
-
-.volume:hover {
-    padding-left: 16px;
-    padding-right: 16px;
-
-    background:
-        rgba(255,255,255,0.015);
-}
-
-.volume-number {
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 18px;
-
-    color:
-        rgba(207,174,101,0.65);
-
-    letter-spacing: 0.08em;
-}
-
-.volume-title {
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:
-        clamp(25px, 3vw, 36px);
-
-    line-height: 1;
-
-    color: #f1eee8;
-}
-
-.volume-status {
-    font-size: 9px;
-
-    color:
-        rgba(241,238,232,0.42);
-
-    letter-spacing: 0.2em;
-
-    text-transform: uppercase;
-
-    white-space: nowrap;
-}
-
-
-/* =====================================================
-   VAELOR
-===================================================== */
-
-.vaelor-section {
-    padding-top: 20px;
-
-    padding-bottom: 160px;
-}
-
-.vaelor-box {
-    position: relative;
-
-    padding: 75px 8%;
-
-    border:
-        1px solid
-        rgba(207,174,101,0.14);
-
-    background:
-        rgba(10,10,11,0.38);
-
-    overflow: hidden;
-}
-
-.vaelor-box::before {
-    content: "";
-
-    position: absolute;
-
-    width: 460px;
-    height: 460px;
-
-    right: -180px;
-    top: -200px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(91,137,184,0.075),
-            transparent 70%
-        );
-}
-
-.vaelor-box h2 {
-    position: relative;
-
-    margin-bottom: 25px;
-}
-
-.vaelor-box p {
-    position: relative;
-
-    max-width: 700px;
-}
-
-.cta {
-    display: inline-block;
-
-    margin-top: 42px;
-
-    padding: 15px 28px;
-
-    border:
-        1px solid
-        rgba(207,174,101,0.45);
-
-    color: #cfb067;
-
-    text-decoration: none;
-
-    font-size: 10px;
-
-    letter-spacing: 0.2em;
-
-    text-transform: uppercase;
-
-    transition:
-        all 0.3s ease;
-}
-
-.cta:hover {
-    background:
-        rgba(207,174,101,0.10);
-
-    border-color:
-        #cfb067;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer {
-    position: relative;
-
-    z-index: 2;
-
-    padding: 50px 8%;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,0.08);
-
-    color:
-        rgba(241,238,232,0.35);
-
-    text-align: center;
-
-    font-size: 9px;
-
-    letter-spacing: 0.18em;
-
-    text-transform: uppercase;
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 700px) {
-
-    nav {
-        padding: 20px 5%;
-    }
-
-    .logo {
-        font-size: 13px;
-    }
-
-    .nav-links {
-        gap: 13px;
-    }
-
-    .nav-links a {
-        font-size: 8px;
-
-        letter-spacing: 0.10em;
-    }
-
-    .hero {
-        min-height: 76vh;
-
-        padding:
-            160px 7%
-            85px;
-    }
-
-    .hero h1 {
-        font-size:
-            clamp(62px, 17vw, 92px);
-    }
-
-    .section {
-        padding: 90px 7%;
-    }
-
-    .saga-section {
-        padding-top: 90px;
-
-        padding-bottom: 110px;
-    }
-
-    .volume {
-        grid-template-columns:
-            55px 1fr;
-
-        gap: 15px;
-
-        padding: 28px 0;
-    }
-
-    .volume-status {
-        grid-column: 2;
-    }
-
-    .volume-title {
-        font-size: 27px;
-    }
-
-    .vaelor-section {
-        padding-top: 10px;
-
-        padding-bottom: 110px;
-    }
-
-    .vaelor-box {
-        padding: 55px 7%;
-    }
-
-}
-
-
-/* =====================================================
-   FINE CSS
-===================================================== */
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Le Cronache delle Fratture · Alysscriptum</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #090909;
+            color: #f2eee7;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        .background-effects {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+            background: #090909;
+        }
+
+        .glow {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(207,174,101,0.16) 0%,
+                rgba(207,174,101,0.06) 28%,
+                transparent 70%
+            );
+            filter: blur(18px);
+            animation: glowMove 12s ease-in-out infinite alternate;
+        }
+
+        .glow-1 {
+            top: 8%;
+            left: 10%;
+        }
+
+        .glow-2 {
+            top: 28%;
+            right: 8%;
+            animation-delay: -2s;
+        }
+
+        .glow-3 {
+            top: 47%;
+            left: 23%;
+            animation-delay: -5s;
+        }
+
+        .glow-4 {
+            top: 64%;
+            right: 20%;
+            animation-delay: -3s;
+        }
+
+        .glow-5 {
+            top: 79%;
+            left: 7%;
+            animation-delay: -7s;
+        }
+
+        .glow-6 {
+            top: 92%;
+            right: 11%;
+            animation-delay: -4s;
+        }
+
+        @keyframes glowMove {
+            0% {
+                transform: translate3d(-10px, -8px, 0) scale(0.92);
+                opacity: 0.55;
+            }
+
+            100% {
+                transform: translate3d(15px, 12px, 0) scale(1.08);
+                opacity: 0.85;
+            }
+        }
+
+        .vaelor-line {
+            position: absolute;
+            left: -25%;
+            width: 150%;
+            height: 190px;
+            opacity: 0.27;
+            transform-origin: center;
+        }
+
+        .line-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border-top: 1px solid currentColor;
+            border-bottom: 1px solid transparent;
+            filter: blur(0.2px);
+        }
+
+        .line-gold {
+            top: 13%;
+            color: rgba(207,174,101,0.90);
+        }
+
+        .line-silver {
+            top: 36%;
+            color: rgba(190,196,207,0.86);
+        }
+
+        .line-purple {
+            top: 61%;
+            color: rgba(145,112,180,0.90);
+        }
+
+        .line-blue {
+            top: 82%;
+            color: rgba(91,137,184,0.90);
+        }
+
+        .line-gold .line-inner {
+            animation: goldWave 11s ease-in-out infinite alternate;
+        }
+
+        .line-silver .line-inner {
+            animation: silverWave 14s ease-in-out infinite alternate;
+        }
+
+        .line-purple .line-inner {
+            animation: purpleWave 13s ease-in-out infinite alternate;
+        }
+
+        .line-blue .line-inner {
+            animation: blueWave 16s ease-in-out infinite alternate;
+        }
+
+        @keyframes goldWave {
+            0% {
+                transform: translateX(-4%) rotate(-2deg) scaleY(0.85);
+            }
+
+            100% {
+                transform: translateX(5%) rotate(2deg) scaleY(1.15);
+            }
+        }
+
+        @keyframes silverWave {
+            0% {
+                transform: translateX(5%) rotate(1.5deg) scaleY(1.05);
+            }
+
+            100% {
+                transform: translateX(-4%) rotate(-2deg) scaleY(0.85);
+            }
+        }
+
+        @keyframes purpleWave {
+            0% {
+                transform: translateX(-3%) rotate(-1.5deg) scaleY(0.9);
+            }
+
+            100% {
+                transform: translateX(4%) rotate(2deg) scaleY(1.1);
+            }
+        }
+
+        @keyframes blueWave {
+            0% {
+                transform: translateX(4%) rotate(2deg) scaleY(1.1);
+            }
+
+            100% {
+                transform: translateX(-5%) rotate(-2deg) scaleY(0.88);
+            }
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 6%;
+            background: linear-gradient(
+                to bottom,
+                rgba(9,9,9,0.88),
+                rgba(9,9,9,0)
+            );
+        }
+
+        .nav-logo {
+            color: #f2eee7;
+            text-decoration: none;
+            font-size: 15px;
+            letter-spacing: 0.25em;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: rgba(242,238,231,0.72);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #cfad65;
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            width: min(1100px, 88%);
+            margin: 0 auto;
+        }
+
+        .eyebrow,
+        .section-label {
+            color: #cfad65;
+            font-size: 11px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-weight: 500;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 150px 20px 100px;
+        }
+
+        .hero-content {
+            max-width: 950px;
+        }
+
+        .hero .eyebrow {
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(70px, 11vw, 150px);
+            line-height: 0.78;
+            letter-spacing: -0.045em;
+        }
+
+        .hero h1 span {
+            display: block;
+        }
+
+        .hero h1 span:last-child {
+            color: #cfad65;
+        }
+
+        .hero-subtitle {
+            max-width: 650px;
+            margin: 42px auto 0;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(22px, 3vw, 31px);
+            line-height: 1.3;
+            color: rgba(242,238,231,0.78);
+        }
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+            padding: 120px 0 100px;
+            text-align: center;
+        }
+
+        .intro h2 {
+            margin-top: 18px;
+            font-size: clamp(48px, 7vw, 76px);
+            line-height: 0.95;
+        }
+
+        .intro p {
+            max-width: 720px;
+            margin: 30px auto 0;
+            color: rgba(242,238,231,0.68);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        /* =========================
+           VOLUMES
+        ========================= */
+
+        .volumes {
+            padding: 50px 0 130px;
+        }
+
+        .volume {
+            display: grid;
+            grid-template-columns: 110px 1fr auto;
+            align-items: center;
+            gap: 35px;
+            padding: 38px 0;
+            border-top: 1px solid rgba(242,238,231,0.12);
+        }
+
+        .volume:last-child {
+            border-bottom: 1px solid rgba(242,238,231,0.12);
+        }
+
+        .volume-number {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 24px;
+            color: rgba(207,174,101,0.75);
+        }
+
+        .volume h3 {
+            font-size: clamp(30px, 4vw, 46px);
+            line-height: 1;
+        }
+
+        .volume-status {
+            color: rgba(242,238,231,0.42);
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           VAELOR
+        ========================= */
+
+        .world {
+            padding: 130px 0;
+            text-align: center;
+        }
+
+        .world h2 {
+            margin-top: 18px;
+            font-size: clamp(60px, 9vw, 105px);
+            line-height: 0.9;
+            color: #cfad65;
+        }
+
+        .world p {
+            max-width: 680px;
+            margin: 32px auto 0;
+            color: rgba(242,238,231,0.65);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        /* =========================
+           FIRST BOOK
+        ========================= */
+
+        .first-book {
+            padding: 120px 0 150px;
+            text-align: center;
+        }
+
+        .first-book h2 {
+            margin-top: 20px;
+            font-size: clamp(52px, 7vw, 82px);
+            line-height: 0.9;
+        }
+
+        .first-book h2 span {
+            display: block;
+            color: #cfad65;
+        }
+
+        .first-book p {
+            max-width: 680px;
+            margin: 30px auto 35px;
+            color: rgba(242,238,231,0.66);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 28px;
+            border: 1px solid rgba(207,174,101,0.55);
+            color: #f2eee7;
+            text-decoration: none;
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .button:hover {
+            background: #cfad65;
+            border-color: #cfad65;
+            color: #090909;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            position: relative;
+            z-index: 1;
+            padding: 30px 6%;
+            border-top: 1px solid rgba(242,238,231,0.08);
+            text-align: center;
+            color: rgba(242,238,231,0.35);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 20px 5%;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .nav-links a {
+                font-size: 9px;
+            }
+
+            .nav-links a:nth-child(1) {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero h1 {
+                font-size: clamp(62px, 17vw, 100px);
+            }
+
+            .hero-subtitle {
+                font-size: 22px;
+                margin-top: 34px;
+            }
+
+            .intro {
+                padding-top: 90px;
+            }
+
+            .volume {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 30px 0;
+            }
+
+            .volume-number {
+                font-size: 20px;
+            }
+
+            .volume-status {
+                margin-top: 4px;
+            }
+
+            .world,
+            .first-book {
+                padding: 100px 0;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
+    <!-- BACKGROUND -->
+    <div class="background-effects">
 
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+        <div class="glow glow-4"></div>
+        <div class="glow glow-5"></div>
+        <div class="glow glow-6"></div>
 
-<div class="background-effects">
-
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
-    <div class="glow glow-3"></div>
-    <div class="glow glow-4"></div>
-    <div class="glow glow-5"></div>
-    <div class="glow glow-6"></div>
-
-
-    <div class="vaelor-line line-gold">
-        <div class="line-inner"></div>
-    </div>
-
-
-    <div class="vaelor-line line-silver">
-        <div class="line-inner"></div>
-    </div>
-
-
-    <div class="vaelor-line line-purple">
-        <div class="line-inner"></div>
-    </div>
-
-
-    <div class="vaelor-line line-blue">
-        <div class="line-inner"></div>
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     NAV
-===================================================== -->
-
-<nav>
-
-    <a href="index.html" class="logo">
-        ALYSSCRIPTUM
-    </a>
-
-
-    <div class="nav-links">
-
-        <a href="index.html">
-            Home
-        </a>
-
-
-        <a href="libro.html">
-            In arrivo
-        </a>
-
-
-        <a href="saga.html" class="active">
-            Saga
-        </a>
-
-
-        <a href="racconti.html">
-            Racconti
-        </a>
-
-
-        <a href="autrice.html">
-            Autrice
-        </a>
-
-    </div>
-
-</nav>
-
-
-<!-- =====================================================
-     CONTENUTO
-===================================================== -->
-
-<main>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-
-        <div class="eyebrow">
-            La saga
+        <div class="vaelor-line line-gold">
+            <div class="line-inner"></div>
         </div>
 
-
-        <h1>
-
-            <span>
-                Le Cronache
-            </span>
-
-            <span>
-                delle Fratture
-            </span>
-
-        </h1>
-
-
-        <div class="hero-subtitle">
-            Cinque romanzi. Un mondo spezzato. E una verità che non può restare nascosta per sempre.
+        <div class="vaelor-line line-silver">
+            <div class="line-inner"></div>
         </div>
 
+        <div class="vaelor-line line-purple">
+            <div class="line-inner"></div>
+        </div>
+
+        <div class="vaelor-line line-blue">
+            <div class="line-inner"></div>
+        </div>
 
     </div>
 
-</section>
+    <!-- NAV -->
+    <nav>
+        <a href="index.html" class="nav-logo">ALYSSCRIPTUM</a>
 
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="libro.html">In arrivo</a>
+            <a href="saga.html">Saga</a>
+            <a href="racconti.html">Racconti</a>
+            <a href="autrice.html">Autrice</a>
+        </div>
+    </nav>
 
-<!-- =====================================================
-     INTRO
-===================================================== -->
+    <main>
 
-<section class="section saga-section">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
 
-    <div class="section-inner">
+                <div class="eyebrow">La saga</div>
 
+                <h1>
+                    <span>Le Cronache</span>
+                    <span>delle Fratture</span>
+                </h1>
 
-        <div class="saga-intro">
+                <p class="hero-subtitle">
+                    Cinque romanzi. Un mondo spezzato. E una verità che non può restare nascosta per sempre.
+                </p>
 
-
-            <div class="section-label">
-                La saga
             </div>
+        </section>
 
+        <!-- INTRO -->
+        <section class="intro">
 
-            <h2>
-                Cinque storie.<br>
-                Un unico filo.
-            </h2>
+            <div class="section-label">La saga</div>
 
+            <h2>Una storia.<br>Cinque romanzi.</h2>
 
             <p>
-                Le Cronache delle Fratture raccontano una storia che si sviluppa
-                attraverso cinque romanzi. Il primo apre il viaggio; ciò che viene
-                dopo ne raccoglie le conseguenze, allargando poco alla volta
+                Le Cronache delle Fratture raccontano un'unica storia che si sviluppa attraverso cinque romanzi.
+                Il primo apre la strada; ciò che viene dopo ne raccoglie le conseguenze, allargando poco alla volta
                 ciò che si conosce di questa storia e delle persone che la vivono.
             </p>
 
+        </section>
 
-        </div>
-
-
-        <!-- =================================================
-             VOLUMI
-        ================================================= -->
-
-        <div class="volumes">
-
+        <!-- VOLUMES -->
+        <section class="volumes">
 
             <div class="volume">
+                <div class="volume-number">Volume I</div>
 
-                <div class="volume-number">
-                    I
-                </div>
+                <h3>La Chiave delle Ombre</h3>
 
-
-                <div class="volume-title">
-                    La Chiave delle Ombre
-                </div>
-
-
-                <div class="volume-status">
-                    Prossimamente
-                </div>
-
+                <div class="volume-status">Prossimamente</div>
             </div>
-
 
             <div class="volume">
+                <div class="volume-number">Volume II</div>
 
-                <div class="volume-number">
-                    II
-                </div>
+                <h3>Il Sangue delle Linee</h3>
 
-
-                <div class="volume-title">
-                    Il Sangue delle Linee
-                </div>
-
-
-                <div class="volume-status">
-                    Prossimamente
-                </div>
-
+                <div class="volume-status">Prossimamente</div>
             </div>
-
 
             <div class="volume">
+                <div class="volume-number">Volume III</div>
 
-                <div class="volume-number">
-                    III
-                </div>
+                <h3>Il Cuore del Vuoto</h3>
 
-
-                <div class="volume-title">
-                    Il Cuore del Vuoto
-                </div>
-
-
-                <div class="volume-status">
-                    Prossimamente
-                </div>
-
+                <div class="volume-status">Prossimamente</div>
             </div>
-
 
             <div class="volume">
+                <div class="volume-number">Volume IV</div>
 
-                <div class="volume-number">
-                    IV
-                </div>
+                <h3>Il Nome delle Cose</h3>
 
-
-                <div class="volume-title">
-                    Il Nome delle Cose
-                </div>
-
-
-                <div class="volume-status">
-                    Prossimamente
-                </div>
-
+                <div class="volume-status">Prossimamente</div>
             </div>
-
 
             <div class="volume">
+                <div class="volume-number">Volume V</div>
 
-                <div class="volume-number">
-                    V
-                </div>
+                <h3>Quando il Mondo Smette di Mentire</h3>
 
-
-                <div class="volume-title">
-                    Quando il Mondo Smette di Mentire
-                </div>
-
-
-                <div class="volume-status">
-                    Prossimamente
-                </div>
-
+                <div class="volume-status">Prossimamente</div>
             </div>
 
+        </section>
 
-        </div>
+        <!-- VAELOR -->
+        <section class="world">
 
-    </div>
+            <div class="section-label">Il mondo</div>
 
-</section>
-
-
-<!-- =====================================================
-     VAELOR
-===================================================== -->
-
-<section class="section vaelor-section">
-
-    <div class="section-inner">
-
-
-        <div class="vaelor-box">
-
-
-            <div class="section-label">
-                Il mondo
-            </div>
-
-
-            <h2>
-                Vaelor.
-            </h2>
-
+            <h2>Vaelor.</h2>
 
             <p>
-                Un mondo da scoprire poco alla volta, attraverso le storie
-                che lo attraversano. Le sue terre, la sua storia e tutto ciò
-                che esiste oltre i romanzi troveranno spazio più avanti.
+                Un mondo da scoprire poco alla volta, attraverso la storia che lo attraversa.
+                Le sue terre, la sua storia e tutto ciò che esiste oltre i romanzi troveranno spazio più avanti.
             </p>
 
+        </section>
 
-        </div>
+        <!-- FIRST BOOK -->
+        <section class="first-book">
 
-    </div>
+            <div class="section-label">Il primo volume</div>
 
-</section>
+            <h2>
+                Tutto comincia
+                <span>con Sofia.</span>
+            </h2>
 
+            <p>
+                La Chiave delle Ombre è il primo passo dentro Vaelor e l'inizio della storia di una ragazza
+                che scoprirà di essere molto più vicina a quel mondo di quanto avrebbe mai potuto immaginare.
+            </p>
 
-</main>
+            <a href="libro.html" class="button">Scopri il libro</a>
 
+        </section>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+    </main>
 
-<footer>
+    <footer>
+        © 2026 Alysscriptum · Alyssa B. Flowered
+    </footer>
 
-    © 2026 Alysscriptum · Alyssa B. Flowered
+    <script>
+        let currentScroll = 0;
+        let targetScroll = window.scrollY;
 
-</footer>
+        const lines = document.querySelectorAll(".vaelor-line");
 
+        const speeds = [
+            0.055,
+            -0.038,
+            0.072,
+            -0.048
+        ];
 
-<!-- =====================================================
-     ANIMAZIONE BACKGROUND
-===================================================== -->
+        const rotations = [
+            0.003,
+            -0.002,
+            0.004,
+            -0.003
+        ];
 
-<script>
+        const scales = [
+            0.00008,
+            -0.00006,
+            0.0001,
+            -0.00007
+        ];
 
-let currentScroll = 0;
+        window.addEventListener("scroll", () => {
+            targetScroll = window.scrollY;
+        });
 
-let targetScroll =
-    window.scrollY;
+        function animateBackground() {
+            currentScroll += (targetScroll - currentScroll) * 0.08;
 
+            lines.forEach((line, index) => {
+                const inner = line.querySelector(".line-inner");
 
-const lines =
-    document.querySelectorAll(
-        ".vaelor-line"
-    );
+                const y = currentScroll * speeds[index];
+                const rotation = currentScroll * rotations[index];
+                const scale = 1 + currentScroll * scales[index];
 
+                inner.style.transform =
+                    `translate3d(0, ${y}px, 0)
+                     rotate(${rotation}deg)
+                     scaleY(${scale})`;
+            });
 
-const speeds = [
-    0.055,
-    -0.038,
-    0.072,
-    -0.048
-];
-
-
-const rotations = [
-    0.003,
-    -0.002,
-    0.004,
-    -0.003
-];
-
-
-const scales = [
-    0.00008,
-    -0.00006,
-    0.0001,
-    -0.00007
-];
-
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        targetScroll =
-            window.scrollY;
-
-    }
-);
-
-
-function animateBackground() {
-
-    currentScroll +=
-        (
-            targetScroll -
-            currentScroll
-        ) * 0.08;
-
-
-    lines.forEach(
-        (line, index) => {
-
-            const inner =
-                line.querySelector(
-                    ".line-inner"
-                );
-
-
-            const y =
-                currentScroll *
-                speeds[index];
-
-
-            const rotation =
-                currentScroll *
-                rotations[index];
-
-
-            const scale =
-                1 +
-                currentScroll *
-                scales[index];
-
-
-            inner.style.transform =
-                `translate3d(0, ${y}px, 0)
-                 rotate(${rotation}deg)
-                 scaleY(${scale})`;
-
+            requestAnimationFrame(animateBackground);
         }
-    );
 
-
-    requestAnimationFrame(
-        animateBackground
-    );
-
-}
-
-
-animateBackground();
-
-</script>
-
+        animateBackground();
+    </script>
 
 </body>
 </html>
