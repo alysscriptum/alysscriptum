@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="La Chiave delle Ombre · Le Cronache delle Fratture, Volume I. Alyssa B. Flowered.">
+<meta
+    name="description"
+    content="La Chiave delle Ombre · Le Cronache delle Fratture, Volume I. Alyssa B. Flowered."
+>
 
 <title>La Chiave delle Ombre | Alysscriptum</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+>
+
 
 <style>
 
@@ -20,7 +37,7 @@
 ========================================================= */
 
 :root {
-    --bg: #09090d;
+    --bg: #08080b;
     --text: #eeeae4;
     --muted: #aaa5a0;
     --gold: #cfb06b;
@@ -38,16 +55,17 @@ html {
 }
 
 body {
-    background: #09090d;
+    background: var(--bg);
     color: var(--text);
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
+    line-height: 1.7;
     overflow-x: hidden;
 }
 
 
 /* =========================================================
-   SFONDO
+   SFONDO DARK FANTASY
 ========================================================= */
 
 .background-effects {
@@ -56,404 +74,263 @@ body {
     pointer-events: none;
     overflow: hidden;
     z-index: -5;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 15%,
+            rgba(55, 38, 48, 0.18),
+            transparent 48%
+        ),
+        radial-gradient(
+            ellipse at 15% 75%,
+            rgba(35, 28, 38, 0.20),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 85% 55%,
+            rgba(25, 34, 43, 0.18),
+            transparent 48%
+        ),
+        #08080b;
 }
 
 
 /* =========================================================
-   LE QUATTRO LINEE DI VAEOLOR
+   OMBRE ATMOSFERICHE
 ========================================================= */
 
-.vaelor-line {
-    position: absolute;
-    width: 150%;
-    height: 190px;
-    left: -25%;
-
-    opacity: 0.24;
-
-    will-change: transform;
-    pointer-events: none;
-}
-
-.vaelor-line::before,
-.vaelor-line::after {
+.background-effects::before {
     content: "";
     position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
+    inset: -20%;
 
-.vaelor-line::before {
-    background: inherit;
-    filter: blur(1px);
-}
+    background:
+        radial-gradient(
+            ellipse at 30% 20%,
+            rgba(105, 76, 65, 0.07),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 70% 80%,
+            rgba(76, 62, 91, 0.06),
+            transparent 40%
+        );
 
-.vaelor-line::after {
-    background: inherit;
-    filter: blur(18px);
-    opacity: 0.45;
-}
-
-
-/* =========================================================
-   LINEA ORO
-========================================================= */
-
-.line-gold {
-    top: 12%;
-    color: rgba(207,174,101,0.82);
-}
-
-.line-gold .line-inner {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    border-top: 1.5px solid currentColor;
-    border-radius: 48% 52% 44% 56%;
-
-    transform-origin: center;
+    filter: blur(45px);
 
     animation:
-        goldWave 11s ease-in-out infinite alternate;
+        shadowDrift 22s ease-in-out infinite alternate;
 }
 
-
-/* =========================================================
-   LINEA ARGENTO
-========================================================= */
-
-.line-silver {
-    top: 35%;
-    color: rgba(190,196,207,0.76);
-}
-
-.line-silver .line-inner {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    border-top: 1.3px solid currentColor;
-    border-radius: 55% 45% 58% 42%;
-
-    transform-origin: center;
-
-    animation:
-        silverWave 14s ease-in-out infinite alternate-reverse;
-}
-
-
-/* =========================================================
-   LINEA VIOLA
-========================================================= */
-
-.line-purple {
-    top: 59%;
-    color: rgba(145,112,180,0.80);
-}
-
-.line-purple .line-inner {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    border-top: 1.4px solid currentColor;
-    border-radius: 42% 58% 50% 50%;
-
-    transform-origin: center;
-
-    animation:
-        purpleWave 13s ease-in-out infinite alternate;
-}
-
-
-/* =========================================================
-   LINEA BLU
-========================================================= */
-
-.line-blue {
-    top: 82%;
-    color: rgba(91,137,184,0.80);
-}
-
-.line-blue .line-inner {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    border-top: 1.4px solid currentColor;
-    border-radius: 60% 40% 45% 55%;
-
-    transform-origin: center;
-
-    animation:
-        blueWave 16s ease-in-out infinite alternate-reverse;
-}
-
-
-/* =========================================================
-   MOVIMENTO DELLE LINEE
-========================================================= */
-
-@keyframes goldWave {
+@keyframes shadowDrift {
 
     0% {
         transform:
-            translateX(-7%)
-            translateY(18px)
-            rotate(-5deg)
-            skewX(-12deg)
-            scaleY(0.75);
-    }
-
-    25% {
-        transform:
-            translateX(3%)
-            translateY(-25px)
-            rotate(2deg)
-            skewX(8deg)
-            scaleY(1.25);
+            translate(-2%, -1%)
+            scale(1);
     }
 
     50% {
         transform:
-            translateX(9%)
-            translateY(12px)
-            rotate(-2deg)
-            skewX(-5deg)
-            scaleY(0.9);
-    }
-
-    75% {
-        transform:
-            translateX(-2%)
-            translateY(-18px)
-            rotate(4deg)
-            skewX(11deg)
-            scaleY(1.2);
+            translate(2%, 2%)
+            scale(1.04);
     }
 
     100% {
         transform:
-            translateX(-9%)
-            translateY(22px)
-            rotate(-4deg)
-            skewX(-10deg)
-            scaleY(0.8);
-    }
-}
-
-
-@keyframes silverWave {
-
-    0% {
-        transform:
-            translateX(8%)
-            translateY(-22px)
-            rotate(4deg)
-            skewX(10deg)
-            scaleY(1.2);
-    }
-
-    30% {
-        transform:
-            translateX(-4%)
-            translateY(18px)
-            rotate(-3deg)
-            skewX(-8deg)
-            scaleY(0.8);
-    }
-
-    60% {
-        transform:
-            translateX(-10%)
-            translateY(-8px)
-            rotate(2deg)
-            skewX(6deg)
-            scaleY(1.25);
-    }
-
-    100% {
-        transform:
-            translateX(5%)
-            translateY(25px)
-            rotate(-5deg)
-            skewX(-12deg)
-            scaleY(0.85);
-    }
-}
-
-
-@keyframes purpleWave {
-
-    0% {
-        transform:
-            translateX(-10%)
-            translateY(20px)
-            rotate(-4deg)
-            skewX(-9deg)
-            scaleY(0.85);
-    }
-
-    30% {
-        transform:
-            translateX(4%)
-            translateY(-28px)
-            rotate(5deg)
-            skewX(12deg)
-            scaleY(1.3);
-    }
-
-    65% {
-        transform:
-            translateX(11%)
-            translateY(10px)
-            rotate(-2deg)
-            skewX(-6deg)
-            scaleY(0.75);
-    }
-
-    100% {
-        transform:
-            translateX(-5%)
-            translateY(-20px)
-            rotate(4deg)
-            skewX(9deg)
-            scaleY(1.15);
-    }
-}
-
-
-@keyframes blueWave {
-
-    0% {
-        transform:
-            translateX(7%)
-            translateY(-15px)
-            rotate(5deg)
-            skewX(11deg)
-            scaleY(1.15);
-    }
-
-    30% {
-        transform:
-            translateX(-8%)
-            translateY(24px)
-            rotate(-4deg)
-            skewX(-10deg)
-            scaleY(0.8);
-    }
-
-    65% {
-        transform:
-            translateX(-2%)
-            translateY(-25px)
-            rotate(3deg)
-            skewX(7deg)
-            scaleY(1.3);
-    }
-
-    100% {
-        transform:
-            translateX(10%)
-            translateY(15px)
-            rotate(-5deg)
-            skewX(-12deg)
-            scaleY(0.85);
+            translate(-1%, 3%)
+            scale(1.02);
     }
 }
 
 
 /* =========================================================
-   BAGLIORI DORATI
+   FRATTURE
 ========================================================= */
 
-.gold-glow {
+.fracture {
     position: absolute;
 
-    width: 4px;
-    height: 4px;
+    width: 1px;
+    height: 150%;
+
+    top: -25%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(190,172,143,0.00) 12%,
+            rgba(190,172,143,0.16) 28%,
+            rgba(190,172,143,0.05) 48%,
+            rgba(190,172,143,0.12) 67%,
+            rgba(190,172,143,0.00) 88%,
+            transparent 100%
+        );
+
+    opacity: 0.45;
+
+    transform-origin: center;
+
+    filter: blur(0.15px);
+}
+
+.fracture-1 {
+    left: 19%;
+    transform:
+        rotate(12deg)
+        skewX(-8deg);
+}
+
+.fracture-2 {
+    left: 43%;
+    height: 125%;
+    opacity: 0.25;
+
+    transform:
+        rotate(-7deg)
+        skewX(5deg);
+}
+
+.fracture-3 {
+    left: 67%;
+    height: 140%;
+    opacity: 0.32;
+
+    transform:
+        rotate(9deg)
+        skewX(-4deg);
+}
+
+.fracture-4 {
+    left: 82%;
+    height: 115%;
+    opacity: 0.20;
+
+    transform:
+        rotate(-14deg)
+        skewX(7deg);
+}
+
+.fracture::before {
+    content: "";
+    position: absolute;
+
+    width: 1px;
+    height: 42%;
+
+    top: 17%;
+    left: 0;
+
+    background: inherit;
+
+    transform:
+        rotate(28deg)
+        translateX(15px);
+}
+
+.fracture::after {
+    content: "";
+    position: absolute;
+
+    width: 1px;
+    height: 34%;
+
+    top: 51%;
+    left: 0;
+
+    background: inherit;
+
+    transform:
+        rotate(-24deg)
+        translateX(-12px);
+}
+
+
+/* =========================================================
+   PARTICELLE
+========================================================= */
+
+.dark-particle {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
 
     border-radius: 50%;
 
-    background: rgba(221,194,132,0.8);
+    background:
+        rgba(190,174,151,0.28);
 
-    box-shadow:
-        0 0 12px rgba(199,169,107,0.5),
-        0 0 35px rgba(199,169,107,0.18);
-
-    opacity: 0.35;
+    opacity: 0.18;
 
     animation:
-        glowFloat 8s ease-in-out infinite alternate;
+        particleFloat 14s ease-in-out infinite alternate;
 }
 
-.glow-1 {
-    top: 17%;
-    left: 18%;
-    animation-delay: -2s;
+.particle-1 {
+    top: 18%;
+    left: 14%;
 }
 
-.glow-2 {
-    top: 31%;
-    right: 16%;
-    width: 3px;
-    height: 3px;
+.particle-2 {
+    top: 34%;
+    left: 72%;
+
+    width: 1px;
+    height: 1px;
+
     animation-delay: -5s;
 }
 
-.glow-3 {
-    top: 48%;
-    left: 11%;
+.particle-3 {
+    top: 56%;
+    left: 28%;
+
     width: 3px;
     height: 3px;
-    animation-delay: -1s;
+
+    animation-delay: -8s;
 }
 
-.glow-4 {
-    top: 63%;
-    right: 24%;
-    width: 5px;
-    height: 5px;
-    animation-delay: -6s;
-}
+.particle-4 {
+    top: 71%;
+    left: 84%;
 
-.glow-5 {
-    top: 78%;
-    left: 27%;
-    width: 3px;
-    height: 3px;
+    width: 1px;
+    height: 1px;
+
     animation-delay: -3s;
 }
 
-.glow-6 {
-    top: 91%;
-    right: 12%;
-    width: 4px;
-    height: 4px;
-    animation-delay: -7s;
+.particle-5 {
+    top: 87%;
+    left: 47%;
+
+    width: 2px;
+    height: 2px;
+
+    animation-delay: -10s;
 }
 
-@keyframes glowFloat {
+@keyframes particleFloat {
 
     0% {
         transform:
-            translate(0,0)
-            scale(0.75);
+            translate(0,0);
 
-        opacity: 0.16;
+        opacity: 0.08;
     }
 
     50% {
-        opacity: 0.42;
+        opacity: 0.24;
     }
 
     100% {
         transform:
-            translate(18px,-25px)
-            scale(1.15);
+            translate(12px,-18px);
 
-        opacity: 0.28;
+        opacity: 0.12;
     }
 }
 
@@ -464,50 +341,141 @@ body {
 
 nav {
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
+
     z-index: 10;
 
     display: flex;
+
     justify-content: space-between;
     align-items: center;
 
     padding: 24px 6%;
 
-    background: linear-gradient(
-        to bottom,
-        rgba(9,9,9,0.88),
-        rgba(9,9,9,0)
-    );
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(9,9,9,0.88),
+            rgba(9,9,9,0)
+        );
 }
 
 .nav-logo {
     color: #f2eee7;
+
     text-decoration: none;
-    font-family: "Montserrat", sans-serif;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
     font-size: 15px;
+
+    line-height: 1;
+
     letter-spacing: 0.25em;
+
     font-weight: 500;
+
+    white-space: nowrap;
 }
 
 .nav-links {
     display: flex;
+
+    align-items: center;
+
     gap: 30px;
 }
 
 .nav-links a {
-    color: rgba(242,238,231,0.72);
+    color:
+        rgba(242,238,231,0.72);
+
     text-decoration: none;
-    font-family: "Montserrat", sans-serif;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
     font-size: 11px;
+
+    line-height: 1;
+
     letter-spacing: 0.12em;
+
     text-transform: uppercase;
-    transition: color 0.3s ease;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.3s ease;
 }
 
 .nav-links a:hover {
     color: #cfad65;
+}
+
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+.mobile-menu-toggle {
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 6px;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+
+    width: 22px;
+    height: 1px;
+
+    background: #f2eee7;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.mobile-menu-toggle.active
+span:nth-child(1) {
+    transform:
+        translateY(6px)
+        rotate(45deg);
+}
+
+.mobile-menu-toggle.active
+span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active
+span:nth-child(3) {
+    transform:
+        translateY(-6px)
+        rotate(-45deg);
 }
 
 
@@ -541,7 +509,6 @@ main {
     position: relative;
 }
 
-
 .book-hero::before {
 
     content: "";
@@ -568,7 +535,6 @@ main {
 
     pointer-events: none;
 }
-
 
 .book-hero-inner {
 
@@ -1058,34 +1024,10 @@ footer {
 
 
 /* =========================================================
-   RESPONSIVE
+   TABLET
 ========================================================= */
 
 @media (max-width: 900px) {
-
-    nav {
-
-        padding:
-            20px 5vw;
-    }
-
-    .nav-logo {
-
-        font-size: 13px;
-    }
-
-    .nav-links {
-
-        gap: 17px;
-    }
-
-    .nav-links a {
-
-        font-size: 8px;
-
-        letter-spacing:
-            0.1em;
-    }
 
     .book-hero {
 
@@ -1100,38 +1042,25 @@ footer {
     .book-hero-inner {
 
         grid-template-columns:
-            1fr;
+            220px 1fr;
 
-        gap: 65px;
+        gap: 45px;
     }
 
-    .cover-wrapper {
+    .cover-wrapper img {
 
-        order: 1;
+        width: 220px;
     }
 
     .book-info {
 
-        order: 2;
-
-        text-align: center;
-    }
-
-    .book-description {
-
-        margin:
-            0 auto;
-    }
-
-    .eyebrow {
-
-        margin-bottom: 16px;
+        text-align: left;
     }
 
     .book-info h1 {
 
         font-size:
-            clamp(55px, 15vw, 80px);
+            clamp(55px, 10vw, 80px);
     }
 
     .synopsis-section,
@@ -1147,92 +1076,240 @@ footer {
 }
 
 
-@media (max-width: 600px) {
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
 
     nav {
 
         padding:
-            18px 5vw;
+            18px 5%;
+
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(9,9,9,0.92),
+                rgba(9,9,9,0)
+            );
     }
 
     .nav-logo {
 
-        font-size: 11px;
+        font-size: 13px;
 
         letter-spacing:
-            0.18em;
+            0.2em;
     }
 
     .nav-links {
 
-        gap: 11px;
+        display: none;
+
+        position: absolute;
+
+        top: 100%;
+        right: 5%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        min-width: 150px;
+
+        padding: 10px 0;
+
+        background:
+            rgba(9,9,9,0.97);
+
+        border:
+            1px solid
+            rgba(242,238,231,0.08);
+
+        box-shadow:
+            0 18px 40px
+            rgba(0,0,0,0.35);
+    }
+
+    .nav-links.active {
+
+        display: flex;
     }
 
     .nav-links a {
 
-        font-size: 7px;
+        display: block;
+
+        padding:
+            10px 18px;
+
+        font-size: 10px;
+
+        line-height: 1.2;
 
         letter-spacing:
-            0.07em;
+            0.12em;
+
+        white-space: nowrap;
     }
+
+    .nav-links a:hover {
+
+        background:
+            rgba(255,255,255,0.025);
+    }
+
+    .mobile-menu-toggle {
+
+        display: flex;
+    }
+
+
+    /* =====================================================
+       HERO MOBILE
+    ===================================================== */
 
     .book-hero {
 
-        padding-top:
-            105px;
+        min-height: auto;
 
-        padding-bottom:
-            70px;
+        padding:
+            115px
+            7%
+            75px;
+    }
+
+    .book-hero-inner {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 45px;
+    }
+
+    .cover-wrapper {
+
+        order: 0;
     }
 
     .cover-wrapper img {
 
-        width: 78%;
+        width: min(78vw, 270px);
+
+        max-width: 100%;
+    }
+
+    .book-info {
+
+        order: 1;
+
+        text-align: center;
+    }
+
+    .eyebrow {
+
+        margin-bottom: 16px;
+
+        font-size: 9px;
+
+        line-height: 1.5;
     }
 
     .book-info h1 {
 
-        font-size: 58px;
+        margin-bottom: 25px;
+
+        font-size:
+            clamp(48px, 14vw, 66px);
+
+        line-height: 0.88;
     }
 
     .book-subtitle {
 
-        font-size: 21px;
+        max-width: 520px;
+
+        margin:
+            0 auto 25px;
+
+        font-size:
+            clamp(20px, 5.5vw, 25px);
     }
 
     .book-description {
+
+        max-width: 520px;
+
+        margin:
+            0 auto;
 
         font-size: 12px;
 
         line-height: 1.8;
     }
 
+
+    /* =====================================================
+       SEZIONI MOBILE
+    ===================================================== */
+
+    .section-divider {
+
+        width: 82%;
+    }
+
     .synopsis-section {
 
-        padding-top: 90px;
+        padding:
+            90px 7%;
+    }
 
-        padding-bottom: 90px;
+    .section-label {
+
+        margin-bottom: 18px;
+
+        font-size: 9px;
+
+        letter-spacing:
+            0.2em;
     }
 
     .synopsis-section h2 {
 
-        font-size: 43px;
-
         margin-bottom: 32px;
+
+        font-size:
+            clamp(40px, 11vw, 52px);
+
+        line-height: 0.95;
+    }
+
+    .synopsis-text {
+
+        max-width: none;
     }
 
     .synopsis-text p {
+
+        margin-bottom: 22px;
 
         font-size: 13px;
 
         line-height: 1.85;
     }
 
+
+    /* =====================================================
+       DETTAGLI MOBILE
+    ===================================================== */
+
     .details-section {
 
-        padding-top: 80px;
-
-        padding-bottom: 80px;
+        padding:
+            80px 7%;
     }
 
     .details-grid {
@@ -1243,27 +1320,175 @@ footer {
 
     .detail-item {
 
-        padding: 24px;
+        padding:
+            24px 22px;
     }
+
+    .detail-value {
+
+        font-size: 21px;
+
+        line-height: 1.2;
+    }
+
+
+    /* =====================================================
+       IN ARRIVO MOBILE
+    ===================================================== */
 
     .purchase-section {
 
-        padding-top: 90px;
-
-        padding-bottom: 110px;
+        padding:
+            90px 7%
+            110px;
     }
 
     .purchase-section h2 {
 
-        font-size: 45px;
+        font-size:
+            clamp(40px, 11vw, 52px);
+
+        line-height: 1;
     }
 
-    footer {
+    .purchase-section p {
+
+        max-width: 430px;
+
+        font-size: 12px;
+
+        line-height: 1.8;
+    }
+
+    .purchase-button {
+
+        min-width: 185px;
 
         padding:
-            28px 6vw;
+            15px 24px;
+    }
 
-        font-size: 8px;
+
+    /* =====================================================
+       SFONDO MOBILE
+    ===================================================== */
+
+    .fracture {
+
+        opacity: 0.28;
+    }
+
+    .fracture-2,
+    .fracture-4 {
+
+        opacity: 0.16;
+    }
+
+    .dark-particle {
+
+        opacity: 0.12;
+    }
+}
+
+
+/* =========================================================
+   TELEFONI PICCOLI
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .nav-logo {
+
+        font-size: 12px;
+
+        letter-spacing:
+            0.18em;
+    }
+
+    .book-hero {
+
+        padding-top:
+            105px;
+    }
+
+    .cover-wrapper img {
+
+        width: 270px;
+    }
+
+    .book-info h1 {
+
+        font-size:
+            52px;
+    }
+
+    .book-subtitle {
+
+        font-size:
+            20px;
+    }
+
+    .synopsis-section h2 {
+
+        font-size:
+            42px;
+    }
+
+    .purchase-section h2 {
+
+        font-size:
+            43px;
+    }
+}
+
+
+/* =========================================================
+   TELEFONI MOLTO PICCOLI
+========================================================= */
+
+@media (max-width: 340px) {
+
+    .nav-logo {
+
+        font-size: 11px;
+
+        letter-spacing:
+            0.15em;
+    }
+
+    .book-hero {
+
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .cover-wrapper img {
+
+        width: 240px;
+    }
+
+    .book-info h1 {
+
+        font-size:
+            46px;
+    }
+
+    .book-subtitle {
+
+        font-size:
+            19px;
+    }
+
+    .synopsis-section h2 {
+
+        font-size:
+            38px;
+    }
+
+    .purchase-section h2 {
+
+        font-size:
+            39px;
     }
 }
 
@@ -1278,19 +1503,24 @@ footer {
         scroll-behavior: auto;
     }
 
-    .line-inner,
-    .gold-glow,
+    .background-effects::before,
+    .dark-particle,
     .cover-wrapper,
     .book-info {
+
         animation: none;
     }
 
-    .vaelor-line {
+    .cover-wrapper img,
+    .purchase-button,
+    .detail-item {
+
         transition: none;
     }
 }
 
 </style>
+
 </head>
 
 
@@ -1301,30 +1531,29 @@ footer {
      SFONDO
 ======================================================= -->
 
-<div class="background-effects" aria-hidden="true">
+<div
+    class="background-effects"
+    aria-hidden="true"
+>
 
-    <div class="vaelor-line line-gold">
-        <div class="line-inner"></div>
-    </div>
+    <div class="fracture fracture-1"></div>
 
-    <div class="vaelor-line line-silver">
-        <div class="line-inner"></div>
-    </div>
+    <div class="fracture fracture-2"></div>
 
-    <div class="vaelor-line line-purple">
-        <div class="line-inner"></div>
-    </div>
+    <div class="fracture fracture-3"></div>
 
-    <div class="vaelor-line line-blue">
-        <div class="line-inner"></div>
-    </div>
+    <div class="fracture fracture-4"></div>
 
-    <div class="gold-glow glow-1"></div>
-    <div class="gold-glow glow-2"></div>
-    <div class="gold-glow glow-3"></div>
-    <div class="gold-glow glow-4"></div>
-    <div class="gold-glow glow-5"></div>
-    <div class="gold-glow glow-6"></div>
+
+    <div class="dark-particle particle-1"></div>
+
+    <div class="dark-particle particle-2"></div>
+
+    <div class="dark-particle particle-3"></div>
+
+    <div class="dark-particle particle-4"></div>
+
+    <div class="dark-particle particle-5"></div>
 
 </div>
 
@@ -1335,9 +1564,13 @@ footer {
 
 <nav>
 
-    <a href="index.html" class="nav-logo">
+    <a
+        href="index.html"
+        class="nav-logo"
+    >
         ALYSSCRIPTUM
     </a>
+
 
     <div class="nav-links">
 
@@ -1363,6 +1596,22 @@ footer {
 
     </div>
 
+
+    <button
+        class="mobile-menu-toggle"
+        aria-label="Apri menu"
+        aria-expanded="false"
+        type="button"
+    >
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+    </button>
+
 </nav>
 
 
@@ -1381,6 +1630,7 @@ footer {
 
     <div class="book-hero-inner">
 
+
         <div class="cover-wrapper">
 
             <img
@@ -1397,20 +1647,36 @@ footer {
                 Le Cronache delle Fratture · Volume I
             </div>
 
+
             <h1>
-                <span>La Chiave</span>
-                <span>delle Ombre</span>
+
+                <span>
+                    La Chiave
+                </span>
+
+                <span>
+                    delle Ombre
+                </span>
+
             </h1>
 
+
             <p class="book-subtitle">
-                Non c'è niente di più inquietante di guardarsi
-                allo specchio e non riconoscere sé stessi.
+
+                Non c'è niente di più inquietante
+                di guardarsi allo specchio e non
+                riconoscere sé stessi.
+
             </p>
 
+
             <p class="book-description">
-                L'inizio di una saga fantasy fatta di identità spezzate,
-                scelte estreme e confini che non avrebbero mai dovuto
+
+                L'inizio di una saga fantasy fatta
+                di identità spezzate, scelte estreme
+                e confini che non avrebbero mai dovuto
                 essere attraversati.
+
             </p>
 
         </div>
@@ -1431,39 +1697,57 @@ footer {
 
     <div class="content-container">
 
+
         <div class="section-label">
             Il romanzo
         </div>
 
+
         <h2>
+
             Una storia di identità,
             verità e mondi spezzati.
+
         </h2>
+
 
         <div class="synopsis-text">
 
-            <p>
-                Ashford è una città avvolta dalla nebbia, e Sofia sente
-                fin dal primo giorno che qualcosa non va. Presenze nell’ombra,
-                sogni che non sembrano sogni e la sensazione costante di essere
-                osservata la spingono verso una porta che non dovrebbe esistere.
-            </p>
 
             <p>
-                Oltre quel varco c’è Vaelor, un mondo ferito da una guerra
-                mai davvero conclusa, dove Sofia scopre di essere al centro
-                di una caccia, di un tradimento e di un potere che non comprende.
-                Tra alleati ambigui e nemici nascosti, la verità su chi può
-                fidarsi e chi no emerge troppo tardi, lasciando dietro di sé
-                una perdita irreversibile.
+
+                Ashford è una città avvolta dalla nebbia,
+                e Sofia sente fin dal primo giorno che
+                qualcosa non va. Presenze nell’ombra,
+                sogni che non sembrano sogni e la sensazione
+                costante di essere osservata la spingono
+                verso una porta che non dovrebbe esistere.
+
             </p>
 
+
             <p>
-                Quando il passato torna a reclamare il suo prezzo, Sofia
-                è costretta a scegliere se accettare ciò che è davvero
-                o continuare a fuggire da una verità che può riscrivere
-                il mondo.
+
+                Oltre quel varco c’è Vaelor, un mondo ferito
+                da una guerra mai davvero conclusa, dove Sofia
+                scopre di essere al centro di una caccia,
+                di un tradimento e di un potere che non comprende.
+                Tra alleati ambigui e nemici nascosti, la verità
+                su chi può fidarsi e chi no emerge troppo tardi,
+                lasciando dietro di sé una perdita irreversibile.
+
             </p>
+
+
+            <p>
+
+                Quando il passato torna a reclamare il suo prezzo,
+                Sofia è costretta a scegliere se accettare ciò che
+                è davvero o continuare a fuggire da una verità che
+                può riscrivere il mondo.
+
+            </p>
+
 
         </div>
 
@@ -1483,11 +1767,14 @@ footer {
 
     <div class="content-container">
 
+
         <div class="section-label">
             Dettagli
         </div>
 
+
         <div class="details-grid">
+
 
             <div class="detail-item">
 
@@ -1566,6 +1853,7 @@ footer {
 
             </div>
 
+
         </div>
 
     </div>
@@ -1584,17 +1872,21 @@ footer {
 
     <div class="content-container">
 
+
         <div class="section-label">
             In arrivo
         </div>
+
 
         <h2>
             La storia sta per iniziare.
         </h2>
 
+
         <p>
             Presto disponibile attraverso i canali ufficiali.
         </p>
+
 
         <a
             href="#"
@@ -1602,6 +1894,7 @@ footer {
         >
             Acquista il libro
         </a>
+
 
     </div>
 
@@ -1623,92 +1916,77 @@ footer {
 
 
 <!-- =======================================================
-     MOVIMENTO DELLE LINEE CON LO SCROLL
+     MENU MOBILE
 ======================================================= -->
 
 <script>
 
-const lines = document.querySelectorAll('.vaelor-line');
+const mobileMenuToggle =
+    document.querySelector('.mobile-menu-toggle');
 
-let currentScroll = 0;
-let targetScroll = 0;
+const navLinks =
+    document.querySelector('.nav-links');
 
 
-window.addEventListener(
-    'scroll',
+mobileMenuToggle.addEventListener(
+    'click',
     () => {
 
-        targetScroll = window.scrollY;
+        const isOpen =
+            mobileMenuToggle.classList.toggle('active');
 
-    },
-    {
-        passive: true
+        navLinks.classList.toggle('active');
+
+        mobileMenuToggle.setAttribute(
+            'aria-expanded',
+            isOpen
+        );
+
+        mobileMenuToggle.setAttribute(
+            'aria-label',
+            isOpen
+                ? 'Chiudi menu'
+                : 'Apri menu'
+        );
+
     }
 );
 
 
-function animateLines() {
+/* =========================================================
+   CHIUSURA MENU QUANDO SI CLICCA SU UN LINK
+========================================================= */
 
-    currentScroll +=
-        (targetScroll - currentScroll) * 0.06;
+navLinks.querySelectorAll('a').forEach(
+    link => {
 
+        link.addEventListener(
+            'click',
+            () => {
 
-    lines.forEach(
-        (line, index) => {
+                mobileMenuToggle.classList.remove(
+                    'active'
+                );
 
-            const speeds = [
-                0.055,
-                -0.038,
-                0.072,
-                -0.048
-            ];
+                navLinks.classList.remove(
+                    'active'
+                );
 
+                mobileMenuToggle.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
 
-            const rotations = [
-                0.003,
-                -0.002,
-                0.004,
-                -0.003
-            ];
+                mobileMenuToggle.setAttribute(
+                    'aria-label',
+                    'Apri menu'
+                );
 
+            }
+        );
 
-            const scales = [
-                0.00008,
-                -0.00006,
-                0.0001,
-                -0.00007
-            ];
-
-
-            const translateY =
-                currentScroll * speeds[index];
-
-
-            const rotate =
-                currentScroll * rotations[index];
-
-
-            const scale =
-                1 + currentScroll * scales[index];
-
-
-            line.style.transform =
-                `translate3d(0, ${translateY}px, 0)
-                 rotate(${rotate}deg)
-                 scale(${scale})`;
-
-        }
-    );
-
-
-    requestAnimationFrame(
-        animateLines
-    );
-
-}
-
-
-animateLines();
+    }
+);
 
 </script>
 
