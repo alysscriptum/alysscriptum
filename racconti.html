@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -30,9 +31,10 @@
             overflow-x: hidden;
         }
 
-        /* =========================
+
+        /* =========================================================
            BACKGROUND
-        ========================= */
+        ========================================================= */
 
         .background-effects {
             position: fixed;
@@ -199,9 +201,10 @@
             }
         }
 
-        /* =========================
+
+        /* =========================================================
            NAV
-        ========================= */
+        ========================================================= */
 
         nav {
             position: fixed;
@@ -249,9 +252,10 @@
             color: #cfad65;
         }
 
-        /* =========================
+
+        /* =========================================================
            GENERAL
-        ========================= */
+        ========================================================= */
 
         main {
             position: relative;
@@ -278,9 +282,10 @@
             font-weight: 500;
         }
 
-        /* =========================
+
+        /* =========================================================
            HERO
-        ========================= */
+        ========================================================= */
 
         .hero {
             min-height: 100vh;
@@ -328,9 +333,10 @@
             color: rgba(242,238,231,0.78);
         }
 
-        /* =========================
+
+        /* =========================================================
            INTRO
-        ========================= */
+        ========================================================= */
 
         .intro {
             padding: 120px 0 90px;
@@ -354,9 +360,10 @@
             line-height: 1.9;
         }
 
-        /* =========================
+
+        /* =========================================================
            STORIES
-        ========================= */
+        ========================================================= */
 
         .stories {
             padding: 50px 0 140px;
@@ -418,9 +425,10 @@
             text-transform: uppercase;
         }
 
-        /* =========================
+
+        /* =========================================================
            FUTURE
-        ========================= */
+        ========================================================= */
 
         .future {
             padding: 110px 0 150px;
@@ -443,9 +451,10 @@
             line-height: 1.8;
         }
 
-        /* =========================
+
+        /* =========================================================
            FOOTER
-        ========================= */
+        ========================================================= */
 
         footer {
             position: relative;
@@ -463,9 +472,10 @@
             letter-spacing: 0.12em;
         }
 
-        /* =========================
+
+        /* =========================================================
            MOBILE
-        ========================= */
+        ========================================================= */
 
         @media (max-width: 800px) {
 
@@ -514,12 +524,33 @@
                 padding: 100px 0 120px;
             }
         }
+
+
+        /* =========================================================
+           RIDUZIONE MOVIMENTO
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            .vaelor-line .line-inner {
+                animation: none;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-    <!-- BACKGROUND -->
+
+    <!-- =======================================================
+         BACKGROUND
+    ======================================================= -->
+
     <div class="background-effects">
 
         <div class="glow glow-1"></div>
@@ -547,7 +578,11 @@
 
     </div>
 
-    <!-- NAV -->
+
+    <!-- =======================================================
+         NAVIGAZIONE
+    ======================================================= -->
+
     <nav>
 
         <a href="index.html" class="nav-logo">
@@ -555,18 +590,33 @@
         </a>
 
         <div class="nav-links">
+
             <a href="index.html">Home</a>
+
             <a href="libro.html">In arrivo</a>
+
             <a href="saga.html">Saga</a>
+
             <a href="racconti.html">Racconti</a>
+
             <a href="autrice.html">Autrice</a>
+
         </div>
 
     </nav>
 
+
+    <!-- =======================================================
+         CONTENUTO
+    ======================================================= -->
+
     <main>
 
-        <!-- HERO -->
+
+        <!-- ===================================================
+             HERO
+        =================================================== -->
+
         <section class="hero">
 
             <div class="hero-content">
@@ -588,7 +638,11 @@
 
         </section>
 
-        <!-- INTRO -->
+
+        <!-- ===================================================
+             INTRO
+        =================================================== -->
+
         <section class="intro">
 
             <div class="section-label">
@@ -608,7 +662,11 @@
 
         </section>
 
-        <!-- STORIES -->
+
+        <!-- ===================================================
+             STORIES
+        =================================================== -->
+
         <section class="stories">
 
             <div class="story-grid">
@@ -620,6 +678,7 @@
                     </div>
 
                     <div>
+
                         <h3>
                             Il Giuramento
                         </h3>
@@ -627,9 +686,11 @@
                         <div class="story-status">
                             Prossimamente
                         </div>
+
                     </div>
 
                 </article>
+
 
                 <article class="story-card">
 
@@ -638,6 +699,7 @@
                     </div>
 
                     <div>
+
                         <h3>
                             Le Ceneri di Aerith
                         </h3>
@@ -645,9 +707,11 @@
                         <div class="story-status">
                             Prossimamente
                         </div>
+
                     </div>
 
                 </article>
+
 
                 <article class="story-card">
 
@@ -656,6 +720,7 @@
                     </div>
 
                     <div>
+
                         <h3>
                             Le Ultime Figlie
                         </h3>
@@ -663,6 +728,7 @@
                         <div class="story-status">
                             Prossimamente
                         </div>
+
                     </div>
 
                 </article>
@@ -671,7 +737,11 @@
 
         </section>
 
-        <!-- FUTURE -->
+
+        <!-- ===================================================
+             FUTURE
+        =================================================== -->
+
         <section class="future">
 
             <div class="section-label">
@@ -679,7 +749,8 @@
             </div>
 
             <h2>
-                Altre storie<br>arriveranno.
+                Altre storie<br>
+                arriveranno.
             </h2>
 
             <p>
@@ -690,11 +761,22 @@
 
     </main>
 
+
+    <!-- =======================================================
+         FOOTER
+    ======================================================= -->
+
     <footer>
         © 2026 Alysscriptum · Alyssa B. Flowered
     </footer>
 
+
+    <!-- =======================================================
+         MOVIMENTO DELLE LINEE CON LO SCROLL
+    ======================================================= -->
+
     <script>
+
         let currentScroll = 0;
         let targetScroll = window.scrollY;
 
@@ -726,15 +808,23 @@
         });
 
         function animateBackground() {
-            currentScroll += (targetScroll - currentScroll) * 0.08;
+
+            currentScroll +=
+                (targetScroll - currentScroll) * 0.08;
 
             lines.forEach((line, index) => {
 
-                const inner = line.querySelector(".line-inner");
+                const inner =
+                    line.querySelector(".line-inner");
 
-                const y = currentScroll * speeds[index];
-                const rotation = currentScroll * rotations[index];
-                const scale = 1 + currentScroll * scales[index];
+                const y =
+                    currentScroll * speeds[index];
+
+                const rotation =
+                    currentScroll * rotations[index];
+
+                const scale =
+                    1 + currentScroll * scales[index];
 
                 inner.style.transform =
                     `translate3d(0, ${y}px, 0)
@@ -742,10 +832,13 @@
                      scaleY(${scale})`;
             });
 
-            requestAnimationFrame(animateBackground);
+            requestAnimationFrame(
+                animateBackground
+            );
         }
 
         animateBackground();
+
     </script>
 
 </body>
