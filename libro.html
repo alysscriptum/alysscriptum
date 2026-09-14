@@ -464,16 +464,12 @@ body {
 
 nav {
     position: fixed;
-
     top: 0;
     left: 0;
-
     width: 100%;
-
     z-index: 10;
 
     display: flex;
-
     justify-content: space-between;
     align-items: center;
 
@@ -486,72 +482,32 @@ nav {
     );
 }
 
-.logo {
+.nav-logo {
     color: #f2eee7;
-
     text-decoration: none;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
+    font-family: "Montserrat", sans-serif;
     font-size: 15px;
-
     letter-spacing: 0.25em;
-
     font-weight: 500;
 }
 
 .nav-links {
     display: flex;
-
     gap: 30px;
 }
 
 .nav-links a {
-    position: relative;
-
     color: rgba(242,238,231,0.72);
-
     text-decoration: none;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
+    font-family: "Montserrat", sans-serif;
     font-size: 11px;
-
     letter-spacing: 0.12em;
-
     text-transform: uppercase;
-
-    transition:
-        color 0.3s ease;
-}
-
-.nav-links a::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: -7px;
-
-    width: 0;
-    height: 1px;
-
-    background: var(--gold);
-
-    transition:
-        width 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #f2eee7;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+    color: #cfad65;
 }
 
 
@@ -561,7 +517,6 @@ nav {
 
 main {
     position: relative;
-
     z-index: 2;
 }
 
@@ -586,8 +541,6 @@ main {
     position: relative;
 }
 
-
-/* leggero alone dietro al contenuto */
 
 .book-hero::before {
 
@@ -1113,15 +1066,12 @@ footer {
     nav {
 
         padding:
-            20px 5%;
+            20px 5vw;
     }
 
-    .logo {
+    .nav-logo {
 
-        font-size: 15px;
-
-        letter-spacing:
-            0.25em;
+        font-size: 13px;
     }
 
     .nav-links {
@@ -1202,15 +1152,15 @@ footer {
     nav {
 
         padding:
-            20px 5%;
+            18px 5vw;
     }
 
-    .logo {
+    .nav-logo {
 
-        font-size: 15px;
+        font-size: 11px;
 
         letter-spacing:
-            0.2em;
+            0.18em;
     }
 
     .nav-links {
@@ -1385,7 +1335,7 @@ footer {
 
 <nav>
 
-    <a href="index.html" class="logo">
+    <a href="index.html" class="nav-logo">
         ALYSSCRIPTUM
     </a>
 
