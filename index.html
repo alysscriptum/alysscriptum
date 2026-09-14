@@ -1,416 +1,585 @@
+```html
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Alysscriptum · Alyssa B. Flowered. Storie, mondi e personaggi che prendono forma oltre il confine della realtà.">
-    <title>Alysscriptum | Alyssa B. Flowered</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Alysscriptum · Alyssa B. Flowered. Storie, mondi e personaggi che prendono forma oltre il confine della realtà."
+    >
+
+    <title>
+        Alysscriptum | Alyssa B. Flowered
+    </title>
+
 
     <style>
+
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
+
+        /* =====================================================
+           VARIABILI
+        ===================================================== */
+
         :root {
+
             --bg: #08080b;
+
             --text: #f1eee8;
+
             --muted: #aaa6a0;
 
             --gold: #c7a96b;
+
             --silver: #bfc5cf;
+
             --purple: #9270b5;
+
             --blue: #5b89b8;
 
-            --serif: 'Cormorant Garamond', Georgia, serif;
-            --sans: 'Montserrat', Arial, sans-serif;
+            --serif:
+                'Cormorant Garamond',
+                Georgia,
+                serif;
+
+            --sans:
+                'Montserrat',
+                Arial,
+                sans-serif;
         }
 
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
         * {
+
             margin: 0;
+
             padding: 0;
+
             box-sizing: border-box;
         }
 
+
         html {
+
             scroll-behavior: smooth;
         }
 
+
         body {
+
             background:
-                radial-gradient(circle at 18% 12%, rgba(146,112,181,0.055), transparent 25%),
-                radial-gradient(circle at 82% 28%, rgba(91,137,184,0.045), transparent 28%),
-                radial-gradient(circle at 50% 78%, rgba(199,169,107,0.035), transparent 30%),
+                radial-gradient(
+                    circle at 18% 12%,
+                    rgba(146,112,181,0.055),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 82% 28%,
+                    rgba(91,137,184,0.045),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 50% 78%,
+                    rgba(199,169,107,0.035),
+                    transparent 30%
+                ),
                 var(--bg);
 
             color: var(--text);
+
             font-family: var(--sans);
+
             font-weight: 300;
+
             line-height: 1.7;
+
             overflow-x: hidden;
         }
 
 
         /* =====================================================
-           SFONDO
+           SFONDO DARK FANTASY
         ===================================================== */
 
-        /* =========================
-   DARK FANTASY BACKGROUND
-   ========================= */
-
-.background-effects {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -5;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 15%,
-            rgba(55, 38, 48, 0.18),
-            transparent 48%
-        ),
-        radial-gradient(
-            ellipse at 15% 75%,
-            rgba(35, 28, 38, 0.20),
-            transparent 45%
-        ),
-        radial-gradient(
-            ellipse at 85% 55%,
-            rgba(25, 34, 43, 0.18),
-            transparent 48%
-        ),
-        #08080b;
-}
-
-
-/* =========================
-   ATMOSPHERIC SHADOWS
-   ========================= */
-
-.background-effects::before {
-    content: "";
-    position: absolute;
-    inset: -20%;
-
-    background:
-        radial-gradient(
-            ellipse at 30% 20%,
-            rgba(105, 76, 65, 0.07),
-            transparent 35%
-        ),
-        radial-gradient(
-            ellipse at 70% 80%,
-            rgba(76, 62, 91, 0.06),
-            transparent 40%
-        );
-
-    filter: blur(45px);
-
-    animation: shadowDrift 22s ease-in-out infinite alternate;
-}
-
-@keyframes shadowDrift {
-    0% {
-        transform: translate(-2%, -1%) scale(1);
-    }
-
-    50% {
-        transform: translate(2%, 2%) scale(1.04);
-    }
-
-    100% {
-        transform: translate(-1%, 3%) scale(1.02);
-    }
-}
-
-
-/* =========================
-   FRACTURES
-   ========================= */
-
-.fracture {
-    position: absolute;
-    width: 1px;
-    height: 150%;
-    top: -25%;
-
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(190, 172, 143, 0.00) 12%,
-        rgba(190, 172, 143, 0.16) 28%,
-        rgba(190, 172, 143, 0.05) 48%,
-        rgba(190, 172, 143, 0.12) 67%,
-        rgba(190, 172, 143, 0.00) 88%,
-        transparent 100%
-    );
-
-    opacity: 0.45;
-
-    transform-origin: center;
-    filter: blur(0.15px);
-}
-
-
-/* Main fracture */
-
-.fracture-1 {
-    left: 19%;
-    transform:
-        rotate(12deg)
-        skewX(-8deg);
-}
-
-.fracture-1::before,
-.fracture-1::after {
-    content: "";
-    position: absolute;
-    width: 1px;
-    background: inherit;
-}
-
-
-/* Secondary fractures */
-
-.fracture-2 {
-    left: 43%;
-    height: 125%;
-    opacity: 0.25;
-
-    transform:
-        rotate(-7deg)
-        skewX(5deg);
-}
-
-.fracture-3 {
-    left: 67%;
-    height: 140%;
-    opacity: 0.32;
-
-    transform:
-        rotate(9deg)
-        skewX(-4deg);
-}
-
-.fracture-4 {
-    left: 82%;
-    height: 115%;
-    opacity: 0.20;
-
-    transform:
-        rotate(-14deg)
-        skewX(7deg);
-}
-
-
-/* =========================
-   FRACTURE BRANCHES
-   ========================= */
-
-.fracture::before {
-    content: "";
-    position: absolute;
-
-    width: 1px;
-    height: 42%;
-
-    top: 17%;
-    left: 0;
-
-    background: inherit;
-
-    transform:
-        rotate(28deg)
-        translateX(15px);
-}
-
-.fracture::after {
-    content: "";
-    position: absolute;
-
-    width: 1px;
-    height: 34%;
-
-    top: 51%;
-    left: 0;
-
-    background: inherit;
-
-    transform:
-        rotate(-24deg)
-        translateX(-12px);
-}
-
-
-/* =========================
-   SUBTLE DUST
-   ========================= */
-
-.dark-particle {
-    position: absolute;
-
-    width: 2px;
-    height: 2px;
-
-    border-radius: 50%;
-
-    background: rgba(190, 174, 151, 0.28);
-
-    opacity: 0.18;
-
-    animation:
-        particleFloat
-        14s ease-in-out
-        infinite alternate;
-}
-
-.particle-1 {
-    top: 18%;
-    left: 14%;
-}
-
-.particle-2 {
-    top: 34%;
-    left: 72%;
-    width: 1px;
-    height: 1px;
-    animation-delay: -5s;
-}
-
-.particle-3 {
-    top: 56%;
-    left: 28%;
-    width: 3px;
-    height: 3px;
-    animation-delay: -8s;
-}
-
-.particle-4 {
-    top: 71%;
-    left: 84%;
-    width: 1px;
-    height: 1px;
-    animation-delay: -3s;
-}
-
-.particle-5 {
-    top: 87%;
-    left: 47%;
-    width: 2px;
-    height: 2px;
-    animation-delay: -10s;
-}
-
-@keyframes particleFloat {
-
-    0% {
-        transform: translate(0, 0);
-        opacity: 0.08;
-    }
-
-    50% {
-        opacity: 0.24;
-    }
-
-    100% {
-        transform: translate(12px, -18px);
-        opacity: 0.12;
-    }
-}
-
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media (max-width: 750px) {
-
-    .fracture {
-        opacity: 0.28;
-    }
-
-    .fracture-2,
-    .fracture-4 {
-        opacity: 0.16;
-    }
-
-    .dark-particle {
-        opacity: 0.12;
-    }
-}
+        .background-effects {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+            z-index: -5;
+
+            background:
+                radial-gradient(
+                    ellipse at 50% 15%,
+                    rgba(55,38,48,0.18),
+                    transparent 48%
+                ),
+                radial-gradient(
+                    ellipse at 15% 75%,
+                    rgba(35,28,38,0.20),
+                    transparent 45%
+                ),
+                radial-gradient(
+                    ellipse at 85% 55%,
+                    rgba(25,34,43,0.18),
+                    transparent 48%
+                ),
+                #08080b;
+        }
 
 
         /* =====================================================
-           NAV
+           ATMOSFERA
+        ===================================================== */
+
+        .background-effects::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: -20%;
+
+            background:
+                radial-gradient(
+                    ellipse at 30% 20%,
+                    rgba(105,76,65,0.07),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    ellipse at 70% 80%,
+                    rgba(76,62,91,0.06),
+                    transparent 40%
+                );
+
+            filter: blur(45px);
+
+            animation:
+                shadowDrift
+                22s ease-in-out
+                infinite alternate;
+        }
+
+
+        @keyframes shadowDrift {
+
+            0% {
+
+                transform:
+                    translate(-2%, -1%)
+                    scale(1);
+            }
+
+            50% {
+
+                transform:
+                    translate(2%, 2%)
+                    scale(1.04);
+            }
+
+            100% {
+
+                transform:
+                    translate(-1%, 3%)
+                    scale(1.02);
+            }
+        }
+
+
+        /* =====================================================
+           FRATTURE
+        ===================================================== */
+
+        .fracture {
+
+            position: absolute;
+
+            width: 1px;
+
+            height: 150%;
+
+            top: -25%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent 0%,
+                    rgba(190,172,143,0.00) 12%,
+                    rgba(190,172,143,0.16) 28%,
+                    rgba(190,172,143,0.05) 48%,
+                    rgba(190,172,143,0.12) 67%,
+                    rgba(190,172,143,0.00) 88%,
+                    transparent 100%
+                );
+
+            opacity: 0.45;
+
+            transform-origin: center;
+
+            filter: blur(0.15px);
+        }
+
+
+        .fracture-1 {
+
+            left: 19%;
+
+            transform:
+                rotate(12deg)
+                skewX(-8deg);
+        }
+
+
+        .fracture-2 {
+
+            left: 43%;
+
+            height: 125%;
+
+            opacity: 0.25;
+
+            transform:
+                rotate(-7deg)
+                skewX(5deg);
+        }
+
+
+        .fracture-3 {
+
+            left: 67%;
+
+            height: 140%;
+
+            opacity: 0.32;
+
+            transform:
+                rotate(9deg)
+                skewX(-4deg);
+        }
+
+
+        .fracture-4 {
+
+            left: 82%;
+
+            height: 115%;
+
+            opacity: 0.20;
+
+            transform:
+                rotate(-14deg)
+                skewX(7deg);
+        }
+
+
+        /* =====================================================
+           RAMIFICAZIONI
+        ===================================================== */
+
+        .fracture::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 1px;
+
+            height: 42%;
+
+            top: 17%;
+
+            left: 0;
+
+            background: inherit;
+
+            transform:
+                rotate(28deg)
+                translateX(15px);
+        }
+
+
+        .fracture::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 1px;
+
+            height: 34%;
+
+            top: 51%;
+
+            left: 0;
+
+            background: inherit;
+
+            transform:
+                rotate(-24deg)
+                translateX(-12px);
+        }
+
+
+        /* =====================================================
+           PARTICELLE
+        ===================================================== */
+
+        .dark-particle {
+
+            position: absolute;
+
+            width: 2px;
+
+            height: 2px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(190,174,151,0.28);
+
+            opacity: 0.18;
+
+            animation:
+                particleFloat
+                14s ease-in-out
+                infinite alternate;
+        }
+
+
+        .particle-1 {
+
+            top: 18%;
+
+            left: 14%;
+        }
+
+
+        .particle-2 {
+
+            top: 34%;
+
+            left: 72%;
+
+            width: 1px;
+
+            height: 1px;
+
+            animation-delay: -5s;
+        }
+
+
+        .particle-3 {
+
+            top: 56%;
+
+            left: 28%;
+
+            width: 3px;
+
+            height: 3px;
+
+            animation-delay: -8s;
+        }
+
+
+        .particle-4 {
+
+            top: 71%;
+
+            left: 84%;
+
+            width: 1px;
+
+            height: 1px;
+
+            animation-delay: -3s;
+        }
+
+
+        .particle-5 {
+
+            top: 87%;
+
+            left: 47%;
+
+            width: 2px;
+
+            height: 2px;
+
+            animation-delay: -10s;
+        }
+
+
+        @keyframes particleFloat {
+
+            0% {
+
+                transform:
+                    translate(0,0);
+
+                opacity: 0.08;
+            }
+
+            50% {
+
+                opacity: 0.24;
+            }
+
+            100% {
+
+                transform:
+                    translate(12px,-18px);
+
+                opacity: 0.12;
+            }
+        }
+
+
+        /* =====================================================
+           NAVIGAZIONE
         ===================================================== */
 
         nav {
+
             position: fixed;
+
             top: 0;
+
             left: 0;
+
             width: 100%;
+
             z-index: 10;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
 
             padding: 24px 6%;
 
-            background: linear-gradient(
-                to bottom,
-                rgba(9,9,9,0.88),
-                rgba(9,9,9,0)
-            );
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(9,9,9,0.88),
+                    rgba(9,9,9,0)
+                );
         }
 
+
         .nav-logo {
+
             color: #f2eee7;
+
             text-decoration: none;
-            font-family: "Montserrat", sans-serif;
+
+            font-family:
+                "Montserrat",
+                sans-serif;
+
             font-size: 15px;
+
             letter-spacing: 0.25em;
+
             font-weight: 500;
+
             line-height: 1;
         }
 
+
         .nav-links {
+
             display: flex;
+
             gap: 30px;
         }
 
+
         .nav-links a {
-            color: rgba(242,238,231,0.72);
+
+            color:
+                rgba(242,238,231,0.72);
+
             text-decoration: none;
-            font-family: "Montserrat", sans-serif;
+
+            font-family:
+                "Montserrat",
+                sans-serif;
+
             font-size: 11px;
+
             letter-spacing: 0.12em;
+
             text-transform: uppercase;
-            transition: color 0.3s ease;
+
+            transition:
+                color 0.3s ease;
+
             line-height: 1;
         }
 
+
         .nav-links a:hover {
+
             color: #cfad65;
         }
 
-        .mobile-menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    padding: 6px;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-}
 
-.mobile-menu-toggle span {
-    display: block;
-    width: 22px;
-    height: 1px;
-    background: #f2eee7;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
+        /* =====================================================
+           HAMBURGER
+        ===================================================== */
+
+        .mobile-menu-toggle {
+
+            display: none;
+
+            background: none;
+
+            border: none;
+
+            padding: 6px;
+
+            cursor: pointer;
+
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+
+        .mobile-menu-toggle span {
+
+            display: block;
+
+            width: 22px;
+
+            height: 1px;
+
+            background: #f2eee7;
+
+            transition:
+                transform 0.3s ease,
+                opacity 0.3s ease;
+        }
 
 
         /* =====================================================
@@ -418,15 +587,21 @@
         ===================================================== */
 
         section {
+
             position: relative;
+
             padding: 120px 8%;
         }
 
+
         section[id] {
+
             scroll-margin-top: 90px;
         }
 
+
         .section-label {
+
             color: var(--gold);
 
             text-transform: uppercase;
@@ -438,22 +613,30 @@
             margin-bottom: 18px;
         }
 
+
         h1,
         h2,
         h3 {
+
             font-family: var(--serif);
+
             font-weight: 400;
         }
 
+
         .section-title {
-            font-size: clamp(42px,6vw,76px);
+
+            font-size:
+                clamp(42px,6vw,76px);
 
             line-height: 0.95;
 
             margin-bottom: 28px;
         }
 
+
         .section-text {
+
             max-width: 680px;
 
             color: var(--muted);
@@ -461,13 +644,16 @@
             font-size: 0.95rem;
         }
 
+
         .button {
+
             display: inline-block;
 
             padding: 14px 25px;
 
             border:
-                1px solid rgba(199,169,107,0.55);
+                1px solid
+                rgba(199,169,107,0.55);
 
             color: var(--text);
 
@@ -483,7 +669,9 @@
                 all 0.3s ease;
         }
 
+
         .button:hover {
+
             background:
                 rgba(199,169,107,0.1);
 
@@ -500,12 +688,15 @@
         ===================================================== */
 
         .hero {
+
             min-height: 100vh;
 
             display: flex;
+
             flex-direction: column;
 
             justify-content: center;
+
             align-items: center;
 
             text-align: center;
@@ -515,12 +706,15 @@
             overflow: hidden;
         }
 
+
         .hero::before {
+
             content: "";
 
             position: absolute;
 
             width: 560px;
+
             height: 560px;
 
             border-radius: 50%;
@@ -538,7 +732,9 @@
             pointer-events: none;
         }
 
+
         .hero-eyebrow {
+
             color: var(--muted);
 
             font-size: 0.7rem;
@@ -550,7 +746,9 @@
             margin-bottom: 22px;
         }
 
+
         .hero h1 {
+
             font-size:
                 clamp(52px,8vw,100px);
 
@@ -561,7 +759,9 @@
             margin-bottom: 28px;
         }
 
+
         .hero-subtitle {
+
             max-width: 650px;
 
             color: var(--muted);
@@ -571,7 +771,9 @@
             letter-spacing: 0.03em;
         }
 
+
         .hero-scroll {
+
             position: absolute;
 
             bottom: 35px;
@@ -592,17 +794,22 @@
         ===================================================== */
 
         .book-section {
+
             background:
                 rgba(255,255,255,0.012);
 
             border-top:
-                1px solid rgba(255,255,255,0.035);
+                1px solid
+                rgba(255,255,255,0.035);
 
             border-bottom:
-                1px solid rgba(255,255,255,0.035);
+                1px solid
+                rgba(255,255,255,0.035);
         }
 
+
         .book-grid {
+
             display: grid;
 
             grid-template-columns:
@@ -617,14 +824,19 @@
             margin: 0 auto;
         }
 
+
         .book-cover-wrap {
+
             display: flex;
 
             justify-content: center;
         }
 
+
         .book-cover {
+
             width: 250px;
+
             height: 375px;
 
             object-fit: cover;
@@ -632,15 +844,22 @@
             display: block;
 
             box-shadow:
-                0 20px 60px rgba(0,0,0,0.45),
-                0 0 45px rgba(199,169,107,0.06);
+                0 20px 60px
+                rgba(0,0,0,0.45),
+
+                0 0 45px
+                rgba(199,169,107,0.06);
         }
 
+
         .book-info .section-label {
+
             margin-bottom: 10px;
         }
 
+
         .book-title {
+
             font-size:
                 clamp(44px,5vw,70px);
 
@@ -649,7 +868,9 @@
             margin-bottom: 18px;
         }
 
+
         .book-series {
+
             color: var(--gold);
 
             font-size: 0.7rem;
@@ -661,7 +882,9 @@
             margin-bottom: 30px;
         }
 
+
         .book-tagline {
+
             font-family: var(--serif);
 
             font-size: 1.45rem;
@@ -673,7 +896,9 @@
             margin-bottom: 28px;
         }
 
+
         .book-description {
+
             color: var(--muted);
 
             max-width: 650px;
@@ -687,6 +912,7 @@
         ===================================================== */
 
         .saga-preview {
+
             max-width: 900px;
 
             margin: 0 auto;
@@ -694,12 +920,16 @@
             text-align: center;
         }
 
+
         .saga-preview .section-text {
+
             margin:
                 0 auto 35px;
         }
 
+
         .saga-name {
+
             font-size:
                 clamp(54px,8vw,100px);
 
@@ -716,6 +946,7 @@
         ===================================================== */
 
         .stories-grid {
+
             display: grid;
 
             grid-template-columns:
@@ -729,13 +960,16 @@
                 50px auto 0;
         }
 
+
         .story-card {
+
             min-height: 210px;
 
             padding: 34px 28px;
 
             border:
-                1px solid rgba(255,255,255,0.07);
+                1px solid
+                rgba(255,255,255,0.07);
 
             background:
                 rgba(255,255,255,0.018);
@@ -752,7 +986,9 @@
                 background 0.3s ease;
         }
 
+
         .story-card:hover {
+
             transform:
                 translateY(-4px);
 
@@ -763,7 +999,9 @@
                 rgba(255,255,255,0.025);
         }
 
+
         .story-number {
+
             color: var(--gold);
 
             font-size: 0.65rem;
@@ -773,14 +1011,18 @@
             text-transform: uppercase;
         }
 
+
         .story-card h3 {
+
             font-size: 2rem;
 
             margin:
                 20px 0 15px;
         }
 
+
         .story-status {
+
             color: var(--muted);
 
             font-size: 0.65rem;
@@ -796,6 +1038,7 @@
         ===================================================== */
 
         .author-preview {
+
             max-width: 800px;
 
             margin: 0 auto;
@@ -803,14 +1046,18 @@
             text-align: center;
         }
 
+
         .author-preview h2 {
+
             font-size:
                 clamp(42px,6vw,72px);
 
             margin-bottom: 25px;
         }
 
+
         .author-preview p {
+
             color: var(--muted);
 
             max-width: 650px;
@@ -825,10 +1072,12 @@
         ===================================================== */
 
         footer {
+
             padding: 45px 8%;
 
             border-top:
-                1px solid rgba(255,255,255,0.06);
+                1px solid
+                rgba(255,255,255,0.06);
 
             text-align: center;
 
@@ -842,102 +1091,154 @@
 
 
         /* =====================================================
-           RESPONSIVE
+           TABLET
         ===================================================== */
 
         @media (max-width: 900px) {
 
-            .nav-links {
-                gap: 18px;
-            }
-
             .book-grid {
+
                 grid-template-columns:
                     220px 1fr;
 
                 gap: 45px;
             }
 
+
             .book-cover {
+
                 width: 220px;
+
                 height: 330px;
             }
 
-            .stories-grid {
-                grid-template-columns: 1fr;
-            }
 
-            .vaelor-line {
-                width: 170%;
-                left: -35%;
-                opacity: 0.20;
+            .stories-grid {
+
+                grid-template-columns: 1fr;
             }
         }
 
 
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
         @media (max-width: 750px) {
 
-    nav {
-        padding: 18px 5%;
-        background: linear-gradient(
-            to bottom,
-            rgba(9,9,9,0.92),
-            rgba(9,9,9,0)
-        );
-    }
+            /* NAV */
 
-    .nav-logo {
-        font-size: 13px;
-        letter-spacing: 0.2em;
-    }
+            nav {
 
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 5%;
-        flex-direction: column;
-        gap: 0;
-        min-width: 150px;
-        padding: 10px 0;
-        background: rgba(9,9,9,0.96);
-        border: 1px solid rgba(242,238,231,0.08);
-    }
+                padding:
+                    18px 5%;
 
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 10px 18px;
-        font-size: 10px;
-        letter-spacing: 0.12em;
-        white-space: nowrap;
-    }
-
-    .mobile-menu-toggle {
-        display: flex;
-    }
-
-    .mobile-menu-toggle.active span:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-    }
-
-    .mobile-menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .mobile-menu-toggle.active span:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-    }
-}
-
-            section {
-                padding: 90px 7%;
+                background:
+                    linear-gradient(
+                        to bottom,
+                        rgba(9,9,9,0.92),
+                        rgba(9,9,9,0)
+                    );
             }
 
+
+            .nav-logo {
+
+                font-size: 13px;
+
+                letter-spacing: 0.2em;
+            }
+
+
+            .nav-links {
+
+                display: none;
+
+                position: absolute;
+
+                top: 100%;
+
+                right: 5%;
+
+                flex-direction: column;
+
+                gap: 0;
+
+                min-width: 150px;
+
+                padding: 10px 0;
+
+                background:
+                    rgba(9,9,9,0.96);
+
+                border:
+                    1px solid
+                    rgba(242,238,231,0.08);
+            }
+
+
+            .nav-links.active {
+
+                display: flex;
+            }
+
+
+            .nav-links a {
+
+                display: block;
+
+                padding:
+                    10px 18px;
+
+                font-size: 10px;
+
+                letter-spacing: 0.12em;
+
+                white-space: nowrap;
+            }
+
+
+            .mobile-menu-toggle {
+
+                display: flex;
+            }
+
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+
+                transform:
+                    translateY(6px)
+                    rotate(45deg);
+            }
+
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+
+                opacity: 0;
+            }
+
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+
+                transform:
+                    translateY(-6px)
+                    rotate(-45deg);
+            }
+
+
+            /* SEZIONI */
+
+            section {
+
+                padding:
+                    90px 7%;
+            }
+
+
+            /* LIBRO */
+
             .book-grid {
+
                 grid-template-columns: 1fr;
 
                 text-align: center;
@@ -945,119 +1246,175 @@
                 gap: 45px;
             }
 
+
             .book-cover-wrap {
+
                 order: 0;
             }
 
+
             .book-info {
+
                 order: 1;
             }
 
+
             .book-description {
+
                 margin-left: auto;
+
                 margin-right: auto;
             }
 
+
             .button {
+
                 margin-top: 5px;
             }
 
-            .vaelor-line {
-                width: 190%;
-                left: -45%;
+
+            /* RACCONTI */
+
+            .stories-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            /* SFONDO */
+
+            .fracture {
+
+                opacity: 0.28;
+            }
+
+
+            .fracture-2,
+            .fracture-4 {
+
                 opacity: 0.16;
             }
 
-            .gold-glow {
-                opacity: 0.22;
+
+            .dark-particle {
+
+                opacity: 0.12;
             }
         }
 
+
+        /* =====================================================
+           MOBILE PICCOLO
+        ===================================================== */
 
         @media (max-width: 430px) {
 
             .hero h1 {
+
                 font-size: 2.8rem;
             }
 
+
             .hero-subtitle {
+
                 font-size: 0.82rem;
             }
 
+
             .section-title {
+
                 font-size: 2.8rem;
             }
 
+
             .book-title {
+
                 font-size: 2.9rem;
             }
 
+
             .book-cover {
+
                 width: 270px;
+
                 height: 405px;
             }
 
+
             .book-tagline {
+
                 font-size: 1.25rem;
             }
 
-            .saga-name {
-                font-size: 3.8rem;
-            }
 
-            .vaelor-line {
-                opacity: 0.14;
+            .saga-name {
+
+                font-size: 3.8rem;
             }
         }
 
 
+        /* =====================================================
+           SCHERMI MOLTO PICCOLI
+        ===================================================== */
+
         @media (max-width: 340px) {
 
-            .nav-links {
-                gap: 10px;
-            }
-
             .hero h1 {
+
                 font-size: 2.35rem;
             }
 
+
             .book-cover {
+
                 width: 240px;
+
                 height: 360px;
             }
 
+
             .book-title {
+
                 font-size: 2.45rem;
             }
 
+
             .saga-name {
+
                 font-size: 3.2rem;
             }
         }
 
 
+        /* =====================================================
+           RIDUZIONE MOVIMENTO
+        ===================================================== */
+
         @media (prefers-reduced-motion: reduce) {
 
             html {
+
                 scroll-behavior: auto;
             }
 
-            .line-inner,
-            .gold-glow {
+
+            .background-effects::before,
+            .dark-particle {
+
                 animation: none;
             }
 
-            .vaelor-line {
-                transition: none;
-            }
 
             .button,
             .story-card {
+
                 transition: none;
             }
         }
 
     </style>
+
 </head>
 
 
@@ -1068,20 +1425,31 @@
          SFONDO
     ===================================================== -->
 
-    <div class="background-effects" aria-hidden="true">
+    <div
+        class="background-effects"
+        aria-hidden="true"
+    >
 
-    <div class="fracture fracture-1"></div>
-    <div class="fracture fracture-2"></div>
-    <div class="fracture fracture-3"></div>
-    <div class="fracture fracture-4"></div>
+        <div class="fracture fracture-1"></div>
 
-    <div class="dark-particle particle-1"></div>
-    <div class="dark-particle particle-2"></div>
-    <div class="dark-particle particle-3"></div>
-    <div class="dark-particle particle-4"></div>
-    <div class="dark-particle particle-5"></div>
+        <div class="fracture fracture-2"></div>
 
-</div>
+        <div class="fracture fracture-3"></div>
+
+        <div class="fracture fracture-4"></div>
+
+
+        <div class="dark-particle particle-1"></div>
+
+        <div class="dark-particle particle-2"></div>
+
+        <div class="dark-particle particle-3"></div>
+
+        <div class="dark-particle particle-4"></div>
+
+        <div class="dark-particle particle-5"></div>
+
+    </div>
 
 
     <!-- =====================================================
@@ -1089,24 +1457,55 @@
     ===================================================== -->
 
     <nav>
-    <a href="index.html" class="nav-logo">
-        ALYSSCRIPTUM
-    </a>
 
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="libro.html">In arrivo</a>
-        <a href="saga.html">Saga</a>
-        <a href="racconti.html">Racconti</a>
-        <a href="autrice.html">Autrice</a>
-    </div>
+        <a
+            href="index.html"
+            class="nav-logo"
+        >
+            ALYSSCRIPTUM
+        </a>
 
-    <button class="mobile-menu-toggle" aria-label="Apri menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-</nav>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="libro.html">
+                In arrivo
+            </a>
+
+            <a href="saga.html">
+                Saga
+            </a>
+
+            <a href="racconti.html">
+                Racconti
+            </a>
+
+            <a href="autrice.html">
+                Autrice
+            </a>
+
+        </div>
+
+
+        <button
+            class="mobile-menu-toggle"
+            aria-label="Apri menu"
+            aria-expanded="false"
+        >
+
+            <span></span>
+
+            <span></span>
+
+            <span></span>
+
+        </button>
+
+    </nav>
 
 
     <main>
@@ -1122,13 +1521,16 @@
                 Alyssa B. Flowered
             </div>
 
+
             <h1>
                 ALYSSCRIPTUM
             </h1>
 
+
             <p class="hero-subtitle">
                 Storie, mondi e personaggi che prendono forma oltre il confine della realtà.
             </p>
+
 
             <div class="hero-scroll">
                 Scorri
@@ -1166,28 +1568,42 @@
                         In arrivo
                     </div>
 
+
                     <div class="book-series">
                         Le Cronache delle Fratture · Volume I
                     </div>
 
+
                     <h2 class="book-title">
+
                         La Chiave<br>
+
                         delle Ombre
+
                     </h2>
 
+
                     <p class="book-tagline">
+
                         Una ragazza.<br>
+
                         Un mondo spezzato.<br>
+
                         Un potere che non avrebbe mai dovuto risvegliarsi.
+
                     </p>
 
+
                     <p class="book-description">
+
                         Sofia ha sempre avuto la sensazione che ci fosse qualcosa di sbagliato
                         nella realtà che la circonda. Mentre cerca di comprendere ciò che le sta
                         accadendo, si ritrova coinvolta in un conflitto molto più grande di lei
                         e costretta a confrontarsi con una verità sulla propria identità che
                         potrebbe cambiare ogni cosa.
+
                     </p>
+
 
                     <a
                         href="libro.html"
@@ -1215,15 +1631,20 @@
                     L'universo narrativo
                 </div>
 
+
                 <h2 class="saga-name">
                     Vaelor
                 </h2>
 
+
                 <p class="section-text">
+
                     Un mondo segnato da guerre, legami spezzati e verità rimaste troppo a lungo
                     nascoste. Un universo narrativo destinato a crescere attraverso romanzi,
                     racconti e nuove storie.
+
                 </p>
+
 
                 <a
                     href="saga.html"
@@ -1247,13 +1668,17 @@
                 Oltre i romanzi
             </div>
 
+
             <h2 class="section-title">
                 Racconti
             </h2>
 
+
             <p class="section-text">
+
                 Storie brevi, frammenti e personaggi che trovano spazio anche oltre i romanzi
                 della saga.
+
             </p>
 
 
@@ -1268,11 +1693,13 @@
                             Racconto I
                         </div>
 
+
                         <h3>
                             Il Giuramento
                         </h3>
 
                     </div>
+
 
                     <div class="story-status">
                         Prossimamente
@@ -1289,11 +1716,13 @@
                             Racconto II
                         </div>
 
+
                         <h3>
                             Le Ceneri di Aerith
                         </h3>
 
                     </div>
+
 
                     <div class="story-status">
                         Prossimamente
@@ -1310,11 +1739,13 @@
                             Racconto III
                         </div>
 
+
                         <h3>
                             Le Ultime Figlie
                         </h3>
 
                     </div>
+
 
                     <div class="story-status">
                         Prossimamente
@@ -1340,15 +1771,20 @@
                     L'autrice
                 </div>
 
+
                 <h2>
                     Alyssa B. Flowered
                 </h2>
 
+
                 <p>
+
                     Scrive storie di mondi lontani, identità spezzate e personaggi che spesso
                     prendono strade diverse da quelle previste.
                     Tutto comincia da Vaelor.
+
                 </p>
+
 
                 <a
                     href="autrice.html"
@@ -1370,28 +1806,57 @@
     ===================================================== -->
 
     <footer>
+
         © 2026 Alyssa B. Flowered
+
     </footer>
 
 
     <!-- =====================================================
-         MOVIMENTO DELLE LINEE CON LO SCROLL
+         JAVASCRIPT
     ===================================================== -->
 
     <script>
 
-        
+        const mobileMenuToggle =
+            document.querySelector(
+                '.mobile-menu-toggle'
+            );
 
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const navLinks = document.querySelector('.nav-links');
 
-mobileMenuToggle.addEventListener('click', () => {
-    mobileMenuToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-});
+        const navLinks =
+            document.querySelector(
+                '.nav-links'
+            );
+
+
+        mobileMenuToggle.addEventListener(
+            'click',
+            () => {
+
+                const isOpen =
+                    mobileMenuToggle.classList.toggle(
+                        'active'
+                    );
+
+
+                navLinks.classList.toggle(
+                    'active'
+                );
+
+
+                mobileMenuToggle.setAttribute(
+                    'aria-expanded',
+                    isOpen
+                );
+
+            }
+        );
 
     </script>
 
 
 </body>
+
 </html>
+```
