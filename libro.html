@@ -1,556 +1,1147 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>La Chiave delle Ombre | Alysscriptum</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: #0b0b0d;
-            color: #e8e4df;
-            font-family: Georgia, "Times New Roman", serif;
-            line-height: 1.7;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* NAVIGAZIONE */
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 22px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(11, 11, 13, 0.94);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            z-index: 100;
-            backdrop-filter: blur(8px);
-        }
-
-        .logo {
-            font-family: Arial, sans-serif;
-            font-size: 17px;
-            letter-spacing: 4px;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
-
-        nav li a {
-            opacity: 0.72;
-            transition: opacity 0.3s;
-        }
-
-        nav li a:hover {
-            opacity: 1;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 82vh;
-            padding: 160px 8% 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .book-hero {
-            max-width: 1100px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 90px;
-            align-items: center;
-        }
-
-        .cover {
-            text-align: center;
-        }
-
-        .cover img {
-            width: 300px;
-            height: 450px;
-            object-fit: cover;
-            display: block;
-            margin: 0 auto;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.55);
-        }
-
-        .book-info {
-            max-width: 650px;
-        }
-
-        .series {
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: 0.55;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: clamp(42px, 6vw, 72px);
-            font-weight: normal;
-            line-height: 1.05;
-            margin-bottom: 25px;
-        }
-
-        .subtitle {
-            font-size: 21px;
-            font-style: italic;
-            color: #c9c2ba;
-            margin-bottom: 30px;
-            max-width: 620px;
-        }
-
-        .description {
-            font-size: 17px;
-            color: #bbb5af;
-            max-width: 620px;
-        }
-
-        /* SEZIONI */
-
-        section {
-            padding: 100px 8%;
-        }
-
-        .section-inner {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            font-family: Arial, sans-serif;
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: 0.45;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            font-size: 38px;
-            font-weight: normal;
-            margin-bottom: 30px;
-        }
-
-        .synopsis {
-            font-size: 18px;
-            color: #c4beb8;
-        }
-
-        .synopsis p {
-            margin-bottom: 22px;
-        }
-
-        .synopsis p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* DETTAGLI */
-
-        .details {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 45px 0;
-            margin-top: 55px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .detail strong {
-            display: block;
-            font-family: Arial, sans-serif;
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            opacity: 0.45;
-            margin-bottom: 8px;
-        }
-
-        .detail span {
-            font-size: 17px;
-        }
-
-        /* ACQUISTO */
-
-        .purchase {
-            text-align: center;
-            padding: 120px 8%;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .purchase h2 {
-            margin-bottom: 15px;
-        }
-
-        .purchase p {
-            color: #aaa49e;
-            margin-bottom: 30px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 14px 30px;
-            border: 1px solid rgba(255,255,255,0.35);
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
-
-        .button:hover {
-            background: #e8e4df;
-            color: #0b0b0d;
-        }
-
-        /* FOOTER */
-
-        footer {
-            border-top: 1px solid rgba(255,255,255,0.08);
-            padding: 35px 8%;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            font-size: 10px;
-            letter-spacing: 2px;
-            opacity: 0.45;
-        }
-
-        /* RESPONSIVE */
-
-        @media (max-width: 900px) {
-
-            .book-hero {
-                grid-template-columns: 280px 1fr;
-                gap: 55px;
-            }
-
-            .cover img {
-                width: 250px;
-                height: 375px;
-            }
-
-            h1 {
-                font-size: clamp(40px, 6vw, 60px);
-            }
-
-            nav ul {
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 750px) {
-
-            nav {
-                padding: 18px 5%;
-            }
-
-            nav ul {
-                gap: 14px;
-                font-size: 9px;
-                letter-spacing: 1.5px;
-            }
-
-            .hero {
-                padding: 130px 7% 75px;
-            }
-
-            .book-hero {
-                grid-template-columns: 1fr;
-                gap: 55px;
-                text-align: center;
-            }
-
-            .book-info {
-                margin: 0 auto;
-            }
-
-            .cover img {
-                width: 240px;
-                height: 360px;
-            }
-
-            h1 {
-                font-size: 52px;
-            }
-
-            .subtitle {
-                font-size: 18px;
-            }
-
-            .description {
-                font-size: 16px;
-            }
-
-            section {
-                padding: 75px 7%;
-            }
-
-            h2 {
-                font-size: 32px;
-            }
-
-            .synopsis {
-                font-size: 16px;
-            }
-
-            .details {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .purchase {
-                padding: 85px 7%;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            nav {
-                position: relative;
-                padding: 20px 5%;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 12px 18px;
-            }
-
-            .hero {
-                padding: 70px 6% 65px;
-            }
-
-            .cover img {
-                width: 270px;
-                height: 405px;
-            }
-
-            h1 {
-                font-size: 43px;
-            }
-
-            .series {
-                font-size: 9px;
-                letter-spacing: 2px;
-            }
-
-            .subtitle {
-                font-size: 17px;
-            }
-
-            .description {
-                font-size: 15px;
-            }
-
-            section {
-                padding: 65px 6%;
-            }
-
-            h2 {
-                font-size: 30px;
-            }
-
-            .synopsis {
-                font-size: 16px;
-            }
-
-            .purchase {
-                padding: 75px 6%;
-            }
-        }
-
-        @media (max-width: 340px) {
-
-            .cover img {
-                width: 230px;
-                height: 345px;
-            }
-
-            h1 {
-                font-size: 37px;
-            }
-
-            nav ul {
-                font-size: 8px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="La Chiave delle Ombre · Le Cronache delle Fratture, Volume I. Un romanzo fantasy di Alyssa B. Flowered.">
+
+<title>La Chiave delle Ombre | Alysscriptum</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --bg: #09090d;
+    --bg-soft: #111118;
+    --text: #eeeae4;
+    --muted: #aaa5a0;
+    --gold: #cfb06b;
+    --line: rgba(255,255,255,0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background-effects {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(35,32,43,0.28), transparent 42%),
+        #09090d;
+}
+
+/* Linee di Vaelor */
+
+.vaelor-line {
+    position: absolute;
+    width: 150%;
+    height: 190px;
+    left: -25%;
+    opacity: 0.24;
+    will-change: transform;
+}
+
+.vaelor-line .line-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid currentColor;
+    border-left: none;
+    border-right: none;
+    filter: blur(0.2px);
+}
+
+/* Oro */
+
+.line-gold {
+    top: 12%;
+    color: rgba(207,174,101,0.82);
+}
+
+.line-gold .line-inner {
+    border-radius: 50% 35% 60% 40%;
+    animation: goldWave 11s ease-in-out infinite alternate;
+}
+
+/* Argento */
+
+.line-silver {
+    top: 35%;
+    color: rgba(190,196,207,0.76);
+}
+
+.line-silver .line-inner {
+    border-radius: 35% 60% 40% 65%;
+    animation: silverWave 14s ease-in-out infinite alternate;
+}
+
+/* Viola */
+
+.line-purple {
+    top: 59%;
+    color: rgba(145,112,180,0.80);
+}
+
+.line-purple .line-inner {
+    border-radius: 60% 40% 65% 35%;
+    animation: purpleWave 13s ease-in-out infinite alternate;
+}
+
+/* Blu */
+
+.line-blue {
+    top: 82%;
+    color: rgba(91,137,184,0.80);
+}
+
+.line-blue .line-inner {
+    border-radius: 45% 65% 35% 55%;
+    animation: blueWave 16s ease-in-out infinite alternate;
+}
+
+@keyframes goldWave {
+    0% {
+        transform: translateX(-4%) translateY(20px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateX(3%) translateY(-15px) rotate(1deg);
+    }
+
+    100% {
+        transform: translateX(-2%) translateY(18px) rotate(2deg);
+    }
+}
+
+@keyframes silverWave {
+    0% {
+        transform: translateX(3%) translateY(-15px) rotate(1deg);
+    }
+
+    50% {
+        transform: translateX(-4%) translateY(18px) rotate(-2deg);
+    }
+
+    100% {
+        transform: translateX(2%) translateY(-12px) rotate(2deg);
+    }
+}
+
+@keyframes purpleWave {
+    0% {
+        transform: translateX(-2%) translateY(18px) rotate(2deg);
+    }
+
+    50% {
+        transform: translateX(4%) translateY(-20px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translateX(-3%) translateY(12px) rotate(2deg);
+    }
+}
+
+@keyframes blueWave {
+    0% {
+        transform: translateX(4%) translateY(-18px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateX(-3%) translateY(15px) rotate(1deg);
+    }
+
+    100% {
+        transform: translateX(3%) translateY(-15px) rotate(-2deg);
+    }
+}
+
+/* Bagliori dorati */
+
+.gold-glow {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(207,174,101,0.11) 0%,
+        rgba(207,174,101,0.045) 35%,
+        transparent 72%
+    );
+    filter: blur(12px);
+    animation: glowFloat 10s ease-in-out infinite alternate;
+}
+
+.glow-1 {
+    top: 8%;
+    left: 10%;
+}
+
+.glow-2 {
+    top: 28%;
+    right: 8%;
+    animation-delay: -2s;
+}
+
+.glow-3 {
+    top: 47%;
+    left: 23%;
+    animation-delay: -5s;
+}
+
+.glow-4 {
+    top: 64%;
+    right: 20%;
+    animation-delay: -3s;
+}
+
+.glow-5 {
+    top: 79%;
+    left: 7%;
+    animation-delay: -7s;
+}
+
+.glow-6 {
+    top: 92%;
+    right: 11%;
+    animation-delay: -4s;
+}
+
+@keyframes glowFloat {
+    0% {
+        transform: translate3d(0,0,0) scale(0.9);
+        opacity: 0.55;
+    }
+
+    50% {
+        transform: translate3d(20px,-25px,0) scale(1.05);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translate3d(-15px,20px,0) scale(0.95);
+        opacity: 0.6;
+    }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6vw;
+
+    background: rgba(9,9,13,0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    z-index: 20;
+}
+
+.logo {
+    color: var(--text);
+    text-decoration: none;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: #bcb7b2;
+    text-decoration: none;
+
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--gold);
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #f2eee8;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.book-hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 150px 8vw 100px;
+}
+
+.book-hero-inner {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: minmax(260px, 420px) minmax(300px, 1fr);
+    gap: 9vw;
+
+    align-items: center;
+}
+
+/* Copertina */
+
+.cover-wrapper {
+    display: flex;
+    justify-content: center;
+
+    animation: coverAppear 1.2s ease forwards;
+}
+
+.cover-wrapper img {
+    width: min(100%, 390px);
+    height: auto;
+
+    display: block;
+
+    border-radius: 2px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.55),
+        0 0 50px rgba(207,174,101,0.07);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.cover-wrapper img:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 40px 90px rgba(0,0,0,0.65),
+        0 0 60px rgba(207,174,101,0.11);
+}
+
+/* Testo hero */
+
+.book-info {
+    animation: textAppear 1.2s ease 0.15s both;
+}
+
+.eyebrow {
+    margin-bottom: 20px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+}
+
+.book-info h1 {
+    margin-bottom: 25px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(55px, 7vw, 92px);
+    line-height: 0.86;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+}
+
+.book-info h1 span {
+    display: block;
+}
+
+.book-subtitle {
+    max-width: 580px;
+
+    margin-bottom: 28px;
+
+    color: #d4d0ca;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(21px, 2.3vw, 29px);
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.book-description {
+    max-width: 580px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* =========================
+   DIVISORE
+========================= */
+
+.section-divider {
+    width: 84%;
+    max-width: 1100px;
+
+    height: 1px;
+
+    margin: 0 auto;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(207,174,101,0.25),
+        transparent
+    );
+}
+
+/* =========================
+   SINOSSI
+========================= */
+
+.synopsis-section {
+    padding: 130px 8vw;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-label {
+    margin-bottom: 20px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.synopsis-section h2 {
+    max-width: 720px;
+
+    margin-bottom: 45px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: 0.95;
+    font-weight: 400;
+}
+
+.synopsis-text {
+    max-width: 780px;
+}
+
+.synopsis-text p {
+    margin-bottom: 25px;
+
+    color: #b7b2ad;
+
+    font-size: 14px;
+    line-height: 2;
+}
+
+.synopsis-text p:first-child {
+    color: #d4d0ca;
+}
+
+/* =========================
+   DETTAGLI LIBRO
+========================= */
+
+.details-section {
+    padding: 120px 8vw;
+}
+
+.details-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+}
+
+.detail-item {
+    padding: 30px;
+
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.detail-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #77736f;
+
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.detail-value {
+    color: #ded9d3;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 23px;
+}
+
+/* =========================
+   ACQUISTO
+========================= */
+
+.purchase-section {
+    padding: 130px 8vw 160px;
+
+    text-align: center;
+}
+
+.purchase-section h2 {
+    margin-bottom: 18px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(42px, 5vw, 65px);
+    line-height: 1;
+    font-weight: 400;
+}
+
+.purchase-section p {
+    max-width: 520px;
+
+    margin: 0 auto 35px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.purchase-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 190px;
+
+    padding: 15px 28px;
+
+    color: #111;
+    background: var(--gold);
+
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.purchase-button:hover {
+    background: #e0c27e;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 35px rgba(207,174,101,0.18);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 35px 8vw;
+
+    border-top: 1px solid rgba(255,255,255,0.05);
+
+    text-align: center;
+
+    color: #66625f;
+
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+/* =========================
+   ANIMAZIONI
+========================= */
+
+@keyframes coverAppear {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes textAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        height: 72px;
+        padding: 0 5vw;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav-links {
+        gap: 17px;
+    }
+
+    .nav-links a {
+        font-size: 8px;
+        letter-spacing: 0.1em;
+    }
+
+    .book-hero {
+        min-height: auto;
+        padding: 130px 7vw 90px;
+    }
+
+    .book-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 65px;
+    }
+
+    .cover-wrapper {
+        order: 1;
+    }
+
+    .book-info {
+        order: 2;
+        text-align: center;
+    }
+
+    .book-description {
+        margin: 0 auto;
+    }
+
+    .eyebrow {
+        margin-bottom: 16px;
+    }
+
+    .book-info h1 {
+        font-size: clamp(55px, 15vw, 80px);
+    }
+
+    .synopsis-section,
+    .details-section,
+    .purchase-section {
+        padding-left: 7vw;
+        padding-right: 7vw;
+    }
+}
+
+@media (max-width: 600px) {
+
+    nav {
+        height: 65px;
+    }
+
+    .logo {
+        font-size: 18px;
+        letter-spacing: 0.12em;
+    }
+
+    .nav-links {
+        gap: 11px;
+    }
+
+    .nav-links a {
+        font-size: 7px;
+        letter-spacing: 0.07em;
+    }
+
+    .book-hero {
+        padding-top: 105px;
+        padding-bottom: 70px;
+    }
+
+    .cover-wrapper img {
+        width: 78%;
+    }
+
+    .book-info h1 {
+        font-size: 58px;
+    }
+
+    .book-subtitle {
+        font-size: 21px;
+    }
+
+    .book-description {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .synopsis-section {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .synopsis-section h2 {
+        font-size: 43px;
+        margin-bottom: 32px;
+    }
+
+    .synopsis-text p {
+        font-size: 13px;
+        line-height: 1.85;
+    }
+
+    .details-section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-item {
+        padding: 24px;
+    }
+
+    .purchase-section {
+        padding-top: 90px;
+        padding-bottom: 110px;
+    }
+
+    .purchase-section h2 {
+        font-size: 45px;
+    }
+
+    footer {
+        padding: 28px 6vw;
+        font-size: 8px;
+    }
+
+}
+
+/* =========================
+   RIDUZIONE MOVIMENTO
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .vaelor-line .line-inner,
+    .gold-glow,
+    .cover-wrapper,
+    .book-info {
+        animation: none;
+    }
+
+}
+
+/* =========================
+   SCROLL DELLE LINEE
+========================= */
+
+</style>
 </head>
 
 <body>
 
-<nav>
-    <a href="index.html" class="logo">ALYSSCRIPTUM</a>
+<!-- =========================
+     SFONDO
+========================= -->
 
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="libro.html">Libro</a></li>
-        <li><a href="saga.html">Saga</a></li>
-        <li><a href="racconti.html">Racconti</a></li>
-        <li><a href="autrice.html">Autrice</a></li>
-    </ul>
+<div class="background-effects" aria-hidden="true">
+
+    <div class="vaelor-line line-gold">
+        <div class="line-inner"></div>
+    </div>
+
+    <div class="vaelor-line line-silver">
+        <div class="line-inner"></div>
+    </div>
+
+    <div class="vaelor-line line-purple">
+        <div class="line-inner"></div>
+    </div>
+
+    <div class="vaelor-line line-blue">
+        <div class="line-inner"></div>
+    </div>
+
+    <div class="gold-glow glow-1"></div>
+    <div class="gold-glow glow-2"></div>
+    <div class="gold-glow glow-3"></div>
+    <div class="gold-glow glow-4"></div>
+    <div class="gold-glow glow-5"></div>
+    <div class="gold-glow glow-6"></div>
+
+</div>
+
+
+<!-- =========================
+     NAVIGAZIONE
+========================= -->
+
+<nav>
+
+    <a href="index.html" class="logo">
+        ALYSSCRIPTUM
+    </a>
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="libro.html">
+            In arrivo
+        </a>
+
+        <a href="saga.html">
+            Saga
+        </a>
+
+        <a href="racconti.html">
+            Racconti
+        </a>
+
+        <a href="autrice.html">
+            Autrice
+        </a>
+
+    </div>
+
 </nav>
 
 
 <main>
 
-    <!-- HERO DEL LIBRO -->
+<!-- =========================
+     HERO LIBRO
+========================= -->
 
-    <section class="hero">
+<section class="book-hero">
 
-        <div class="book-hero">
+    <div class="book-hero-inner">
 
-            <div class="cover">
-                <img
-                    src="copertina.jpeg"
-                    alt="Copertina di La Chiave delle Ombre"
-                >
+        <div class="cover-wrapper">
+
+            <img
+                src="copertina.jpeg"
+                alt="Copertina de La Chiave delle Ombre"
+            >
+
+        </div>
+
+
+        <div class="book-info">
+
+            <div class="eyebrow">
+                Le Cronache delle Fratture · Volume I
             </div>
 
-            <div class="book-info">
+            <h1>
+                <span>La Chiave</span>
+                <span>delle Ombre</span>
+            </h1>
 
-                <div class="series">
-                    Le Cronache delle Fratture · Volume I
-                </div>
+            <p class="book-subtitle">
+                Non c'è niente di più inquietante di guardarsi allo specchio
+                e non riconoscere sé stessi.
+            </p>
 
-                <h1>
-                    La Chiave<br>
-                    delle Ombre
-                </h1>
+            <p class="book-description">
+                L'inizio di una saga fantasy fatta di identità spezzate,
+                scelte estreme e confini che non avrebbero mai dovuto
+                essere attraversati.
+            </p>
 
-                <div class="subtitle">
-                    Non c'è niente di più inquietante di guardarsi allo specchio e non riconoscere sé stessi.
-                </div>
+        </div>
 
-                <p class="description">
-                    L'inizio di una saga fantasy fatta di identità spezzate,
-                    scelte estreme e confini che non avrebbero mai dovuto essere attraversati.
-                </p>
+    </div>
+
+</section>
+
+
+<div class="section-divider"></div>
+
+
+<!-- =========================
+     SINOSSI
+========================= -->
+
+<section class="synopsis-section">
+
+    <div class="content-container">
+
+        <div class="section-label">
+            Il romanzo
+        </div>
+
+        <h2>
+            Una storia di identità,
+            verità e mondi spezzati.
+        </h2>
+
+        <div class="synopsis-text">
+
+            <p>
+                Ashford è una città avvolta dalla nebbia, e Sofia sente
+                fin dal primo giorno che qualcosa non va. Presenze nell’ombra,
+                sogni che non sembrano sogni e la sensazione costante di essere
+                osservata la spingono verso una porta che non dovrebbe esistere.
+            </p>
+
+            <p>
+                Oltre quel varco c’è Vaelor, un mondo ferito da una guerra
+                mai davvero conclusa, dove Sofia scopre di essere al centro
+                di una caccia, di un tradimento e di un potere che non comprende.
+                Tra alleati ambigui e nemici nascosti, la verità su chi può
+                fidarsi e chi no emerge troppo tardi, lasciando dietro di sé
+                una perdita irreversibile.
+            </p>
+
+            <p>
+                Quando il passato torna a reclamare il suo prezzo, Sofia
+                è costretta a scegliere se accettare ciò che è davvero
+                o continuare a fuggire da una verità che può riscrivere
+                il mondo.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="section-divider"></div>
+
+
+<!-- =========================
+     DETTAGLI
+========================= -->
+
+<section class="details-section">
+
+    <div class="content-container">
+
+        <div class="section-label">
+            Dettagli
+        </div>
+
+        <div class="details-grid">
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Serie
+                </span>
+
+                <span class="detail-value">
+                    Le Cronache delle Fratture
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Volume
+                </span>
+
+                <span class="detail-value">
+                    I
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Formato
+                </span>
+
+                <span class="detail-value">
+                    Romanzo
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Pagine
+                </span>
+
+                <span class="detail-value">
+                    293
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Edizione
+                </span>
+
+                <span class="detail-value">
+                    Copertina flessibile
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Pubblicazione
+                </span>
+
+                <span class="detail-value">
+                    Prossimamente
+                </span>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- STORIA -->
-
-    <section>
-
-        <div class="section-inner">
-
-            <div class="section-label">
-                Il libro
-            </div>
-
-            <h2>
-                La storia
-            </h2>
-
-            <div class="synopsis">
-
-                <p>
-                    Ashford è una città avvolta dalla nebbia, e Sofia sente fin dal primo giorno che qualcosa non va.
-                    Presenze nell’ombra, sogni che non sembrano sogni e la sensazione costante
-                    di essere osservata la spingono verso una porta che non dovrebbe esistere.
-                </p>
-
-                <p>
-                    Oltre quel varco c’è Vaelor, un mondo ferito da una guerra mai davvero conclusa,
-                    dove Sofia scopre di essere al centro di una caccia, di un tradimento e di un potere che non comprende.
-                    Tra alleati ambigui e nemici nascosti, la verità su chi può fidarsi e chi no emerge troppo tardi,
-                    lasciando dietro di sé una perdita irreversibile.
-                </p>
-
-                <p>
-                    Quando il passato torna a reclamare il suo prezzo, Sofia è costretta a scegliere
-                    se accettare ciò che è davvero o continuare a fuggire da una verità che può riscrivere il mondo.
-                </p>
-
-            </div>
+<div class="section-divider"></div>
 
 
-            <!-- DETTAGLI -->
+<!-- =========================
+     ACQUISTO
+========================= -->
 
-            <div class="details">
+<section class="purchase-section">
 
-                <div class="detail">
-                    <strong>Serie</strong>
-                    <span>Le Cronache delle Fratture</span>
-                </div>
+    <div class="content-container">
 
-                <div class="detail">
-                    <strong>Volume</strong>
-                    <span>I</span>
-                </div>
-
-                <div class="detail">
-                    <strong>Formato</strong>
-                    <span>Romanzo</span>
-                </div>
-
-                <div class="detail">
-                    <strong>Pagine</strong>
-                    <span>298</span>
-                </div>
-
-                <div class="detail">
-                    <strong>Edizione</strong>
-                    <span>Copertina flessibile</span>
-                </div>
-
-                <div class="detail">
-                    <strong>Pubblicazione</strong>
-                    <span>Prossimamente</span>
-                </div>
-
-            </div>
-
+        <div class="section-label">
+            Presto disponibile
         </div>
-
-    </section>
-
-
-    <!-- ACQUISTO -->
-
-    <section class="purchase">
 
         <h2>
             La storia sta per iniziare.
@@ -560,18 +1151,100 @@
             Presto disponibile attraverso i canali ufficiali.
         </p>
 
-        <a href="#" class="button">
+        <a
+            href="#"
+            class="purchase-button"
+        >
             Acquista il libro
         </a>
 
-    </section>
+    </div>
+
+</section>
 
 </main>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
+
     © 2026 Alysscriptum · Alyssa B. Flowered
+
 </footer>
+
+
+<!-- =========================
+     ANIMAZIONE SCROLL
+========================= -->
+
+<script>
+
+const lines = document.querySelectorAll(".vaelor-line");
+
+let currentScroll = 0;
+let targetScroll = 0;
+
+window.addEventListener(
+    "scroll",
+    () => {
+        targetScroll = window.scrollY;
+    },
+    { passive: true }
+);
+
+function animateLines() {
+
+    currentScroll +=
+        (targetScroll - currentScroll) * 0.06;
+
+    const speeds = [
+        0.055,
+        -0.038,
+        0.072,
+        -0.048
+    ];
+
+    const rotations = [
+        0.003,
+        -0.002,
+        0.004,
+        -0.003
+    ];
+
+    const scales = [
+        0.00008,
+        -0.00006,
+        0.0001,
+        -0.00007
+    ];
+
+    lines.forEach((line, index) => {
+
+        const translateY =
+            currentScroll * speeds[index];
+
+        const rotate =
+            currentScroll * rotations[index];
+
+        const scale =
+            1 + currentScroll * scales[index];
+
+        line.style.transform =
+            `translate3d(0, ${translateY}px, 0)
+             rotate(${rotate}deg)
+             scale(${scale})`;
+
+    });
+
+    requestAnimationFrame(animateLines);
+}
+
+animateLines();
+
+</script>
 
 </body>
 </html>
