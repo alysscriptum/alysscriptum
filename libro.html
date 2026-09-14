@@ -4,7 +4,10 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <meta
     name="description"
@@ -52,15 +55,37 @@
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
 }
 
 body {
+    width: 100%;
+    max-width: 100%;
+
     background: var(--bg);
     color: var(--text);
+
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     line-height: 1.7;
+
     overflow-x: hidden;
+}
+
+
+/* =========================================================
+   ELEMENTI RESPONSIVE
+========================================================= */
+
+img,
+video,
+svg {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
 }
 
 
@@ -71,8 +96,13 @@ body {
 .background-effects {
     position: fixed;
     inset: 0;
+
+    width: 100%;
+    max-width: 100%;
+
     pointer-events: none;
     overflow: hidden;
+
     z-index: -5;
 
     background:
@@ -101,7 +131,9 @@ body {
 
 .background-effects::before {
     content: "";
+
     position: absolute;
+
     inset: -20%;
 
     background:
@@ -177,6 +209,7 @@ body {
 
 .fracture-1 {
     left: 19%;
+
     transform:
         rotate(12deg)
         skewX(-8deg);
@@ -184,6 +217,7 @@ body {
 
 .fracture-2 {
     left: 43%;
+
     height: 125%;
     opacity: 0.25;
 
@@ -194,6 +228,7 @@ body {
 
 .fracture-3 {
     left: 67%;
+
     height: 140%;
     opacity: 0.32;
 
@@ -204,6 +239,7 @@ body {
 
 .fracture-4 {
     left: 82%;
+
     height: 115%;
     opacity: 0.20;
 
@@ -214,6 +250,7 @@ body {
 
 .fracture::before {
     content: "";
+
     position: absolute;
 
     width: 1px;
@@ -231,6 +268,7 @@ body {
 
 .fracture::after {
     content: "";
+
     position: absolute;
 
     width: 1px;
@@ -346,6 +384,7 @@ nav {
     left: 0;
 
     width: 100%;
+    max-width: 100%;
 
     z-index: 10;
 
@@ -382,6 +421,8 @@ nav {
     font-weight: 500;
 
     white-space: nowrap;
+
+    min-width: 0;
 }
 
 .nav-links {
@@ -390,6 +431,8 @@ nav {
     align-items: center;
 
     gap: 30px;
+
+    min-width: 0;
 }
 
 .nav-links a {
@@ -438,6 +481,8 @@ nav {
     width: 34px;
     height: 34px;
 
+    flex-shrink: 0;
+
     padding: 6px;
 
     background: none;
@@ -459,20 +504,17 @@ nav {
         opacity 0.3s ease;
 }
 
-.mobile-menu-toggle.active
-span:nth-child(1) {
+.mobile-menu-toggle.active span:nth-child(1) {
     transform:
         translateY(6px)
         rotate(45deg);
 }
 
-.mobile-menu-toggle.active
-span:nth-child(2) {
+.mobile-menu-toggle.active span:nth-child(2) {
     opacity: 0;
 }
 
-.mobile-menu-toggle.active
-span:nth-child(3) {
+.mobile-menu-toggle.active span:nth-child(3) {
     transform:
         translateY(-6px)
         rotate(-45deg);
@@ -485,7 +527,13 @@ span:nth-child(3) {
 
 main {
     position: relative;
+
     z-index: 2;
+
+    width: 100%;
+    max-width: 100%;
+
+    overflow: hidden;
 }
 
 
@@ -495,6 +543,9 @@ main {
 
 .book-hero {
 
+    width: 100%;
+    max-width: 100%;
+
     min-height: 100vh;
 
     display: flex;
@@ -502,9 +553,7 @@ main {
     align-items: center;
 
     padding:
-        145px
-        8vw
-        105px;
+        145px 8vw 105px;
 
     position: relative;
 }
@@ -517,6 +566,9 @@ main {
 
     width: 600px;
     height: 600px;
+
+    max-width: 90vw;
+    max-height: 90vw;
 
     left: 5%;
     top: 50%;
@@ -539,8 +591,9 @@ main {
 .book-hero-inner {
 
     width: 100%;
-
     max-width: 1200px;
+
+    min-width: 0;
 
     margin: 0 auto;
 
@@ -548,7 +601,7 @@ main {
 
     grid-template-columns:
         minmax(260px, 420px)
-        minmax(300px, 1fr);
+        minmax(0, 1fr);
 
     gap: 9vw;
 
@@ -570,18 +623,22 @@ main {
 
     justify-content: center;
 
+    min-width: 0;
+
     animation:
         coverAppear 1.2s ease forwards;
 }
 
 .cover-wrapper img {
 
+    display: block;
+
     width:
         min(100%, 390px);
 
-    height: auto;
+    max-width: 100%;
 
-    display: block;
+    height: auto;
 
     border-radius: 2px;
 
@@ -611,6 +668,8 @@ main {
 
 .book-info {
 
+    min-width: 0;
+
     animation:
         textAppear 1.2s ease 0.15s both;
 }
@@ -628,6 +687,8 @@ main {
     letter-spacing: 0.24em;
 
     text-transform: uppercase;
+
+    overflow-wrap: break-word;
 }
 
 .book-info h1 {
@@ -646,6 +707,8 @@ main {
     font-weight: 400;
 
     letter-spacing: -0.025em;
+
+    overflow-wrap: break-word;
 }
 
 .book-info h1 span {
@@ -691,7 +754,6 @@ main {
 .section-divider {
 
     width: 84%;
-
     max-width: 1100px;
 
     height: 1px;
@@ -714,9 +776,11 @@ main {
 
 .synopsis-section {
 
+    width: 100%;
+    max-width: 100%;
+
     padding:
-        135px
-        8vw;
+        135px 8vw;
 }
 
 .content-container {
@@ -724,6 +788,8 @@ main {
     width: 100%;
 
     max-width: 1100px;
+
+    min-width: 0;
 
     margin: 0 auto;
 }
@@ -775,6 +841,8 @@ main {
     font-size: 14px;
 
     line-height: 2;
+
+    overflow-wrap: break-word;
 }
 
 .synopsis-text p:first-child {
@@ -789,9 +857,11 @@ main {
 
 .details-section {
 
+    width: 100%;
+    max-width: 100%;
+
     padding:
-        125px
-        8vw;
+        125px 8vw;
 }
 
 .details-grid {
@@ -801,7 +871,10 @@ main {
     grid-template-columns:
         1fr 1fr;
 
+    width: 100%;
     max-width: 900px;
+
+    min-width: 0;
 
     margin: 0 auto;
 
@@ -813,6 +886,8 @@ main {
 }
 
 .detail-item {
+
+    min-width: 0;
 
     padding: 30px;
 
@@ -856,6 +931,8 @@ main {
         serif;
 
     font-size: 23px;
+
+    overflow-wrap: break-word;
 }
 
 
@@ -865,10 +942,11 @@ main {
 
 .purchase-section {
 
+    width: 100%;
+    max-width: 100%;
+
     padding:
-        135px
-        8vw
-        165px;
+        135px 8vw 165px;
 
     text-align: center;
 }
@@ -908,10 +986,11 @@ main {
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
     min-width: 190px;
+
+    max-width: 100%;
 
     padding:
         15px 28px;
@@ -959,6 +1038,9 @@ footer {
     position: relative;
 
     z-index: 2;
+
+    width: 100%;
+    max-width: 100%;
 
     padding:
         35px 8vw;
@@ -1034,15 +1116,14 @@ footer {
         min-height: auto;
 
         padding:
-            130px
-            7vw
-            90px;
+            130px 7vw 90px;
     }
 
     .book-hero-inner {
 
         grid-template-columns:
-            220px 1fr;
+            minmax(200px, 220px)
+            minmax(0, 1fr);
 
         gap: 45px;
     }
@@ -1050,6 +1131,7 @@ footer {
     .cover-wrapper img {
 
         width: 220px;
+        max-width: 100%;
     }
 
     .book-info {
@@ -1084,6 +1166,9 @@ footer {
 
     nav {
 
+        width: 100%;
+        max-width: 100%;
+
         padding:
             18px 5%;
 
@@ -1101,6 +1186,11 @@ footer {
 
         letter-spacing:
             0.2em;
+
+        min-width: 0;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .nav-links {
@@ -1117,6 +1207,9 @@ footer {
         align-items: stretch;
 
         gap: 0;
+
+        width: max-content;
+        max-width: calc(100vw - 10%);
 
         min-width: 150px;
 
@@ -1165,6 +1258,8 @@ footer {
     .mobile-menu-toggle {
 
         display: flex;
+
+        flex-shrink: 0;
     }
 
 
@@ -1174,18 +1269,24 @@ footer {
 
     .book-hero {
 
+        width: 100%;
+        max-width: 100%;
+
         min-height: auto;
 
         padding:
-            115px
-            7%
-            75px;
+            115px 7% 75px;
     }
 
     .book-hero-inner {
 
+        width: 100%;
+        max-width: 100%;
+
+        min-width: 0;
+
         grid-template-columns:
-            1fr;
+            minmax(0, 1fr);
 
         gap: 45px;
     }
@@ -1193,18 +1294,27 @@ footer {
     .cover-wrapper {
 
         order: 0;
+
+        width: 100%;
+        min-width: 0;
     }
 
     .cover-wrapper img {
 
-        width: min(78vw, 270px);
+        width:
+            min(78vw, 270px);
 
         max-width: 100%;
+
+        height: auto;
     }
 
     .book-info {
 
         order: 1;
+
+        width: 100%;
+        min-width: 0;
 
         text-align: center;
     }
@@ -1216,9 +1326,13 @@ footer {
         font-size: 9px;
 
         line-height: 1.5;
+
+        overflow-wrap: anywhere;
     }
 
     .book-info h1 {
+
+        width: 100%;
 
         margin-bottom: 25px;
 
@@ -1226,10 +1340,13 @@ footer {
             clamp(48px, 14vw, 66px);
 
         line-height: 0.88;
+
+        overflow-wrap: anywhere;
     }
 
     .book-subtitle {
 
+        width: 100%;
         max-width: 520px;
 
         margin:
@@ -1241,6 +1358,7 @@ footer {
 
     .book-description {
 
+        width: 100%;
         max-width: 520px;
 
         margin:
@@ -1259,9 +1377,13 @@ footer {
     .section-divider {
 
         width: 82%;
+        max-width: 82%;
     }
 
     .synopsis-section {
+
+        width: 100%;
+        max-width: 100%;
 
         padding:
             90px 7%;
@@ -1279,16 +1401,21 @@ footer {
 
     .synopsis-section h2 {
 
+        width: 100%;
+
         margin-bottom: 32px;
 
         font-size:
             clamp(40px, 11vw, 52px);
 
         line-height: 0.95;
+
+        overflow-wrap: anywhere;
     }
 
     .synopsis-text {
 
+        width: 100%;
         max-width: none;
     }
 
@@ -1299,6 +1426,8 @@ footer {
         font-size: 13px;
 
         line-height: 1.85;
+
+        overflow-wrap: anywhere;
     }
 
 
@@ -1308,17 +1437,26 @@ footer {
 
     .details-section {
 
+        width: 100%;
+        max-width: 100%;
+
         padding:
             80px 7%;
     }
 
     .details-grid {
 
+        width: 100%;
+        max-width: 100%;
+
         grid-template-columns:
-            1fr;
+            minmax(0, 1fr);
     }
 
     .detail-item {
+
+        width: 100%;
+        min-width: 0;
 
         padding:
             24px 22px;
@@ -1329,6 +1467,8 @@ footer {
         font-size: 21px;
 
         line-height: 1.2;
+
+        overflow-wrap: anywhere;
     }
 
 
@@ -1338,17 +1478,23 @@ footer {
 
     .purchase-section {
 
+        width: 100%;
+        max-width: 100%;
+
         padding:
-            90px 7%
-            110px;
+            90px 7% 110px;
     }
 
     .purchase-section h2 {
+
+        width: 100%;
 
         font-size:
             clamp(40px, 11vw, 52px);
 
         line-height: 1;
+
+        overflow-wrap: anywhere;
     }
 
     .purchase-section p {
@@ -1363,6 +1509,8 @@ footer {
     .purchase-button {
 
         min-width: 185px;
+
+        max-width: 100%;
 
         padding:
             15px 24px;
@@ -1414,6 +1562,7 @@ footer {
     .cover-wrapper img {
 
         width: 270px;
+        max-width: 82vw;
     }
 
     .book-info h1 {
@@ -1465,6 +1614,7 @@ footer {
     .cover-wrapper img {
 
         width: 240px;
+        max-width: 82vw;
     }
 
     .book-info h1 {
@@ -1537,22 +1687,14 @@ footer {
 >
 
     <div class="fracture fracture-1"></div>
-
     <div class="fracture fracture-2"></div>
-
     <div class="fracture fracture-3"></div>
-
     <div class="fracture fracture-4"></div>
 
-
     <div class="dark-particle particle-1"></div>
-
     <div class="dark-particle particle-2"></div>
-
     <div class="dark-particle particle-3"></div>
-
     <div class="dark-particle particle-4"></div>
-
     <div class="dark-particle particle-5"></div>
 
 </div>
@@ -1572,7 +1714,10 @@ footer {
     </a>
 
 
-    <div class="nav-links">
+    <div
+        class="nav-links"
+        id="mobile-navigation"
+    >
 
         <a href="index.html">
             Home
@@ -1601,13 +1746,12 @@ footer {
         class="mobile-menu-toggle"
         aria-label="Apri menu"
         aria-expanded="false"
+        aria-controls="mobile-navigation"
         type="button"
     >
 
         <span></span>
-
         <span></span>
-
         <span></span>
 
     </button>
@@ -1697,7 +1841,6 @@ footer {
 
     <div class="content-container">
 
-
         <div class="section-label">
             Il romanzo
         </div>
@@ -1712,7 +1855,6 @@ footer {
 
 
         <div class="synopsis-text">
-
 
             <p>
 
@@ -1748,7 +1890,6 @@ footer {
 
             </p>
 
-
         </div>
 
     </div>
@@ -1766,7 +1907,6 @@ footer {
 <section class="details-section">
 
     <div class="content-container">
-
 
         <div class="section-label">
             Dettagli
@@ -1872,7 +2012,6 @@ footer {
 
     <div class="content-container">
 
-
         <div class="section-label">
             In arrivo
         </div>
@@ -1894,7 +2033,6 @@ footer {
         >
             Acquista il libro
         </a>
-
 
     </div>
 
@@ -1952,10 +2090,6 @@ mobileMenuToggle.addEventListener(
     }
 );
 
-
-/* =========================================================
-   CHIUSURA MENU QUANDO SI CLICCA SU UN LINK
-========================================================= */
 
 navLinks.querySelectorAll('a').forEach(
     link => {
