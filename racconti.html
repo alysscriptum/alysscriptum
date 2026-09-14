@@ -57,6 +57,7 @@
         html {
             scroll-behavior: smooth;
             width: 100%;
+            max-width: 100%;
             overflow-x: hidden;
         }
 
@@ -84,13 +85,9 @@
 
         .background-effects {
             position: fixed;
-
             inset: 0;
-
             pointer-events: none;
-
             overflow: hidden;
-
             z-index: -5;
 
             background:
@@ -119,9 +116,7 @@
 
         .background-effects::before {
             content: "";
-
             position: absolute;
-
             inset: -20%;
 
             background:
@@ -1175,15 +1170,6 @@
 
         @media (max-width: 430px) {
 
-            .nav-logo {
-
-                font-size: 12px;
-
-                letter-spacing:
-                    0.18em;
-            }
-
-
             .hero {
 
                 padding-top:
@@ -1238,15 +1224,6 @@
         ===================================================== */
 
         @media (max-width: 340px) {
-
-            .nav-logo {
-
-                font-size: 11px;
-
-                letter-spacing:
-                    0.15em;
-            }
-
 
             .hero {
 
